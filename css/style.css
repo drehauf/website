@@ -1,0 +1,125 @@
+body {
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', serif;
+  font-size: 15px;
+}
+
+.header{
+  position: fixed;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  background-color: #000000;
+  padding: 5px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.header a {
+  color: #ffffff;
+  list-style: none;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Arial', serif;
+}
+
+.header p {
+  color: #ffffff;
+  font-weight: normal;
+}
+
+.back {
+  padding-left: 60px;
+}
+
+.logo {
+  padding-left: 0;
+}
+
+.current {
+  padding-left: 60px;
+}
+
+.logout {
+  padding-left: 60px;
+}
+
+.dashboard {
+  height: 1200px;
+  width: 100%;
+  background-color: #f4f4f4;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  vertical-align: top;
+  width: 95%;
+  height: 1000px;
+  padding: 80px 40px;
+}
+
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexContainer div {
+  padding: 20px;
+  flex: 1;
+  display: inline-flex;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  padding-bottom: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.menu h3 {
+  font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.menu p {
+  font-family: 'Arial', serif;
+  margin-top: 10px;
+  margin-bottom: 0;
+  line-height: 1.7em;
+  color: #5c5c5c;
+  font-style: italic;
+}
+
+/* .outbox .menu {
+  background-color: #ffffff;
+}
+
+.inventory .menu {
+  background-color: #e7e7e7;
+}
+
+.enterprise .menu {
+  background-color: #d0d0d0;
+}
+
+.other .menu {
+  background-color: #b4b4b4;
+} */
+
+.menu {
+  width: 90%;
+  background-color: #ffffff;
+  border-radius: 15px;
+}
