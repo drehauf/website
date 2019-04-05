@@ -1,0 +1,48 @@
+.float {
+  padding: 1em;
+  background: white;
+  text-align: center;
+  bottom: 0;
+  transform:translate(0, -100%);
+}
+
+.float h2 {
+  margin-top: 0;
+  padding: 0;
+}
+
+.contactFloater {
+  background-color: green;
+}
+
+@media only screen and (min-width: 375px) {
+  .float p {
+    padding: 0 2em;
+  }
+}
+
+
+@media only screen and (min-width: 500px) {
+  .float p {
+    padding: 0;
+  }
+
+  .float {
+    border-radius: 15px;
+    padding: 2em;
+    width: 80%;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .float {
+
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .float {
+
+  }
+}

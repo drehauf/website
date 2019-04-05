@@ -4,6 +4,7 @@ header {
   background-color: white;
   height: 3em;
   width: 100%;
+  z-index: 10;
 }
 
 header * {
@@ -23,8 +24,8 @@ header * {
 }
 
 .h-logo {
-  margin-top: 0.25em;
-  height: 2.5em;
+  margin-top: 0.5em;
+  height: 2em;
 }
 
 .h-right {
