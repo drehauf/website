@@ -1,0 +1,61 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Arial', serif;
+  font-size: 11pt;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.title {
+  padding: 15px 0;
+  text-align: center;
+}
+
+.title p {
+  font-size: 1.5em;
+  color: #ffffff;
+  padding: 10px;
+  background-color: #000000;
+  border-radius: 10px;
+  font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+  display: inline;
+  text-align: center;
+}
+
+h2 {
+  font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+}
+
+.cite {
+  color: #5c5c5c;
+  font-style: italic;
+  padding: 0 20px;
+}
+
+p {
+  line-height: 1.7em;
+}
+
+table {
+  border-color: none;
+  padding: 15px;
+  width: 70%;
+  background-color: #ffffff;
+  border-radius: 15px;
+  text-align: left;
+}
