@@ -27,11 +27,13 @@
     padding: 0;
   }
 
-  .float {
+  .float { /* needs to be refactored, only works for testing */
     border-radius: 15px;
     padding: 2em;
     width: 80%;
+    margin: auto 5%;
     text-align: left;
+    transform:translate(0, -300%);
   }
 }
 

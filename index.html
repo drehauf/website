@@ -10,8 +10,14 @@
   <link rel="stylesheet" type="text/css" href="css/header.css">
   <link rel="stylesheet" type="text/css" href="css/sections.css">
   <link rel="stylesheet" type="text/css" href="css/floater.css">
-  <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"> -->
+  <link rel="stylesheet" type="text/css" href="css/footer.css">
   <!-- <link rel="stylesheet" type="text/css" href="css/dashboard.css"> -->
+
+  <script type="text/javascript" src="js/model.js" defer></script>
+  <script type="text/javascript" src="js/presenter.js" defer></script>
+  <script type="text/javascript" src="js/view.js" defer></script>
+  <script type="text/javascript" src="js/router.js" defer></script>
+
 </head>
 <body>
 
@@ -41,8 +47,8 @@
   </header>
 
 <!-- IMAGE SLIDESHOW *************************************** -->
-<article class="slider">
-  <img class="image" src="img/frame6.jpg" alt="slider">
+<article id="slider">
+  <img src="%src" alt="%alt">
   <div class="float">
     <h2>Wir können mehr!</h2>
     <p>Ob Konzert, Party, Kongress, Hochzeit, Geburtstag: Ihr Partner in Sachen Veranstaltung!</p>
@@ -83,13 +89,13 @@
 </article>
 
 <!-- SERVICES ********************************************** -->
-<article id="services" class="services" hidden>
+<article id="services" class="services">
   <div class="container">
     <div class="title">
       <p>Leistungen</p>
     </div>
     <div class="supply">
-      <h2>Eventmanagement</h2>
+      <h2>Sie+Wir</h2>
       <p>Wir stehen Ihnen beratend bei der Ideenkonzeption, Planung und Kostenkalkulation nach Ihren Vorstellungen zur Verfügung.</p>
       <h2>Licht, Ton und Bühnentechnik</h2>
       <p>Aus Ihren Vorstellungen entwickeln wir mit Ihnen Konzepte und Pläne, stellen Ihnen die nötigen Beschallungs- und Beleuchtungsanlagen zusammen und begleiten Sie während der Veranstaltung vom Auf- bis zum Abbau mit einem kompetenten jungen Team.<br>
@@ -161,7 +167,7 @@
 </article>
 
 <!-- CREDENTIALS ******************************************* -->
-<article id="credentials" class="credentials" hidden>
+<article id="credentials" class="credentials">
   <div class="container">
     <div class="title">
       <p>Referenzen</p>
@@ -177,7 +183,7 @@
 </article>
 
 <!-- CONTACT *********************************************** -->
-<article id="contact" class="contact" hidden>
+<article id="contact" class="contact">
   <img class="image" src="img/contact.jpg" alt="contact">
   <div class="container">
     <div class="contactFloater">
@@ -197,7 +203,7 @@
 </article>
 
 <!-- FOOTER ************************************************ -->
-<footer hidden>
+<footer>
   <ul>
     <a href="#">IMPRESSUM</a>
     <a href="#">DATENSCHUTZ</a>

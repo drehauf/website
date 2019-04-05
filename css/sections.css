@@ -16,14 +16,14 @@ article {
   flex-wrap: wrap;
 }
 
-.image {
+#slider {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 100vh;
 }
 
-.slider {
-  height: 100vh;
+#slider img {
+  object-fit: cover;
+  height: 100%;
 }
 
 .about {
