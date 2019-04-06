@@ -5,6 +5,7 @@ article {
 
 .container {
   padding: 1em;
+  /* width: 100%; */
   /* vertical-align: top;
   width: 95%;
   padding: 75px;
@@ -16,64 +17,74 @@ article {
   flex-wrap: wrap;
 }
 
-#slider, .contact {
+#slider, #contact {
   height: 100vh;
 }
 
-#slider img, .contact img {
+#slider img, #contact img {
   object-fit: cover;
   height: 100%;
 }
 
-.about {
-  background-color: #f4f4f4;
+#about {
+  background-color: #F8F8F8;
 }
 
-.project, .patron {
-  flex: 1;
+.project, .patron, .single, .bundles {
+  flex: block;
 }
 
-.services {
-  background-color: #e7e7e7;
+#services {
+  background-color: #E8E8E8;
 }
 
-.single, .bundles {
-  flex: 1;
+.single {
+  width: 100%;
 }
 
 tr:nth-child(even) {
   background-color: #f4f4f4;
 }
 
-.credentials {
-  background-color: #d0d0d0;
+#credentials {
+  background-color: #D0D0D0;
 }
 
-.impressum, .privacy {
+#impressum, #privacy {
   text-align: center;
 }
 
-@media screen and (min-width: 1024px) { /* Ab iPad Mini */
+@media screen and (min-width: 1023px) { /* Ab iPad Mini */
   .container {
-    width: 80%;
+    width: 65%;
+    padding: 1em 0;
     margin: 0 auto;
+  }
+
+  .project, .single {
+    flex: 2;
+    padding-right: 2em;
+  }
+
+  .patron, .bundles {
+    flex: 1;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
-    width: 50%;
+    width: 55%;
   }
 }
 
 @media screen and (min-width: 1600px) {
   .container {
-    width: 40%;
+    width: 45%;
   }
 }
 
 @media screen and (min-width: 2560px) {
   .container {
-    width: 30%;
+    width: 35%;
   }
 }

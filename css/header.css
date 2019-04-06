@@ -78,38 +78,38 @@ label:hover {
   }
 }
 
-@media screen and (min-width: 1024px) { /* Ab iPad Mini */
+@media screen and (min-width: 1023px) { /* Ab iPad Mini */
   .h-left {
-    padding-left: 10%;
+    padding-left: 17%;
   }
   .h-right {
-    padding-right: 10%;
+    padding-right: 18%;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .h-left {
-    padding-left: 25%;
+    padding-left: 22%;
   }
   .h-right {
-    padding-right: 25%;
+    padding-right: 23%;
   }
 }
 
 @media screen and (min-width: 1600px) {
   .h-left {
-    padding-left: 30%;
+    padding-left: 27%;
   }
   .h-right {
-    padding-right: 30%;
+    padding-right: 28%;
   }
 }
 
 @media screen and (min-width: 2560px) {
   .h-left {
-    padding-left: 35%;
+    padding-left: 32.25%;
   }
   .h-right {
-    padding-right: 35%;
+    padding-right: 32.5%;
   }
 }

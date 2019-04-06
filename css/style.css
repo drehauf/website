@@ -53,13 +53,34 @@ p {
   line-height: 1.7em;
 }
 
+p.cite {
+  padding: 1em;
+}
+
 table {
-  border-color: none;
-  padding: 15px;
-  width: 90%;
-  background-color: #ffffff;
-  border-radius: 15px;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+  border-radius: 0.25em;
   text-align: left;
+}
+
+table tbody {
+  overflow: scroll;
+  height: 11em;
+}
+
+table tbody, table thead {
+  display: block;
+}
+
+table td {
+  padding: 0;
+  margin: 0;
+}
+
+table select {
+  width: 100%;
 }
 
 .grecaptcha-badge {
