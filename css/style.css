@@ -61,3 +61,7 @@ table {
   border-radius: 15px;
   text-align: left;
 }
+
+.grecaptcha-badge {
+    visibility: hidden;
+}

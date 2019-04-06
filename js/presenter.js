@@ -67,7 +67,7 @@ let presenter = {
     div.append(clone);
     callback(clone);
     if (div.children.length > 0) {
-      div.removeChild();
+      // div.removeChild();
     }
 
   },
@@ -77,15 +77,28 @@ let presenter = {
     presenter.cloneTemplate('carousel', 'slider', (clone) => {
       presenter.setTemplateData(slider, data[data.length - 1]);
     });
-    let i = 0;
-    setInterval(() => {
-      presenter.cloneTemplate('carousel', 'slider', (clone) => {
-        presenter.setTemplateData(slider, data[i]);
-      });
-      i++;
-      i = i > data.length - 1 ? 0 : i;
-    }, timePerImageMs * 1000);
-  }
+    // let i = 0;
+    // setInterval(() => {
+    //   presenter.cloneTemplate('carousel', 'slider', (clone) => {
+    //     presenter.setTemplateData(slider, data[i]);
+    //   });
+    //   i++;
+    //   i = i > data.length - 1 ? 0 : i;
+    // }, timePerImageMs * 1000);
+  },
+
 };
 
 presenter.showCarousel(5);
+
+let getContactInformation = presenter.getElement('request');
+
+getContactInformation.addEventListener('click', () => {
+  grecaptcha.ready(() => {
+    grecaptcha.execute('6LdKoZwUAAAAAAtkdLxDk5F40j6QesBPhdx_zICd', {
+      action: 'homepage'
+    }).then((token) => {
+      console.log(token);
+    });
+  });
+});
