@@ -1,4 +1,4 @@
-.float {
+#float {
   padding: 1em;
   background: white;
   text-align: center;
@@ -6,9 +6,14 @@
   transform:translate(0, -100%);
 }
 
-.float h2 {
+#float h2 {
   margin-top: 0;
   padding: 0;
+}
+
+#carousel {
+  height: 100vh;
+  width: 100%;
 }
 
 .contactFloater {

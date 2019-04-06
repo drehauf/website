@@ -47,14 +47,19 @@
   </header>
 
 <!-- IMAGE SLIDESHOW *************************************** -->
-<article id="slider">
-  <img src="%src" alt="%alt">
-  <div class="float">
-    <h2>Wir können mehr!</h2>
-    <p>Ob Konzert, Party, Kongress, Hochzeit, Geburtstag: Ihr Partner in Sachen Veranstaltung!</p>
-    <a href="#services">LEISTUNGEN</a>
+<article id="slider"></article>
+
+<!-- TEMPLATES ********************************************* -->
+<div id="templates" hidden>
+  <div id="carousel">
+    <img id="image-placeholder" src="%src" alt="%alt">
+    <div id="float">
+      <h2>%caption</h2>
+      <p>%text</p>
+      <a href="%href">%actiontext</a>
+    </div>
   </div>
-</article>
+</div>
 
 <!-- ABOUT ************************************************* -->
 <article id="about" class="about">
@@ -186,7 +191,7 @@
 <article id="contact" class="contact">
   <img class="image" src="img/contact.jpg" alt="contact">
   <div class="container">
-    <div class="contactFloater">
+    <div class="floater">
       <div class="title">
         <p>Kontakt</p>
       </div>
