@@ -19,6 +19,7 @@ a {
 
 a:hover {
   cursor: pointer;
+  color: #b4b4b4;
 }
 
 .title {

@@ -14,51 +14,73 @@ let presenter = {
     },
     {
       src: 'img/carousel/frame2.jpg',
-      alt: 'sound equipment'
+      alt: 'sound equipment',
+      caption: "Licht, Ton, Strom.",
+      text: "Damit Ihre Veranstaltung gelingt, braucht man nicht nur Organisationsgeschick, sondern eben auch die eine oder andere Lampe, Lautsprecher und kilometerlange Kabel. Wir beraten Sie gern.",
+      href: "#services",
+      actiontext: "VERMIETUNG"
     },
     {
       src: 'img/carousel/frame3.jpg',
-      alt: 'mixer knobs'
+      alt: 'mixer knobs',
+      caption: "Regler, Knöpfe, Schieber.",
+      text: "Wir wissen damit umzugehen und welche davon Sie für ihre Veranstaltung benötigen.",
+      href: "#services",
+      actiontext: "VERMIETUNG"
     },
     {
       src: 'img/carousel/frame4.jpg',
-      alt: 'concert at night'
+      alt: 'concert at night',
+      caption: "Herausforderungen willkommen!",
+      text: "Herausforderungen inspirieren und bringen uns voran. Wir entwickeln ständig neue Konzepte und Ideen.",
+      href: "#contact",
+      actiontext: "SOCIAL"
     },
     {
       src: 'img/carousel/frame5.jpg',
-      alt: 'illuminated staircase'
+      alt: 'illuminated staircase',
+      caption: "Bunt und schön.",
+      text: "Für wen wir gearbeitet haben, wo wir bisher waren und was wir geschafft haben.",
+      href: "#credentials",
+      actiontext: "REFERENZEN"
     },
     {
       src: 'img/carousel/frame6.jpg',
-      alt: 'rehearsal room'
+      alt: 'rehearsal room',
+      caption: "\"Schülerfirma\"",
+      text: "Was das bedeutet und wie wir dazu gekommen sind.",
+      href: "#about",
+      actiontext: "ÜBER UNS"
     }
   ],
 
-  setTemplateData: function(element, data) {
+  setTemplateData: function(template, data) {
     for (let key in data) {
-      element.innerHTML = element.innerHTML.replace('%' + key, data[key]);
-      console.log(element.innerHTML);
+      template.innerHTML = template.innerHTML.replace('%' + key, data[key]);
     }
   },
 
   cloneTemplate: function(templateId, divId, callback) {
     let template = presenter.getElement(templateId);
     let div = presenter.getElement(divId);
-    // div.parent.firstChild.remove();
     let clone = template.cloneNode(true);
-    callback(clone);
     div.append(clone);
+    callback(clone);
+    if (div.children.length > 0) {
+      div.removeChild();
+    }
+
   },
 
   showCarousel: function(timePerImageMs) {
     let data = presenter.carousel;
+    presenter.cloneTemplate('carousel', 'slider', (clone) => {
+      presenter.setTemplateData(slider, data[data.length - 1]);
+    });
     let i = 0;
     setInterval(() => {
       presenter.cloneTemplate('carousel', 'slider', (clone) => {
-        let image = presenter.getElement('image-placeholder');
-        image.setAttribute('src', '%src');
-        image.setAttribute('alt', '%alt');
-        presenter.setTemplateData(clone, data[i])
+        presenter.setTemplateData(slider, data[i]);
       });
       i++;
       i = i > data.length - 1 ? 0 : i;
@@ -66,4 +88,4 @@ let presenter = {
   }
 };
 
-presenter.showCarousel(3)
+presenter.showCarousel(5);

@@ -1,18 +1,27 @@
 footer {
+  margin: 0;
+  background-color: black;
+  height: 3em;
   width: 100%;
-  height: 50px;
-  background-color: #ffffff;
   text-align: center;
-  padding: 5px;
 }
 
-footer a {
+footer * {
   text-decoration: none;
-  color: #000000;
+  color: white;
   list-style: none;
-  padding-left: 15px;
+  line-height: 3em;
 }
 
-footer a:hover {
-  color: #b4b4b4;
+footer ul {
+  padding: 0;
+  margin: 0;
+}
+
+#footer-left {
+  padding-right: 0.5em;
+}
+
+#footer-right {
+  padding-left: 0.5em;
 }
