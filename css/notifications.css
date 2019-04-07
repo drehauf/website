@@ -1,0 +1,44 @@
+#notifications {
+  position: fixed;
+  margin: 3em 1em 0 1em;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.notification {
+  margin-top: 1em;
+  border-radius: 0.5em;
+  text-align: left;
+  padding: 0.5em;
+  background-color: dodgerBlue;
+  color: white;
+}
+
+.n-operation {
+  font-weight: bold;
+}
+
+.notification p {
+  display: inline-block;
+  margin: 0;
+}
+
+.n-amount {
+  font-weight: bold;
+  text-align: center;
+  font-size: 8pt;
+  border-radius: 1em;
+  background-color: white;
+  color: dodgerBlue;
+  width: 1.75em;
+  transform:translate(0,-10%);
+}
+
+.notification a {
+  color: white;
+}
+
+.notification a:hover {
+  color: #66ccff;
+}

@@ -87,18 +87,52 @@ let presenter = {
     // }, timePerImageMs * 1000);
   },
 
+  sendMail: function() {
+    let mail = 'info@drehauf.com';
+    let date = new Date();
+    let subject = 'A' + date;
+    let order = {
+      items: [
+      {
+        name: 'Mackie Onyx 1640i',
+        amount: 1
+      },
+      {
+        name: 'HK Audio L.U.K.A.S Alpha: Bass',
+        amount: 2
+      },
+      {
+        name: 'HK Audio L.U.K.A.S Alpha: Top',
+        amount: 4
+      }
+      ]
+    }
+    let body = presenter.createOrderTemplate(order);
+      window.location.href = `mailto:${mail}.com?subject=${subject}&body=${body}`;
+  },
+
+  createOrderTemplate: function(order) {
+    let NEWLINE = '%0D%0A';
+    let str = `Hallo isch hätt gern so ein boxending wo mugge rauskommt:${NEWLINE}`;
+    for (let item of order.items) {
+      str += `${item.amount}x ${item.name}${NEWLINE}`;
+    }
+    return str;
+  }
+
 };
 
 presenter.showCarousel(5);
 
-let getContactInformation = presenter.getElement('request');
+let getContactInformation = presenter.getElement('request-action');
 
 getContactInformation.addEventListener('click', () => {
-  grecaptcha.ready(() => {
-    grecaptcha.execute('6LdKoZwUAAAAAAtkdLxDk5F40j6QesBPhdx_zICd', {
-      action: 'homepage'
-    }).then((token) => {
-      console.log(token);
-    });
-  });
+  presenter.sendMail();
+  // grecaptcha.ready(() => {
+  //   grecaptcha.execute('6LdKoZwUAAAAAAtkdLxDk5F40j6QesBPhdx_zICd', {
+  //     action: 'homepage'
+  //   }).then((token) => {
+  //     console.log(token);
+  //   });
+  // });
 });

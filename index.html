@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="de">
 <head>
   <meta charset="utf-8">
   <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="css/sections.css">
   <link rel="stylesheet" type="text/css" href="css/floater.css">
   <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <link rel="stylesheet" type="text/css" href="css/notifications.css">
   <!-- <link rel="stylesheet" type="text/css" href="css/dashboard.css"> -->
 
   <script type="text/javascript" src="js/model.js" defer></script>
@@ -23,32 +24,29 @@
 <body>
 
 <!-- HEADER ************************************************ -->
-  <header>
-    <a class="h-left" href="#" hidden>
-      <img class="h-logo" src="img/logo.png" alt="Logo">
-    </a>
-    <div class="h-right">
-      <label for="checkbox">&#9776;</label>
-      <input type="checkbox" id="checkbox">
-      <ul id="hamburger-list">
-        <li>
-          <a href="#about">ÜBER&nbsp;UNS</a>
-        </li>
-        <li>
-          <a href="#services">LEISTUNGEN</a>
-        </li>
-        <li>
-          <a href="#credentials">REFERENZEN</a>
-        </li>
-        <li>
-          <a href="#contact">KONTAKT</a>
-        </li>
-      </ul>
-    </div>
-  </header>
-
-<!-- IMAGE SLIDESHOW *************************************** -->
-<article id="slider"></article>
+<header>
+  <a class="h-left" href="#" hidden>
+    <img class="h-logo" src="img/logo.png" alt="Logo">
+  </a>
+  <div class="h-right">
+    <label for="checkbox">&#9776;</label>
+    <input type="checkbox" id="checkbox">
+    <ul id="hamburger-list">
+      <li>
+        <a href="#about">ÜBER&nbsp;UNS</a>
+      </li>
+      <li>
+        <a href="#services">LEISTUNGEN</a>
+      </li>
+      <li>
+        <a href="#credentials">REFERENZEN</a>
+      </li>
+      <li>
+        <a href="#contact">KONTAKT</a>
+      </li>
+    </ul>
+  </div>
+</header>
 
 <!-- TEMPLATES ********************************************* -->
 <div id="templates" hidden>
@@ -61,6 +59,20 @@
     </div>
   </div>
 </div>
+
+<!-- NOTIFICATIONS ***************************************** -->
+<div id="notifications">
+  <div class="notification">
+    <div class="n-title">
+      <p class="n-operation">Gespeichert: </p>
+      <p>HK Audio L.U.K.A.S Alpha: Bass</p>
+      <p class="n-amount">2</p>
+    </div>
+  </div>
+</div>
+
+<!-- IMAGE SLIDESHOW *************************************** -->
+<article id="slider"></article>
 
 <!-- ABOUT ************************************************* -->
 <article id="about">
@@ -111,8 +123,8 @@
       <div class="single">
         <h2>Für Feinschmecker</h2>
         <p>Eine Auswahl von Lautsprechern, Mikrofonen und mehr aus unserem Lager. Herein!</p>
-        <table>
-          <!-- <tr>
+          <table>
+            <!-- <tr>
             <th></th>
             <th>NAME</th>
             <th>ANZAHL</th>
@@ -125,7 +137,7 @@
           <tr>
             <td><input type="checkbox" name="" value=""></td>
             <td>HK Audio L.U.K.A.S Alpha: Bass</td>
-            <td><select class="" name="">
+            <td><select class="" name="" disabled>
               <option value="2">2</option>
             </select></td>
           </tr>
@@ -175,10 +187,11 @@
             <td>1</td>
           </tr>
         </table>
-      </div>
-      <div class="bundles">
+        <a id="order-complete" href="#contact" hidden>FERTIG</a>
+    </div>
+    <div class="bundles">
         <h2>Pakete</h2>
-        <p>Wir haben etwas für jeden Anlass. <br>Für Ihre Veranstaltung erstellen wir Ihnen gern Zeitnah ein spezifisches Paket und Angebot ganz nach Ihren Anforderungen.</p>
+        <p>Wir haben etwas für jeden Anlass. <br>Für Ihre Veranstaltung erstellen wir Ihnen gern zeitnah ein spezifisches Paket und Angebot ganz nach Ihren Anforderungen.</p>
         <br>
         <a href="#contact">MIETANFRAGE SCHICKEN</a>
       </div>
@@ -206,9 +219,19 @@
 <article id="contact">
   <img src="img/contact.jpg" alt="contact">
   <div id="float">
+    <h2>Alles fertig?</h2>
+    <p>Schön, dass Sie fündig geworden sind! Sobald Sie den Auftrag platzieren, klären wir den Rest. Sie können Ihre Auswahl dann auch noch verändern.</p>
+    <div id="request">
+      <a id="request-action">AUFTRAG PLATZIEREN</a>
+      <p>2</p>
+    </div>
+  </div>
+  <div id="float" hidden>
     <h2>Noch Fragen?</h2>
     <p>Vielleicht können wir helfen.</p>
-    <a id="request">KONTAKT AUFNEHMEN</a>
+    <div id="request">
+      <a id="request-action">ANFRAGE STELLEN</a>
+    </div>
   </div>
 </article>
 
