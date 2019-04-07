@@ -1,85 +1,22 @@
 let presenter = {
 
-  getElement: (id) => (document.getElementById(id)),
-  getElements: (className) => (document.getElementsByClassName(className)),
-
-  carousel: [
-    {
-      src: 'img/carousel/frame1.jpg',
-      alt: 'conference hall',
-      caption: "Wir können mehr!",
-      text: "Ob Konzert, Party, Kongress, Hochzeit, Geburtstag: Ihr Partner in Sachen Veranstaltung!",
-      href: "#services",
-      actiontext: "LEISTUNGEN"
-    },
-    {
-      src: 'img/carousel/frame2.jpg',
-      alt: 'sound equipment',
-      caption: "Licht, Ton, Strom.",
-      text: "Damit Ihre Veranstaltung gelingt, braucht man nicht nur Organisationsgeschick, sondern eben auch die eine oder andere Lampe, Lautsprecher und kilometerlange Kabel. Wir beraten Sie gern.",
-      href: "#services",
-      actiontext: "VERMIETUNG"
-    },
-    {
-      src: 'img/carousel/frame3.jpg',
-      alt: 'mixer knobs',
-      caption: "Regler, Knöpfe, Schieber.",
-      text: "Wir wissen damit umzugehen und welche davon Sie für ihre Veranstaltung benötigen.",
-      href: "#services",
-      actiontext: "VERMIETUNG"
-    },
-    {
-      src: 'img/carousel/frame4.jpg',
-      alt: 'concert at night',
-      caption: "Herausforderungen willkommen!",
-      text: "Herausforderungen inspirieren und bringen uns voran. Wir entwickeln ständig neue Konzepte und Ideen.",
-      href: "#contact",
-      actiontext: "SOCIAL"
-    },
-    {
-      src: 'img/carousel/frame5.jpg',
-      alt: 'illuminated staircase',
-      caption: "Bunt und schön.",
-      text: "Für wen wir gearbeitet haben, wo wir bisher waren und was wir geschafft haben.",
-      href: "#credentials",
-      actiontext: "REFERENZEN"
-    },
-    {
-      src: 'img/carousel/frame6.jpg',
-      alt: 'rehearsal room',
-      caption: "\"Schülerfirma\"",
-      text: "Was das bedeutet und wie wir dazu gekommen sind.",
-      href: "#about",
-      actiontext: "ÜBER UNS"
-    }
-  ],
-
-  setTemplateData: function(template, data) {
-    for (let key in data) {
-      template.innerHTML = template.innerHTML.replace('%' + key, data[key]);
-    }
-  },
-
-  cloneTemplate: function(templateId, divId, callback) {
-    let template = presenter.getElement(templateId).firstElementChild;
-    let div = presenter.getElement(divId);
-    let clone = template.cloneNode(true);
-    div.append(clone);
-    callback(clone);
-    if (div.children.length > 0) {
-      // div.removeChild();
-    }
+  carousel: {
+    src: 'img/carousel/frame6.jpg',
+    alt: 'rehearsal room',
+    caption: "\"Schülerfirma\"",
+    text: "Was das bedeutet und wie wir dazu gekommen sind.",
+    href: "#about",
+    actiontext: "ÜBER UNS"
   },
 
   showCarousel: function(timePerImageSeconds) {
-    let data = presenter.carousel;
-    presenter.cloneTemplate('carousel-template', 'slider', (clone) => {
-      presenter.setTemplateData(slider, data[data.length - 1]);
+    helper.cloneTemplate('carousel-template', 'slider', (clone) => {
+      helper.setCloneData(slider, presenter.carousel);
     });
     // let i = 0;
     // setInterval(() => {
-    //   presenter.cloneTemplate('carousel', 'slider', (clone) => {
-    //     presenter.setTemplateData(slider, data[i]);
+    //   helper.cloneTemplate('carousel', 'slider', (clone) => {
+    //     helper.setCloneData(slider, data[i]);
     //   });
     //   i++;
     //   i = i > data.length - 1 ? 0 : i;
@@ -89,35 +26,19 @@ let presenter = {
   sendMail: function() {
     let mail = 'info@drehauf.com';
     let date = new Date();
-    let subject = presenter.formatDate(date);
+    let subject = 'R' + helper.formatDate(date);
     let body = '';
-    if (cart.length > 0) {
-      body = presenter.formatCartContents();
+    if (cart.items.length > 0) {
+      body = cart.toString();
     }
     window.location.href = `mailto:${mail}.com?subject=${subject}&body=${body}`;
   },
-
-  formatCartContents: function() {
-    let NEWLINE = '%0D%0A';
-    let str = `${NEWLINE}${NEWLINE}Ich habe folgendes Equipment online ausgewählt:${NEWLINE}${NEWLINE}`;
-    for (let item of cart) {
-      str += `${item.quantity}x ${item.name}${NEWLINE}`;
-    }
-    return str;
-  },
-
-  formatDate: function(date) {
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-    let day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
-    return `R${year}${month}${day}`;
-  }
 
 };
 
 presenter.showCarousel(5);
 
-let getContactInformation = presenter.getElement('request-action');
+let getContactInformation = helper.getElement('request-action');
 
 getContactInformation.addEventListener('click', () => {
   presenter.sendMail();
@@ -130,41 +51,10 @@ getContactInformation.addEventListener('click', () => {
   // });
 });
 
-$(document).ready(function() {
-    $.ajax({
-        type: "GET",
-        url: "../data/inventar.csv",
-        dataType: "text",
-        success: (file) => {
-          processData(file);
-        }
-     });
-});
-
-function processData(file) {
-  let data = [];
-  let lines = file.split('\n');
-  for (let i = 1; i < lines.length; i++) {
-    let line = lines[i].split(';');
-    data.push({
-      name: line[0],
-      quantity: line[1]
-    });
-  }
-  populateTable(data);
-}
-
-let tableRow = {
-  checkbox: undefined,
-  value: {
-    name: undefined,
-    quantity: undefined
-  },
-  select: undefined
-}
+parser.get('../data/inventar.csv', parser.processCSV);
 
 function populateTable(data) {
-  let table = presenter.getElement('inventory');
+  let table = helper.getElement('inventory');
   for (let key of data) {
     let name = key.name;
     let quantity = key.quantity;
@@ -175,13 +65,11 @@ function populateTable(data) {
     checkboxElement.type = 'checkbox';
     checkboxElement.addEventListener('click', didCheckBox);
     checkboxCell.append(checkboxElement);
-    tableRow.checkbox = checkboxElement;
 
     let nameCell = row.insertCell()
     let nameElement = document.createElement('p');
     nameElement.innerHTML = name;
     nameCell.append(nameElement);
-    tableRow.value.name = nameElement.innerHTML;
 
     let selectCell = row.insertCell()
     let selectElement = document.createElement('select');
@@ -193,8 +81,6 @@ function populateTable(data) {
     }
     selectElement.addEventListener('change', didSelectOption);
     selectCell.append(selectElement);
-    tableRow.value.quantity = quantity;
-    tableRow.select = selectElement;
   }
 }
 
@@ -210,93 +96,22 @@ function didCheckBox(event) {
   select.disabled = !select.disabled;
   if (select.disabled) {
     select.value = maxQuantity;
-    removeFromCart(name, currentQuantity);
+    cart.remove(name, currentQuantity);
   } else {
-    addToCart(name, currentQuantity);
+    cart.add(name, currentQuantity);
   }
-  let done = presenter.getElement('done');
-  let amountP = presenter.getElement('request-amount');
-  if (cart.length > 0) {
+  let done = helper.getElement('done');
+  let amountP = helper.getElement('request-amount');
+  if (cart.items.length > 0) {
     done.setAttribute('cart-is-empty', 'false');
     amountP.setAttribute('cart-is-empty', 'false');
-    amountP.innerHTML = cart.length + ' ausgewählt';
+    amountP.innerHTML = cart.items.length + ' ausgewählt';
   } else {
     done.setAttribute('cart-is-empty', 'true');
     amountP.setAttribute('cart-is-empty', 'true');
   }
-
 }
 
 function didSelectOption(event) {
   console.log(event);
-}
-
-let cart = [];
-
-function addToCart(name, quantity) {
-  containsItem(name, quantity, (difference) => {
-    cart.push({
-      name: name,
-      quantity: quantity
-    });
-    addNotification(false, name, difference);
-  });
-}
-
-function removeFromCart(name, quantity) {
-  containsItem(name, quantity, (difference) => {
-    cart.pop({
-      name: name,
-      quantity: quantity
-    });
-    addNotification(true, name, difference);
-  });
-}
-
-function containsItem(name, quantity, callback) {
-  let difference;
-  for (let item in cart) {
-    if (item.name === name) {
-      difference = item.quantity - quantity;
-      item.quantity = quantity;
-    }
-    if (!difference) {
-      difference = quantity;
-    }
-  }
-  callback(difference);
-}
-
-let notifications = [];
-
-function addNotification(isDestructive, name, difference) {
-  let action;
-  let notification = {
-    caption: undefined,
-    item: name,
-    quantity: difference
-  }
-  if (isDestructive) {
-    action = 'remove';
-    notification.caption = 'Enfernt: ';
-  } else {
-    action = 'add';
-    notification.caption = 'Gespeichert: ';
-  }
-  presenter.cloneTemplate('notification-template', 'notifications', (clone) => {
-    presenter.setTemplateData(clone, notification);
-    presenter.getElement('notification').setAttribute('action', action);
-    presenter.getElement('n-amount').setAttribute('action', action);
-    notifications.push(clone);
-    removeNotification(3, clone);
-  });
-}
-
-function removeNotification(timePerNotificationSeconds, notification) {
-  if (notifications.length > 3) {
-    notifications.shift().remove();
-  }
-  setTimeout(() => {
-    notification.remove();
-  }, timePerNotificationSeconds * 1000);
 }
