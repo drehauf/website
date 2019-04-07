@@ -62,11 +62,11 @@
     </div>
   </div>
   <div id="notification-template">
-    <div id="notification" action="">
+    <div id="notification" action="add">
       <div id="n-title">
         <p id="n-operation">%caption</p>
         <p>%item</p>
-        <p id="n-amount" action="">%quantity</p>
+        <p id="n-amount" action="add">%quantity</p>
       </div>
     </div>
   </div>
@@ -126,14 +126,16 @@
     </div>
     <div class="flexContainer">
       <div class="single">
-        <h2>Für Feinschmecker</h2>
+        <div id="inline">
+          <h2>Für Feinschmecker</h2>
+          <a id="done" href="#contact" cart-is-empty="true">FERTIG</a>
+        </div>
         <p>Eine Auswahl von Lautsprechern, Mikrofonen und mehr aus unserem Lager. Herein!</p>
-          <table id="inventory"></table>
-        <a id="order-complete" href="#contact">FERTIG</a>
+        <table id="inventory"></table>
     </div>
     <div class="bundles">
         <h2>Pakete</h2>
-        <p>Wir haben etwas für jeden Anlass. Für Ihre Veranstaltung erstellen wir Ihnen gern zeitnah ein spezifisches Paket und Angebot ganz nach Ihren Anforderungen.</p>
+        <p>Wir haben etwas für jeden Anlass. Für Ihre Veranstaltung erstellen wir Ihnen gern unverbindlich ein spezifisches Paket und Angebot ganz nach Ihren Anforderungen.</p>
         <br>
         <a href="#contact">MIETANFRAGE SCHICKEN</a>
       </div>
@@ -165,14 +167,14 @@
     <p>Schön, dass Sie fündig geworden sind! Sobald Sie unverbindlich eine Mietanfrage stellen, klären wir den Rest. Sie können Ihre Auswahl dann auch noch verändern.</p>
     <div id="request">
       <a id="request-action">ANFRAGE STELLEN</a>
-      <p>%quantity ausgewählt</p>
+      <p id="request-amount" cart-is-empty="true"></p>
     </div>
   </div>
   <div id="float" hidden>
     <h2>Noch Fragen?</h2>
     <p>Vielleicht können wir helfen.</p>
     <div id="request">
-      <a id="request-action">ANFRAGE STELLEN</a>
+    <a>ANFRAGE STELLEN</a>
     </div>
   </div>
 </article>

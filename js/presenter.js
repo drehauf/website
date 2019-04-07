@@ -89,34 +89,28 @@ let presenter = {
   sendMail: function() {
     let mail = 'info@drehauf.com';
     let date = new Date();
-    let subject = 'A' + date;
-    let order = {
-      items: [
-      {
-        name: 'Mackie Onyx 1640i',
-        quantity: 1
-      },
-      {
-        name: 'HK Audio L.U.K.A.S Alpha: Bass',
-        quantity: 2
-      },
-      {
-        name: 'HK Audio L.U.K.A.S Alpha: Top',
-        quantity: 4
-      }
-      ]
+    let subject = presenter.formatDate(date);
+    let body = '';
+    if (cart.length > 0) {
+      body = presenter.formatCartContents();
     }
-    let body = presenter.createOrderTemplate(order);
-      window.location.href = `mailto:${mail}.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${mail}.com?subject=${subject}&body=${body}`;
   },
 
-  createOrderTemplate: function(order) {
+  formatCartContents: function() {
     let NEWLINE = '%0D%0A';
-    let str = `Hallo isch hätt gern so ein boxending wo mugge rauskommt:${NEWLINE}`;
-    for (let item of order.items) {
+    let str = `${NEWLINE}${NEWLINE}Ich habe folgendes Equipment online ausgewählt:${NEWLINE}${NEWLINE}`;
+    for (let item of cart) {
       str += `${item.quantity}x ${item.name}${NEWLINE}`;
     }
     return str;
+  },
+
+  formatDate: function(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+    let day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+    return `R${year}${month}${day}`;
   }
 
 };
@@ -126,14 +120,14 @@ presenter.showCarousel(5);
 let getContactInformation = presenter.getElement('request-action');
 
 getContactInformation.addEventListener('click', () => {
-  grecaptcha.ready(() => {
-    grecaptcha.execute('6LdKoZwUAAAAAAtkdLxDk5F40j6QesBPhdx_zICd', {
-      action: 'homepage'
-    }).then((token) => {
-      presenter.sendMail();
-      console.log(token);
-    });
-  });
+  presenter.sendMail();
+  // grecaptcha.ready(() => {
+  //   grecaptcha.execute('6LdKoZwUAAAAAAtkdLxDk5F40j6QesBPhdx_zICd', {
+  //     action: 'homepage'
+  //   }).then((token) => {
+  //     console.log(token);
+  //   });
+  // });
 });
 
 $(document).ready(function() {
@@ -201,8 +195,6 @@ function populateTable(data) {
     selectCell.append(selectElement);
     tableRow.value.quantity = quantity;
     tableRow.select = selectElement;
-
-    // console.log(tableRow);
   }
 }
 
@@ -222,7 +214,17 @@ function didCheckBox(event) {
   } else {
     addToCart(name, currentQuantity);
   }
-  // console.log(cart);
+  let done = presenter.getElement('done');
+  let amountP = presenter.getElement('request-amount');
+  if (cart.length > 0) {
+    done.setAttribute('cart-is-empty', 'false');
+    amountP.setAttribute('cart-is-empty', 'false');
+    amountP.innerHTML = cart.length + ' ausgewählt';
+  } else {
+    done.setAttribute('cart-is-empty', 'true');
+    amountP.setAttribute('cart-is-empty', 'true');
+  }
+
 }
 
 function didSelectOption(event) {
@@ -237,9 +239,6 @@ function addToCart(name, quantity) {
       name: name,
       quantity: quantity
     });
-    if (!difference) {
-      difference = quantity;
-    }
     addNotification(false, name, difference);
   });
 }
@@ -250,9 +249,6 @@ function removeFromCart(name, quantity) {
       name: name,
       quantity: quantity
     });
-    if (!difference) {
-      difference = quantity;
-    }
     addNotification(true, name, difference);
   });
 }
@@ -263,6 +259,9 @@ function containsItem(name, quantity, callback) {
     if (item.name === name) {
       difference = item.quantity - quantity;
       item.quantity = quantity;
+    }
+    if (!difference) {
+      difference = quantity;
     }
   }
   callback(difference);
@@ -284,12 +283,10 @@ function addNotification(isDestructive, name, difference) {
     action = 'add';
     notification.caption = 'Gespeichert: ';
   }
-  console.log(notification);
   presenter.cloneTemplate('notification-template', 'notifications', (clone) => {
     presenter.setTemplateData(clone, notification);
     presenter.getElement('notification').setAttribute('action', action);
     presenter.getElement('n-amount').setAttribute('action', action);
-    // console.log(notification.caption + notification.item + '(' + notification.quantity + ')');
     notifications.push(clone);
     removeNotification(3, clone);
   });

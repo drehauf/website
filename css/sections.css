@@ -50,11 +50,28 @@ tr:nth-child(even) {
   background-color: #D0D0D0;
 }
 
-#order-complete {
+#inline h2 {
+  margin-bottom: 0;
+}
+
+#inline * {
+  display: inline-block;
+}
+
+#inline a {
+  margin-left: 0.5em;
   color: dodgerBlue;
 }
 
-#order-complete:hover {
+#inline a[cart-is-empty=true] {
+  display: none;
+}
+
+#inline a[cart-is-empty=false] {
+  display: inline-block;
+}
+
+#inline a:hover {
   color: #b4b4b4;
 }
 
@@ -63,7 +80,15 @@ tr:nth-child(even) {
 }
 
 #request a {
-  padding-right: 0.5em;
+  padding: 0 0.5em;
+}
+
+#request p[cart-is-empty=true] {
+  display: none;
+}
+
+#request p[cart-is-empty=false] {
+  display: inline-block;
 }
 
 #request p {
