@@ -72,7 +72,7 @@ tr:nth-child(even) {
   border-radius: 1em;
   background-color: dodgerBlue;
   color: white;
-  width: 1.75em;
+  padding: 0.25em 0.75em;
   transform:translate(0,-15%);
 }
 

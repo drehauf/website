@@ -6,39 +6,54 @@
   z-index: 100;
 }
 
-.notification {
+#notification {
   margin-top: 1em;
   border-radius: 0.5em;
   text-align: left;
   padding: 0.5em;
-  background-color: dodgerBlue;
   color: white;
+  margin-right: auto;
 }
 
-.n-operation {
+#n-operation {
   font-weight: bold;
 }
 
-.notification p {
+#notification p {
   display: inline-block;
   margin: 0;
 }
 
-.n-amount {
+#n-amount {
   font-weight: bold;
   text-align: center;
   font-size: 8pt;
   border-radius: 1em;
   background-color: white;
-  color: dodgerBlue;
   width: 1.75em;
   transform:translate(0,-10%);
 }
 
-.notification a {
+#notification a {
   color: white;
 }
 
-.notification a:hover {
+#notification a:hover {
   color: #66ccff;
+}
+
+#notification[action=add] {
+  background-color: dodgerBlue;
+}
+
+#notification[action=remove] {
+  background-color: fireBrick;
+}
+
+#n-amount[action=add] {
+  color: dodgerBlue;
+}
+
+#n-amount[action=remove] {
+  color: fireBrick;
 }

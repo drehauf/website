@@ -92,6 +92,11 @@ table td {
   margin: 0;
 }
 
+table tr * {
+  padding: 0.125em 0.5em;
+  margin: 0;
+}
+
 table select {
   width: 100%;
 }

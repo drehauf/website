@@ -20,6 +20,7 @@
   <script type="text/javascript" src="js/router.js" defer></script>
 
   <script src="https://www.google.com/recaptcha/api.js?render=6LdKoZwUAAAAAAtkdLxDk5F40j6QesBPhdx_zICd"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -50,26 +51,30 @@
 
 <!-- TEMPLATES ********************************************* -->
 <div id="templates" hidden>
-  <div id="carousel">
-    <img id="image-placeholder" src="%src" alt="%alt">
-    <div id="float">
-      <h2>%caption</h2>
-      <p>%text</p>
-      <a href="%href">%actiontext</a>
+  <div id="carousel-template">
+    <div id="carousel">
+      <img id="image-placeholder" src="%src" alt="%alt">
+      <div id="float">
+        <h2>%caption</h2>
+        <p>%text</p>
+        <a href="%href">%actiontext</a>
+      </div>
     </div>
   </div>
+  <div id="notification-template">
+    <div id="notification" action="">
+      <div id="n-title">
+        <p id="n-operation">%caption</p>
+        <p>%item</p>
+        <p id="n-amount" action="">%quantity</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- NOTIFICATIONS ***************************************** -->
-<div id="notifications">
-  <div class="notification">
-    <div class="n-title">
-      <p class="n-operation">Gespeichert: </p>
-      <p>HK Audio L.U.K.A.S Alpha: Bass</p>
-      <p class="n-amount">2</p>
-    </div>
-  </div>
-</div>
+<div id="notifications"></div>
 
 <!-- IMAGE SLIDESHOW *************************************** -->
 <article id="slider"></article>
@@ -123,75 +128,12 @@
       <div class="single">
         <h2>Für Feinschmecker</h2>
         <p>Eine Auswahl von Lautsprechern, Mikrofonen und mehr aus unserem Lager. Herein!</p>
-          <table>
-            <!-- <tr>
-            <th></th>
-            <th>NAME</th>
-            <th>ANZAHL</th>
-          </tr> -->
-          <tr>
-            <td></td>
-            <td>Mackie Onyx 1640i</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" name="" value=""></td>
-            <td>HK Audio L.U.K.A.S Alpha: Bass</td>
-            <td><select class="" name="" disabled>
-              <option value="2">2</option>
-            </select></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>HK Audio L.U.K.A.S Alpha: Top</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Behringer UltraCurve DSP 8000</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>SR Pocket 700 MX</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>JBL EON15 G2/230</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Sennheiser EM 100 G3/ SK 100 G3</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>AKG C1000s MKIV </td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Shure Beta 58A</td>
-            <td>3</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Shure Beta 57A</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Behringer Eurolight LC2412</td>
-            <td>1</td>
-          </tr>
-        </table>
-        <a id="order-complete" href="#contact" hidden>FERTIG</a>
+          <table id="inventory"></table>
+        <a id="order-complete" href="#contact">FERTIG</a>
     </div>
     <div class="bundles">
         <h2>Pakete</h2>
-        <p>Wir haben etwas für jeden Anlass. <br>Für Ihre Veranstaltung erstellen wir Ihnen gern zeitnah ein spezifisches Paket und Angebot ganz nach Ihren Anforderungen.</p>
+        <p>Wir haben etwas für jeden Anlass. Für Ihre Veranstaltung erstellen wir Ihnen gern zeitnah ein spezifisches Paket und Angebot ganz nach Ihren Anforderungen.</p>
         <br>
         <a href="#contact">MIETANFRAGE SCHICKEN</a>
       </div>
@@ -220,10 +162,10 @@
   <img src="img/contact.jpg" alt="contact">
   <div id="float">
     <h2>Alles fertig?</h2>
-    <p>Schön, dass Sie fündig geworden sind! Sobald Sie den Auftrag platzieren, klären wir den Rest. Sie können Ihre Auswahl dann auch noch verändern.</p>
+    <p>Schön, dass Sie fündig geworden sind! Sobald Sie unverbindlich eine Mietanfrage stellen, klären wir den Rest. Sie können Ihre Auswahl dann auch noch verändern.</p>
     <div id="request">
-      <a id="request-action">AUFTRAG PLATZIEREN</a>
-      <p>2</p>
+      <a id="request-action">ANFRAGE STELLEN</a>
+      <p>%quantity ausgewählt</p>
     </div>
   </div>
   <div id="float" hidden>
