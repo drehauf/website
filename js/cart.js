@@ -9,7 +9,7 @@ let cart = {
         name: name,
         quantity: quantity
       });
-      notification.post(false, name, difference);
+      view.presentNotification(false, name, difference);
     });
   },
 
@@ -19,7 +19,7 @@ let cart = {
         name: name,
         quantity: quantity
       });
-      notification.post(true, name, difference);
+      view.presentNotification(true, name, difference);
     });
   },
 

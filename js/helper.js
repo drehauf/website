@@ -39,6 +39,23 @@ let helper = {
     return `${year}${month}${day}`;
   },
 
+  /*
+  * Calls the system's default mail client and drafts contact information
+  * If the cart contains any items, the draft contains a summary of the cart
+  */
+  mailTo: function() {
+    let mail = 'info@drehauf.com';
+    let date = new Date();
+    let subject = 'R' + helper.formatDate(date);
+    let body = '';
+    if (cart.items.length > 0) {
+      body = cart.toString();
+    }
+    window.location.href = `mailto:${mail}.com?subject=${subject}&body=${body}`;
+  },
 
+  determineParser: function(uri) {
+
+  }
 
 };

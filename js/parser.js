@@ -3,13 +3,13 @@ let parser = {
   /*
   * Executes ajax get request, delegates file parsing to callback()
   */
-  get: function(uri, callback) {
+  get: function(uri, parse, callback) {
     $.ajax({
       type: 'GET',
       url: uri,
       dataType: 'text',
       success: (file) => {
-        callback(file);
+        parse(file, callback)
       }
     });
   },
@@ -18,7 +18,7 @@ let parser = {
   * Parses csv data to object
   * Splits by line and by semicolon
   */
-  processCSV: function(file) {
+  parseCSV: function(file, callback) {
     let data = [];
     let lines = file.split('\n');
     for (let i = 1; i < lines.length; i++) {
@@ -28,7 +28,11 @@ let parser = {
         quantity: line[1]
       });
     }
-    populateTable(data);
+    callback(data);
   }
-
 };
+
+const Files = Object.freeze({
+  CSV: parser.parseCSV,
+  JSON: parser.parsrJSON
+});
