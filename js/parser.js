@@ -37,7 +37,7 @@ let parser = {
   * Parses json data to object
   */
   parseJSON: function(file, callback) {
-    let data = [];
+    let data = JSON.parse(file);
     callback(data);
   },
 

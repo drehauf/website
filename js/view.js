@@ -14,7 +14,7 @@ let view = {
     // }, timePerImageSeconds * 1000);
   },
 
-  presentFloater: function() {
+  presentContactFloater: function() {
 
   },
 

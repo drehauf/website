@@ -5,11 +5,6 @@ article {
 
 .container {
   padding: 1em;
-  /* width: 100%; */
-  /* vertical-align: top;
-  width: 95%;
-  padding: 75px;
-  border: 50px; */
 }
 
 .flexContainer {
@@ -23,7 +18,9 @@ article {
 
 #slider img, #contact img {
   object-fit: cover;
+  object-position: center;
   height: 100%;
+  width: 100%;
 }
 
 #about {

@@ -6,25 +6,33 @@ let presenter = {
   * Calls show() functions
   */
   init: function() {
+    $(document).on('click', 'a[href^="#"]', presenter.didClickScrollableLink);
     helper.getElement('request-action').addEventListener('click', presenter.didCheckOut);
     presenter.showCarousel();
-    presenter.showFloater();
+    presenter.showContactFloater();
     presenter.showInventory();
+    // presenter.showInfo();
   },
 
   showCarousel: function() {
-    model.getCarousel((data) => {
-      view.presentCarousel(5, data);
+    model.getFile('../data/carousel.json', (data) => {
+      view.presentCarousel(5, data[data.length - 1]);
     });
   },
 
-  showFloater: function() {
-    view.presentFloater();
+  showContactFloater: function() {
+    view.presentContactFloater();
   },
 
   showInventory: function() {
     model.getFile('../data/inventar.csv', (data) => {
       view.presentInventory(data);
+    });
+  },
+
+  showInfo: function() {
+    model.getFile('../data/dashboard.json', (data) => {
+      console.log(data);
     });
   },
 
@@ -53,6 +61,19 @@ let presenter = {
     model.getReCaptchaScore(() => {
       helper.mailTo();
     });
+  },
+
+  /*
+  * Animate scrolling to hrefs
+  * Overrides all default href -> id hopping
+  */
+  didClickScrollableLink: function(event) {
+    event.preventDefault();
+    let href = $(this).attr('href');
+    let x = $(href).offset().top;
+    $('body, html').animate({
+      scrollTop: x
+    }, 500);
   }
 
 };
