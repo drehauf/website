@@ -1,32 +1,37 @@
 let notification = {
 
+  // Contains all currently displayed notifications
   history: [],
 
   /*
-  * Posts a notification about the changed cart
+  * Sets all notification attributes
   * Can be of type remove, add
+  * Passes the attributes to callback
   */
-  post: function(isDestructive, name, difference) {
+  setAttributes: function(content, callback) {
     let action;
-    let message = {
+    let attributes = {
       caption: undefined,
-      item: name,
-      quantity: difference
+      item: content.item.name,
+      quantity: content.item.difference
     }
-    if (isDestructive) {
+    if (content.isDestructive) {
       action = 'remove';
-      message.caption = 'Enfernt: ';
+      attributes.caption = 'Enfernt: ';
     } else {
       action = 'add';
-      message.caption = 'Gespeichert: ';
+      attributes.caption = 'Gespeichert: ';
     }
-    helper.cloneTemplate('notification-template', 'notifications', (clone) => {
-      helper.setCloneData(clone, message);
-      helper.getElement('notification').setAttribute('action', action);
-      helper.getElement('n-amount').setAttribute('action', action);
-      notification.history.push(clone);
-      notification.remove(3, clone);
-    });
+    callback(attributes, action);
+  },
+
+  /*
+  * Posts a notification about the changed cart
+  * Adds notification to remove queue
+  */
+  post: function(message) {
+    notification.history.push(message);
+    notification.remove(3, message);
   },
 
   /*

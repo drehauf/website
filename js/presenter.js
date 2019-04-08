@@ -1,44 +1,58 @@
 let presenter = {
 
+  /*
+  * Presenter initializer
+  * Sets event listeners for <a> elements
+  * Calls show() functions
+  */
   init: function() {
-    view.presentCarousel(5);
-    view.presentFloater();
-    view.presentInventory();
+    helper.getElement('request-action').addEventListener('click', presenter.didCheckOut);
+    presenter.showCarousel();
+    presenter.showFloater();
+    presenter.showInventory();
   },
 
+  showCarousel: function() {
+    model.getCarousel((data) => {
+      view.presentCarousel(5, data);
+    });
+  },
+
+  showFloater: function() {
+    view.presentFloater();
+  },
+
+  showInventory: function() {
+    model.getFile('../data/inventar.csv', (data) => {
+      view.presentInventory(data);
+    });
+  },
+
+  /*
+  * EventListener that gets called when a click is detected on a checkbox within the inventory table
+  */
   didCheckBox: function(event) {
-    let target = event.target;
-    let rows = target.parentNode.parentNode.parentNode.children;
-    let cells = target.parentNode.parentNode.children;
-    let checkbox = cells[0].firstElementChild;
-    let name = cells[1].firstElementChild.innerHTML;
-    let select = cells[2].firstElementChild;
-    let options = select.options;
-    let currentQuantity = options[options.selectedIndex].value;
-    let maxQuantity = options[options.length - 1].value;
-    select.disabled = !select.disabled;
-    if (select.disabled) {
-      select.value = maxQuantity;
-      cart.remove(name, currentQuantity);
-    } else {
-      cart.add(name, currentQuantity);
-    }
+    model.getItemForTableRow(event.target, (row, item) => {
+      view.presentTableRowItem(row, item)
+    });
     view.presentCheckOut();
   },
 
+  /*
+  * EventListener that gets called when a select within the inventory table changes it's slected option
+  */
   didSelectOption: function(event) {
     console.log(event);
   },
 
+  /*
+  * EventListener that gets called when a click is detected in the checkout
+  * Evaluates the reCaptcha score and then drafts the contact mail
+  */
   didCheckOut: function() {
-    helper.mailTo();
-    // grecaptcha.ready(() => {
-    //   grecaptcha.execute('6LdKoZwUAAAAAAtkdLxDk5F40j6QesBPhdx_zICd', {
-    //     action: 'homepage'
-    //   }).then((token) => {
-    //     console.log(token);
-    //   });
-    // });
+    model.getReCaptchaScore(() => {
+      helper.mailTo();
+    });
   }
 
 };
