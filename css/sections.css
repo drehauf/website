@@ -12,7 +12,7 @@ article {
   flex-wrap: wrap;
 }
 
-#slider, #contact {
+#slider {
   height: 100vh;
 }
 
@@ -45,6 +45,33 @@ tr:nth-child(even) {
 
 #credentials {
   background-color: #D0D0D0;
+}
+
+.customer {
+  flex: 1;
+  padding: 1em 2em;
+  text-align: center;
+}
+
+.customer h2 {
+  font-size: 12pt;
+  margin: 0.5em 0;
+}
+
+.customer p {
+  line-height: 1em;
+  text-align: center;
+  margin-top: 0em;
+  color: #484848;
+}
+
+.customer img {
+  width: 5em;
+  height: 5em;
+}
+
+#contact {
+  height: 90vh; /* nur bis 1300px breite */
 }
 
 #inline h2 {
@@ -120,6 +147,10 @@ tr:nth-child(even) {
 }
 
 @media screen and (min-width: 1280px) {
+  /* #contact {
+    height: 92vh;
+  } */
+
   .container {
     width: 55%;
   }

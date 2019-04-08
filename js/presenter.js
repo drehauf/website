@@ -9,24 +9,30 @@ let presenter = {
     $(document).on('click', 'a[href^="#"]', presenter.didClickScrollableLink);
     helper.getElement('request-action').addEventListener('click', presenter.didCheckOut);
     presenter.showCarousel();
-    presenter.showContactFloater();
     presenter.showInventory();
+    presenter.showCustomers();
+    // presenter.showContactFloater();
     // presenter.showInfo();
   },
 
   showCarousel: function() {
     model.getFile('../data/carousel.json', (data) => {
-      view.presentCarousel(5, data[data.length - 1]);
+      view.presentCarousel(5, data);
     });
   },
 
   showContactFloater: function() {
-    view.presentContactFloater();
   },
 
   showInventory: function() {
     model.getFile('../data/inventar.csv', (data) => {
       view.presentInventory(data);
+    });
+  },
+
+  showCustomers: function() {
+    model.getFile('../data/customers.json', (data) => {
+      view.presentCustomers(data);
     });
   },
 
@@ -41,7 +47,7 @@ let presenter = {
   */
   didCheckBox: function(event) {
     model.getItemForTableRow(event.target, (row, item) => {
-      view.presentTableRowItem(row, item)
+      view.presentTableRowItem(row, item);
     });
     view.presentCheckOut();
   },
@@ -49,9 +55,7 @@ let presenter = {
   /*
   * EventListener that gets called when a select within the inventory table changes it's slected option
   */
-  didSelectOption: function(event) {
-    console.log(event);
-  },
+  didSelectOption: function(event) { },
 
   /*
   * EventListener that gets called when a click is detected in the checkout
@@ -72,7 +76,7 @@ let presenter = {
     let href = $(this).attr('href');
     let x = $(href).offset().top;
     $('body, html').animate({
-      scrollTop: x
+      scrollTop: x - 32
     }, 500);
   }
 

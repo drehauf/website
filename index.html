@@ -57,7 +57,7 @@
 <div id="templates" hidden>
   <div id="carousel-template">
     <div id="carousel">
-      <img id="image-placeholder" src="%src" alt="%alt">
+      <img id="frame-placeholder" src="%src" alt="%alt">
       <div id="float">
         <h2>%caption</h2>
         <p>%text</p>
@@ -65,6 +65,17 @@
       </div>
     </div>
   </div>
+
+  <div id="customer-template">
+    <div class="customer">
+      <a href="%href">
+        <img src="%src" alt="%alt">
+        <h2>%name</h2>
+      </a>
+      <p>%event</p>
+    </div>
+  </div>
+
   <div id="notification-template">
     <div id="notification" action="add">
       <div id="n-title">
@@ -108,10 +119,10 @@
 <div id="notifications"></div>
 
 <!-- IMAGE SLIDESHOW *************************************** -->
-<article id="slider" class="anchor"></article>
+<article id="slider"></article>
 
 <!-- ABOUT ************************************************* -->
-<article id="about" class="anchor">
+<article id="about">
   <div class="container">
     <div class="title">
       <p>Über uns</p>
@@ -143,7 +154,7 @@
 </article>
 
 <!-- SERVICES ********************************************** -->
-<article id="services" class="anchor">
+<article id="services">
   <div class="container">
     <div class="title">
       <p>Leistungen</p>
@@ -175,23 +186,21 @@
 </article>
 
 <!-- CREDENTIALS ******************************************* -->
-<article id="credentials" class="anchor">
+<article id="credentials">
   <div class="container">
     <div class="title">
       <p>Referenzen</p>
     </div>
     <div class="text">
       <h2>Nur zufriedene Kunden</h2>
-      <p>Ein Auzug aus dem, was die Firma so erbracht hat. Von 2011 bis heute.</p>
+      <p>Ein Auzug aus dem, was die Firma so erbracht hat. Von 2011 bis heute:</p>
     </div>
-    <div class="customers">
-      <p>Hier Kundenlogos einfügen</p>
-    </div>
+    <div class="flexContainer" id="customers"></div>
   </div>
 </article>
 
 <!-- CONTACT *********************************************** -->
-<article id="contact" class="anchor">
+<article id="contact">
   <img src="img/contact.jpg" alt="contact">
   <div id="float">
     <h2>Alles fertig?</h2>

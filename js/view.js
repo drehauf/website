@@ -2,20 +2,20 @@ let view = {
 
   presentCarousel: function(timePerImageSeconds, data) {
     helper.cloneTemplate('carousel-template', 'slider', (clone) => {
-      helper.setCloneData(slider, data);
+      helper.setCloneData(slider, data[data.length - 1]);
     });
-    // let i = 0;
-    // setInterval(() => {
-    //   helper.cloneTemplate('carousel', 'slider', (clone) => {
-    //     helper.setCloneData(slider, data[i]);
-    //   });
-    //   i++;
-    //   i = i > data.length - 1 ? 0 : i;
-    // }, timePerImageSeconds * 1000);
-  },
-
-  presentContactFloater: function() {
-
+    let i = 0;
+    setInterval(() => {
+      helper.cloneTemplate('carousel-template', 'slider', (clone) => {
+        helper.setCloneData(slider, data[i]);
+        let slides = helper.getElement('slider').children;
+        if (slides.length > 1) {
+          slides[0].remove();
+        }
+      });
+      i++;
+      i = i > data.length - 1 ? 0 : i;
+    }, timePerImageSeconds * 1000);
   },
 
   /*
@@ -78,6 +78,15 @@ let view = {
         notification.post(clone);
       });
     });
+  },
+
+  presentCustomers: function(data) {
+    for (let customer of data) {
+      helper.cloneTemplate('customer-template', 'customers', (clone) => {
+        helper.setCloneData(clone, customer);
+      });
+    }
+    console.log(data);
   },
 
   /*
