@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Construction from './components/Construction';
 import './App.css';
 
 class App extends Component {
@@ -6,10 +7,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Hello, Dreh Auf!</h1>
+        <Construction/>
       </div>
     );
   }
 }
 
 export default App;
+ 
