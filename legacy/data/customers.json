@@ -3,49 +3,42 @@
     "name": "Evangelisches Kreuzgymnasium Dresden",
     "event": "Hausball der Kruzianer",
     "src": "../img/customers/customer.jpeg",
-    "alt": "Evangelisches Kreuzgymnasium Dresden Logo",
     "link": "#"
   },
   {
     "name": "Sächsisches Ministerium für Kultus",
     "event": "Irgendeine große Veranstaltung",
     "src": "../img/customers/customer.jpeg",
-    "alt": "Sächsisches Ministerium für Kultus Logo",
     "link": "#"
   },
   {
     "name": "Landesschülerrat Sachsen",
     "event": "Landesdeligiertenkonferenz seit XXXX",
     "src": "../img/customers/customer.jpeg",
-    "alt": "Landesschülerrat Sachsen logo",
     "link": "#"
   },
   {
     "name": "Freie Montessorischule Huckepack e.V.",
     "event": "Hausinterne Veranstaltungen",
     "src": "../img/customers/customer.jpeg",
-    "alt": "Freie Montessorischule Huckepack e.V. logo",
     "link": "#"
   },
   {
     "name": "Landeselternrat Sachsen",
     "event": "Irgendeine Veranstaltung",
     "src": "../img/customers/customer.jpeg",
-    "alt": "Landeselternrat Sachsen logo",
     "link": "#"
   },
   {
     "name": "Romain-Rolland-Gymnasium",
     "event": "Noch eine Veranstaltung",
     "src": "../img/customers/customer.jpeg",
-    "alt": "Romain-Rolland-Gymnasium Dresden logo",
     "link": "#"
   },
   {
     "name": "Berthold-Brecht-Gymnasium",
     "event": "Schneeball XXXX - XXXX",
     "src": "../img/customers/customer.jpeg",
-    "alt": "Berthold-Brecht-Gymnasium logo",
     "link": "#"
   }
 ]

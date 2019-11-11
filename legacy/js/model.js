@@ -1,17 +1,5 @@
 let model = {
 
-  getCarousel: function(callback) {
-    let data = {
-      src: 'img/carousel/frame6.jpg',
-      alt: 'rehearsal room',
-      caption: "\"Schülerfirma\"",
-      text: "Was das bedeutet und wie wir dazu gekommen sind.",
-      href: "#about",
-      actiontext: "ÜBER UNS"
-    };
-    callback(data);
-  },
-
   /*
   * Passes the file data to callback()
   */

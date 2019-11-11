@@ -54,8 +54,4 @@ let helper = {
     window.location.href = `mailto:${mail}.com?subject=${subject}&body=${body}`;
   },
 
-  determineParser: function(uri) {
-
-  }
-
 };

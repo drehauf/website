@@ -1,5 +1,9 @@
 let view = {
 
+  /*
+  * Presents the image carousel on top of the page
+  * If there is more than image displayed, the old one gets removed
+  */
   presentCarousel: function(timePerImageSeconds, data) {
     helper.cloneTemplate('carousel-template', 'slider', (clone) => {
       helper.setCloneData(slider, data[data.length - 1]);
@@ -83,10 +87,10 @@ let view = {
   presentCustomers: function(data) {
     for (let customer of data) {
       helper.cloneTemplate('customer-template', 'customers', (clone) => {
+        customer.alt = `${customer.name} logo`;
         helper.setCloneData(clone, customer);
       });
     }
-    console.log(data);
   },
 
   /*
