@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import Construction from './components/Construction';
+import Header from './components/Header';
+import Carousel from './components/other/Carousel';
+import Sections from './components/Sections';
 import './App.css';
 
 class App extends Component {
@@ -7,11 +9,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Construction/>
+        <Header/>
+        <Carousel/>
+        <Sections/>
       </div>
     );
   }
+
 }
 
 export default App;
- 

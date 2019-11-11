@@ -11,15 +11,17 @@ class Construction extends Component {
   render() {
     return (
       <div id='construction'>
-      <img src={process.env.PUBLIC_URL + '/banner-construction.png'} alt='logo'/>
+      <img src={process.env.PUBLIC_URL + '/banner-construction.png'} alt='Logo mit Bauarbeiterhelm'/>
         <h1>Wir bauen für Sie um!</h1>
         <div id='message'>
           <h2>Währenddessen errreichen Sie uns unter</h2>
-          <code onClick={this.mailTo}>{this.state.subscript}@{this.state.domaine}</code>
-          <h2>Vielen Dank für Ihr Verständnis!</h2>
+          <code onClick={this.mailTo}>
+            {this.state.subscript}@{this.state.domaine}
+          </code>
         </div>
+        <h2>Vielen Dank für Ihr Verständnis!</h2>
       </div>
-    ); 
+    );
   }
 
   mailTo = (event) => {
