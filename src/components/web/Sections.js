@@ -3,7 +3,7 @@ import About from './sections/About';
 import Services from './sections/Services';
 import Credentials from './sections/Credentials';
 import Contact from './sections/Contact';
-import '../../stylesheets/Sections.css';
+import '../../stylesheets/Sections.scss';
 
 class Sections extends Component {
 
