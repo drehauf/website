@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
+import Inventory from '../inventory/Inventory';
 // import './stylesheets/About.css';
 
 class Services extends Component {
 
   render() {
     return (
-      <div className='container'>
-        <div className='title'>
-          <p>Leistungen</p>
-        </div>
+      <div>
         <div className='supply'>
           <h2>Sie+Wir</h2>
           <p>Wir stehen Ihnen beratend bei der Ideenkonzeption, Planung und Kostenkalkulation nach Ihren Vorstellungen zur Verfügung.</p>
@@ -23,7 +21,7 @@ class Services extends Component {
               <a id='done' href='#contact' cart-is-empty='true'>FERTIG</a>
             </div>
             <p>Eine Auswahl von Lautsprechern, Mikrofonen und mehr aus unserem Lager. Herein!</p>
-            <table id='inventory'></table>
+            <Inventory/>
         </div>
         <div className='bundles'>
             <h2>Pakete</h2>

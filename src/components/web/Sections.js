@@ -10,27 +10,34 @@ class Sections extends Component {
   sections = [
     {
       content: <About/>,
-      id: 'about'
+      id: 'about',
+      title: 'Über uns'
     },
     {
       content: <Services/>,
-      id: 'services'
+      id: 'services',
+      title: 'Leistungen'
     },
     {
       content: <Credentials/>,
-      id: 'credentials'
+      id: 'credentials',
+      title: 'Referenzen'
     },
     {
       content: <Contact/>,
-      id: 'contact'
+      id: 'contact',
+      title: 'Kontakt'
     }
   ];
 
   render() {
     return this.sections.map((section) => (
-      <article id={section.id}>
+      <article key={section.id}>
         <div className='container'>
-          {section.content}
+        <div className='title'>
+          <p>{section.title}</p>
+        </div>
+        {section.content}
         </div>
       </article>
     ));

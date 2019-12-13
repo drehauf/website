@@ -10,7 +10,7 @@ class Header extends Component {
           <img className='h-logo' src={require('../../assets/images/logo.png')} alt='Logo'/>
         </a>
         <div className='h-right'>
-          <label for='checkbox'>&#9776;</label>
+          <label htmlFor='checkbox'>&#9776;</label>
           <input type='checkbox' id='checkbox'/>
           <ul id='hamburger-list'>
             <li>
