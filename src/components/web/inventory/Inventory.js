@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import InventoryData from './inventar.csv';
+import InventoryData from './../../../assets/data/inventory.csv';
 import InventoryItem from './InventoryItem.js';
-import CSVParser from './CSVParser.js';
+import CSVParser from './../utils/CSVParser.js';
 
 class Inventory extends Component {
 
