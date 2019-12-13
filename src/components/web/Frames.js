@@ -1,11 +1,13 @@
-import React, {Component} from 'react';
-// import './stylesheets/Carousel.css';
+import img1 from "../../assets/images/carousel/frame1.jpg";
+import img2 from '../../assets/images/carousel/frame2.jpg';
+import img3 from "../../assets/images/carousel/frame3.jpg";
+import img4 from "../../assets/images/carousel/frame4.jpg";
+import img5 from '../../assets/images/carousel/frame5.jpg';
+import img6 from '../../assets/images/carousel/frame6.jpg';
 
-class Carousel extends Component {
-
-  frames = [
+const Frames = [
     {
-      src: require('../../assets/images/carousel/frame1.jpg'),
+      src: img1,
       alt: 'conference hall',
       caption: 'Wir können mehr!',
       text: 'Ob Konzert, Party, Kongress, Hochzeit, Geburtstag: Ihr Partner in Sachen Veranstaltung!',
@@ -13,7 +15,7 @@ class Carousel extends Component {
       actiontext: 'LEISTUNGEN'
     },
     {
-      src: require('../../assets/images/carousel/frame2.jpg'),
+      src: img2,
       alt: 'sound equipment',
       caption: 'Licht, Ton, Strom.',
       text: 'Damit Ihre Veranstaltung gelingt, braucht man nicht nur Organisationsgeschick, sondern eben auch die eine oder andere Lampe, Lautsprecher und kilometerlange Kabel. Wir beraten Sie gern.',
@@ -21,7 +23,7 @@ class Carousel extends Component {
       actiontext: 'VERMIETUNG'
     },
     {
-      src: require('../../assets/images/carousel/frame4.jpg'),
+      src: img4,
       alt: 'concert at night',
       caption: 'Herausforderungen willkommen!',
       text: 'Herausforderungen inspirieren und bringen uns voran. Wir entwickeln ständig neue Konzepte und Ideen.',
@@ -29,7 +31,7 @@ class Carousel extends Component {
       actiontext: 'INSTAGRAM'
     },
     {
-      src: require('../../assets/images/carousel/frame3.jpg'),
+      src: img3,
       alt: 'mixer knobs',
       caption: 'Regler, Knöpfe, Schieber.',
       text: 'Wir wissen damit umzugehen und welche davon Sie für ihre Veranstaltung benötigen.',
@@ -37,7 +39,7 @@ class Carousel extends Component {
       actiontext: 'VERMIETUNG'
     },
     {
-      src: require('../../assets/images/carousel/frame5.jpg'),
+      src: img5,
       alt: 'illuminated staircase',
       caption: 'Bunt und schön.',
       text: 'Für wen wir gearbeitet haben, wo wir bisher waren und was wir geschafft haben.',
@@ -45,40 +47,12 @@ class Carousel extends Component {
       actiontext: 'REFERENZEN'
     },
     {
-      src: require('../../assets/images/carousel/frame6.jpg'),
+      src: img6,
       alt: 'rehearsal room',
       caption: '\'Schülerfirma\'',
       text: 'Was das bedeutet und wie wir dazu gekommen sind.',
       href: '#about',
       actiontext: 'ÜBER UNS'
-    }
-  ];
+    }];
 
-  // componentDidMount() {
-  //   let i = 0;
-  //   let timePerImageSeconds = 1;
-  //   setInterval(() => {
-  //     this.setState({
-  //       currentFrame: this.frames[i]
-  //     });
-  //     i = i > this.frames.length - 1 ? 0 : i;
-  //   }, timePerImageSeconds * 1000);
-  // }
-
-  render() {
-    let currentFrame = this.frames[0];
-    return (
-      <div id='carousel'>
-        <img id='frame-placeholder' src={currentFrame.src} alt={currentFrame.alt}/>
-        <div id='float'>
-          <h2>{currentFrame.caption}</h2>
-          <p>{currentFrame.text}</p>
-          <a href={currentFrame.href}>{currentFrame.actiontext}</a>
-        </div>
-      </div>
-    );
-  }
-
-}
-
-export default Carousel;
+export default Frames;
