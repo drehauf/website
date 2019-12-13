@@ -1,36 +1,34 @@
-import React, {Component} from 'react';
-import InventoryItemOptions from './InventoryItemOptions';
+import React, { Fragment } from 'react';
 
-class InventoryItem extends Component {
+const InventoryItem = ({ rowData }) => {
 
-  constructor(props) {
-    super(props);
-  }
+  const { name, quantity } = rowData;
 
-  didCheckItem = (checked) => {
-    return function() {
-      console.log(checked);
-      // this.props.item.checked = !this.props.item.checked;
+  const selectOptions = (quantity) => {
+    let options = []
+    for (let value = 1; value <= quantity; value++) {
+      options.push(
+        <option key={value}>{value}</option>
+      );
     }
+    return options;
   }
 
-  render() {
-    return(
-      <tr>
-        <td>
-          <input type='checkbox' defaultChecked={this.props.item.checked} onChange={this.didCheckItem(this.props.item.checked)}/>
-        </td>
-        <td>
-          <p>{this.props.item.name}</p>
-        </td>
-        <td>
-          <select value={this.props.item.value} selected={this.props.item.value} disabled={!this.props.item.checked}>
-            <InventoryItemOptions item={this.props.item}/>
-          </select>
-        </td>
-      </tr>
-    );
-  }
+  return(
+    <Fragment>
+      <td>
+        <input type='checkbox'/>
+      </td>
+      <td>
+        {name}
+      </td>
+      <td>
+        <select disabled>
+          {selectOptions(quantity)}
+        </select>
+      </td>
+    </Fragment>
+  );
 
 }
 
