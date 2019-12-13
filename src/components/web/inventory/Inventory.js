@@ -1,54 +1,67 @@
-import React, {Component} from 'react';
-import InventoryItem from './InventoryItem';
+import React, { Component, Fragment } from 'react';
+import InventoryData from './inventar.csv';
+import CSVParser from './CSVParser.js';
 
 class Inventory extends Component {
 
-  items = [
-    {
-      id: 1,
-      name: 'Pioneer DJM-250-K',
-      totalAmount: 1,
-      amount: 1,
-      checked: true
-    },
-    {
-      id: 2,
-      name: 'Mackie Onyx 1640i',
-      totalAmount: 4,
-      amount: 1,
-      checked: false
-    },
-    {
-      id: 3,
-      name: 'HK Audio L.U.K.A.S Alpha: Bass',
-      totalAmount: 2,
-      amount: 1,
-      checked: false
-    },
-    {
-      id: 4,
-      name: 'HK Audio L.U.K.A.S Alpha: Top',
-      totalAmount: 4,
-      amount: 1,
-      checked: false
-    }
-  ];
+  state = {
+    inventory: []
+  }
 
-  getItems = () => {
-    return this.items.map((item) => (
-        <InventoryItem key={item.key} item={item}/>
-    ));
+  componentDidMount() {
+    CSVParser.get(InventoryData, (data) => {
+      this.setState({
+        inventory: data
+      });
+    });
   }
 
   render() {
     return(
       <table id='inventory'>
         <tbody>
-        {this.getItems()}
+          {this.table(this.state.inventory)}
         </tbody>
       </table>
     );
   }
+
+  selectOptions = (quantity) => {
+    let options = []
+    for (let value = 1; value <= quantity; value++) {
+      options.push(
+        <option>{value}</option>
+      );
+    }
+    return options;
+  }
+
+  tableRow = (rowData) => {
+    let {name, quantity} = rowData;
+    return(
+      <Fragment>
+        <td>
+          <input type='checkbox'/>
+        </td>
+        <td>
+          {name}
+        </td>
+        <td>
+          <select>
+            {this.selectOptions(quantity)}
+          </select>
+        </td>
+      </Fragment>
+    );
+  };
+
+  table = (tableData) => {
+    return tableData.map((row, index) => (
+      <tr key={index}>
+        {this.tableRow(row)}
+      </tr>
+    ));
+  };
 
 }
 
