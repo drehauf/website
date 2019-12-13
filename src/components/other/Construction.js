@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../Construction.css';
+import '../Construction.scss';
 
 class Construction extends Component {
 
