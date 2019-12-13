@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 function BurgerMenu() {
+
+  const burger = (() => {
+    return (
+      <Fragment>
+        <span></span>
+        <span></span>
+        <span></span>
+      </Fragment>
+    );
+  })();
+
   return(
     <div id="menuToggle">
       <input type="checkbox" />
       
-      <span></span>
-      <span></span>
-      <span></span>
+      {burger}
       
       <ul id="menu">
         <a href="#about"><li>ÜBER UNS</li></a>
