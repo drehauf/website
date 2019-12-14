@@ -25,8 +25,16 @@ const Inventory = (props) => {
     ));
   };
 
+
   return(
-    <table id='inventory'>
+    <table class='table'>
+      <thead className="table_head">
+        <tr>
+          <th>Auswahl</th>
+          <th>Bezeichnung</th>
+          <th>Anzahl</th>
+        </tr>
+      </thead>
       <tbody>
         {
           inventory ? table(inventory) : null

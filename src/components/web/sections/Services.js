@@ -3,6 +3,8 @@ import Inventory from 'components/web/inventory/Inventory.js';
 import Subheadline from 'components/essentials/Subheadline';
 import TextBlock from 'components/essentials/TextBlock';
 import ShoppingCart from 'components/web/inventory/ShoppingCart';
+import Dropdown from 'components/essentials/Dropdown';
+
 
 class Services extends Component {
 
