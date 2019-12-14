@@ -1,0 +1,41 @@
+.table {
+  width: 80%;
+  border-collapse: collapse;
+  border-radius: 6px;
+  overflow: hidden;
+
+
+  &_head {
+    background-color: rgba($color-background--dark, .8);
+    color: white;
+
+    & th {
+      padding: .8em;
+    }
+  }
+
+  &_body {
+
+  }
+
+  &_row {
+    width: 100%;
+    border-bottom: solid 1px rgba(black, .2);
+
+    &:hover {
+      background-color: rgba(black, .1);
+    }
+  }
+
+  &_column {
+    padding: .5em 0;
+
+    &_checkbox {
+      padding-left: 1em;
+    }
+
+    &_quantity {
+      text-align: center;
+    }
+  }
+}

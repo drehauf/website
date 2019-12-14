@@ -1,4 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import Dropdown from 'components/essentials/Dropdown';
+
 
 const InventoryItem = (props) => {
 
@@ -18,23 +20,23 @@ const InventoryItem = (props) => {
     return options;
   }
 
-  const quantityHandler = (quantity) => {
-    setQuantitiy(quantity);
-  };
+const quantityHandler = (quantity) => {
+  setQuantitiy(quantity);
+};
 
-  const checkedHandler = (name, quantity = 1) => {
-    setChecked(!isChecked);
-  };
+const checkedHandler = (name, quantity = 1) => {
+  setChecked(!isChecked);
+};
 
-  useEffect(() => {
-    if (didMount) {
-      props.onItemChange({ name, quantity, isChecked });
-    } else setDidMount(true);
-  }, [name, quantity, isChecked]);
+useEffect(() => {
+  if (didMount) {
+    props.onItemChange({ name, quantity, isChecked });
+  } else setDidMount(true);
+}, [name, quantity, isChecked]);
 
   return(
     <Fragment>
-      <td>
+      <td className="table_column table_column_checkbox">
         <input
           type='checkbox'
           onChange={
@@ -42,17 +44,15 @@ const InventoryItem = (props) => {
           }
         />
       </td>
-      <td>
+      <td className="table_column table_column_name">
         {rowData.name}
       </td>
-      <td>
-        <select
+      <td className="table_column table_column_quantity">
+        <Dropdown
+          options={rowData.quantity}
+          returnFunction={quantityHandler}
           disabled={!isChecked}
-          onChange={
-            event => quantityHandler(event.target.value)
-          }>
-          {selectOptions(rowData.quantity)}
-        </select>
+        />
       </td>
     </Fragment>
   );
