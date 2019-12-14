@@ -1,11 +1,9 @@
-import React from 'react';
 import img1 from "../../assets/images/carousel/frame1.jpg";
 import img2 from '../../assets/images/carousel/frame2.jpg';
 import img3 from "../../assets/images/carousel/frame3.jpg";
 import img4 from "../../assets/images/carousel/frame4.jpg";
 import img5 from '../../assets/images/carousel/frame5.jpg';
 import img6 from '../../assets/images/carousel/frame6.jpg';
-import Link from '../essentials/Link';
 
 const Frames = [
   {
@@ -16,7 +14,7 @@ const Frames = [
       "Ob Konzert, Party, Kongress, Hochzeit, Geburtstag: Ihr Partner in Sachen Veranstaltung!",
     href: "#services",
     actiontext: "LEISTUNGEN",
-    link: <Link href="#services" text="LEISTUNGEN" external={false}></Link>
+    external: false
   },
   {
     src: img2,
@@ -26,7 +24,7 @@ const Frames = [
       "Damit Ihre Veranstaltung gelingt, braucht man nicht nur Organisationsgeschick, sondern eben auch die eine oder andere Lampe, Lautsprecher und kilometerlange Kabel. Wir beraten Sie gern.",
     href: "#services",
     actiontext: "VERMIETUNG",
-    link: <Link href="#services" text="VERMIETUNG" external={false}></Link>
+    external: false
   },
   {
     src: img4,
@@ -36,13 +34,7 @@ const Frames = [
       "Herausforderungen inspirieren und bringen uns voran. Wir entwickeln ständig neue Konzepte und Ideen.",
     href: "https://www.instagram.com/dreh_auf/",
     actiontext: "INSTAGRAM",
-    link: (
-      <Link
-        href="https://www.instagram.com/dreh_auf/"
-        text="INSTAGRAM"
-        external={true}
-      ></Link>
-    )
+    external: true
   },
   {
     src: img3,
@@ -52,7 +44,7 @@ const Frames = [
       "Wir wissen damit umzugehen und welche davon Sie für ihre Veranstaltung benötigen.",
     href: "#services",
     actiontext: "VERMIETUNG",
-    link: <Link href="#services" text="VERMIETUNG" external={false}></Link>
+    external: false
   },
   {
     src: img5,
@@ -62,7 +54,7 @@ const Frames = [
       "Für wen wir gearbeitet haben, wo wir bisher waren und was wir geschafft haben.",
     href: "#credentials",
     actiontext: "REFERENZEN",
-    link: <Link href="#credentials" text="REFERENZEN" external={false}></Link>
+    external: false
   },
   {
     src: img6,
@@ -71,7 +63,7 @@ const Frames = [
     text: "Was das bedeutet und wie wir dazu gekommen sind.",
     href: "#about",
     actiontext: "ÜBER UNS",
-    link: <Link href="#about" text="ÜBER UNS" external={false}></Link>
+    external: false
   }
 ];
 

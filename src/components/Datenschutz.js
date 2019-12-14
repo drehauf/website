@@ -1,16 +1,11 @@
 import React, { Fragment } from 'react';
 import Button from './essentials/Button';
-import Link from './essentials/Link';
-
-const link = (
-  <Link href="/" text="home" external={false}/>
-)
 
 const Datenschutz = () => (
   <Fragment>
     <p>Datenschutzerklärung</p>
-    <Button link={link}/>
+    <Button href="/" text="home" external={false} />
   </Fragment>
-)
+);
 
 export default Datenschutz;
