@@ -1,4 +1,4 @@
-.about {
+.services {
 
   &_flex-wrapper {
     display: flex;
@@ -11,9 +11,4 @@
 
   &_right-wrapper { }
 
-  &_cite {
-    margin-left: 2rem;
-    color: rgba($color-text--light, .75);
-    font-style: italic;
-  }
 }

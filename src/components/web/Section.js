@@ -3,12 +3,12 @@ import Headline from '../essentials/Headline';
 
 const Section = ({ title, content, id }) => {
   return (
-    <article id={id}>
+    <section id={id} className='section'>
       <div className="container">
         <Headline text={title}/>
         {content}
       </div>
-    </article>
+    </section>
   );
 }
 
