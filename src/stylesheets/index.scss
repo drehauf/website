@@ -1,6 +1,11 @@
-@import './About.scss';
-@import './App.scss';
+@import './utility.scss';
+@import './variables.scss';
+@import './global.scss';
+@import './layout.scss';
+@import './typography.scss';
+
 @import './Carousel.scss';
 @import './Header.scss';
-@import './Construction.scss';
-@import './Sections.scss';
+@import './Button.scss';
+@import './About.scss';
+@import './Services.scss';
