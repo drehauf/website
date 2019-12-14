@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import BurgerMenu from './BurgerMenu';
 import Button from '../essentials/Button';
-// import '../../stylesheets/Header.scss';
+import Logo from '../../assets/images/logo.png';
 
 class Header extends Component {
 
@@ -10,12 +10,12 @@ class Header extends Component {
       <header>
         <div className="header_wrapper">
           <a className='h-left animate' href='#slider' hidden>
-            <img className='h-logo' src={require('../../assets/images/logo.png')} alt='Logo'/>
+            <img className='h-logo' src={Logo} alt='Logo'/>
           </a>
-          
+
           <div className='h-right'>
-            
-            <div id='hamburger-list'>   
+
+            <div id='hamburger-list'>
               <Button link="#about" text="ÜBER UNS"/>
               <Button link="#service" text="LEISTUNGEN" />
               <Button link="#credentials" text="REFERENZEN" />

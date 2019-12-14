@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import Inventory from '../inventory/Inventory.js';
-// import './stylesheets/About.css';
+import Inventory from 'components/web/inventory/Inventory.js';
+import Subheadline from 'components/essentials/Subheadline';
+import TextBlock from 'components/essentials/TextBlock';
 
 class Services extends Component {
 
@@ -8,26 +9,46 @@ class Services extends Component {
     return (
       <div>
         <div className='supply'>
-          <h2>Sie+Wir</h2>
-          <p>Wir stehen Ihnen beratend bei der Ideenkonzeption, Planung und Kostenkalkulation nach Ihren Vorstellungen zur Verfügung.</p>
-          <h2>Licht, Ton und Bühnentechnik</h2>
-          <p>Aus Ihren Vorstellungen entwickeln wir mit Ihnen Konzepte und Pläne, stellen Ihnen die nötigen Beschallungs- und Beleuchtungsanlagen zusammen und begleiten Sie während der Veranstaltung vom Auf- bis zum Abbau mit einem kompetenten jungen Team.<br/>
-          Die Installation und Betreuung von Event- und Bühnentechnik baut dabei auf einem Material- und Kompetenzfundus auf, welchen wir stetig erweitern.</p>
+          <Subheadline text='Sie + Wir'/>
+          <div className='u-margin-top-bottom--large'>
+            <TextBlock>
+            <p>Wir stehen Ihnen beratend bei der Ideenkonzeption, Planung und Kostenkalkulation nach Ihren Vorstellungen zur Verfügung.</p>
+            </TextBlock>
+          </div>
+          <Subheadline text='Licht, Ton und Bühnentechnik'/>
+          <div className='u-margin-top-bottom--large'>
+            <TextBlock>
+              <p>
+                Aus Ihren Vorstellungen entwickeln wir mit Ihnen Konzepte und Pläne, stellen Ihnen die nötigen Beschallungs- und Beleuchtungsanlagen zusammen und begleiten Sie während der Veranstaltung vom Auf- bis zum Abbau mit einem kompetenten jungen Team. Die Installation und Betreuung von Event- und Bühnentechnik baut dabei auf einem Material- und Kompetenzfundus auf, welchen wir stetig erweitern.
+              </p>
+            </TextBlock>
+          </div>
         </div>
-        <div className='flex-container'>
-          <div className='single'>
-            <div id='inline'>
-              <h2>Für Feinschmecker</h2>
+        <div className='services_flex-wrapper'>
+          <div className='services_left-wrapper'>
+            <Subheadline text='Für Feinschmecker'/>
+            <div className='u-margin-top-bottom--large'>
+              <TextBlock>
+                <p>
+                  Eine Auswahl von Lautsprechern, Mikrofonen und mehr aus unserem Lager. Herein!
+                </p>
+              </TextBlock>
+            </div>
+            <Inventory/>
+            <div className='u-margin-top--large'>
               <a id='done' href='#contact' cart-is-empty='true'>FERTIG</a>
             </div>
-            <p>Eine Auswahl von Lautsprechern, Mikrofonen und mehr aus unserem Lager. Herein!</p>
-            <Inventory/>
         </div>
-        <div className='bundles'>
-            <h2>Pakete</h2>
-            <p>Wir haben etwas für jeden Anlass. Für Ihre Veranstaltung erstellen wir Ihnen gern unverbindlich ein spezifisches Paket und Angebot ganz nach Ihren Anforderungen.</p>
-            <br/>
-            <a href='#contact'>MIETANFRAGE SCHICKEN</a>
+        <div className='services_right-wrapper'>
+          <Subheadline text='Pakete'/>
+          <div className='u-margin-top-bottom--large'>
+            <TextBlock>
+              <p>
+                Wir haben etwas für jeden Anlass. Für Ihre Veranstaltung erstellen wir Ihnen gern unverbindlich ein spezifisches Paket und Angebot ganz nach Ihren Anforderungen.
+              </p>
+            </TextBlock>
+          </div>
+          <a href='#contact'>MIETANFRAGE SCHICKEN</a>
           </div>
         </div>
       </div>
