@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../../stylesheets/Header.scss';
+import Button from '../essentials/Button';
 
 class Footer extends Component {
 
@@ -7,8 +8,8 @@ class Footer extends Component {
     return (
       <footer>
         <ul>
-          <a id='footer-left' href='#impressum'>IMPRESSUM</a>
-          <a id='footer-right'href='#privacy'>DATENSCHUTZ</a>
+          <Button link="/impressum" text="IMPRESSUM"/>
+          <Button link="/datenschutz" text="DATENSCHUTZ"/>
         </ul>
       </footer>
     )
