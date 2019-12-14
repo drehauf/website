@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import '../../../stylesheets/About.css';
 import Button from '../../essentials/Button';
 import Subheadline from '../../essentials/Subheadline';
+import '../../../stylesheets/About.scss';
 
 class About extends Component {
 

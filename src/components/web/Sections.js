@@ -4,6 +4,7 @@ import Services from './sections/Services';
 import Credentials from './sections/Credentials';
 import Contact from './sections/Contact';
 import Section from './Section';
+import '../../stylesheets/Sections.scss';
 
 const sectionList = [
   {

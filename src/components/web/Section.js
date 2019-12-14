@@ -1,5 +1,4 @@
 import React from 'react';
-import "../../stylesheets/Sections.css";
 import Headline from '../essentials/Headline';
 
 const Section = ({ title, content }) => {
