@@ -1,10 +1,15 @@
 import React, { Fragment } from 'react';
 import Button from './essentials/Button';
+import Link from './essentials/Link';
+
+const link = (
+  <Link href="/" text="home" external={false}/>
+)
 
 const Datenschutz = () => (
   <Fragment>
     <p>Datenschutzerklärung</p>
-    <Button link="/" text="home"/>
+    <Button link={link}/>
   </Fragment>
 )
 

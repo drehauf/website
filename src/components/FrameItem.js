@@ -10,8 +10,10 @@ const FrameItem = (props) => {
         <div className="carousel_headline u-margin-bottom--small">
           {props.caption}
         </div>
-        <div className="carousel_text u-margin-bottom--medium">{props.text}</div>
-        <Button link={props.href} text={props.actiontext} />
+        <div className="carousel_text u-margin-bottom--medium">
+          {props.text}
+        </div>
+        <Button link={props.link}/>
       </div>
     </div>
   );

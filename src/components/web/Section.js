@@ -1,9 +1,9 @@
 import React from 'react';
 import Headline from '../essentials/Headline';
 
-const Section = ({ title, content }) => {
+const Section = ({ title, content, id }) => {
   return (
-    <article >
+    <article id={id}>
       <div className="container">
         <Headline text={title}/>
         {content}
