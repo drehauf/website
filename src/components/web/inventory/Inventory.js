@@ -1,54 +1,39 @@
-import React, {Component} from 'react';
-import InventoryItem from './InventoryItem';
+import React, { Component, Fragment } from 'react';
+import InventoryData from 'assets/data/inventory.csv';
+import InventoryItem from 'components/web/inventory/InventoryItem.js';
+import CSVParser from 'components/web/utils/CSVParser.js';
 
 class Inventory extends Component {
 
-  items = [
-    {
-      id: 1,
-      name: 'Pioneer DJM-250-K',
-      totalAmount: 1,
-      amount: 1,
-      checked: true
-    },
-    {
-      id: 2,
-      name: 'Mackie Onyx 1640i',
-      totalAmount: 4,
-      amount: 1,
-      checked: false
-    },
-    {
-      id: 3,
-      name: 'HK Audio L.U.K.A.S Alpha: Bass',
-      totalAmount: 2,
-      amount: 1,
-      checked: false
-    },
-    {
-      id: 4,
-      name: 'HK Audio L.U.K.A.S Alpha: Top',
-      totalAmount: 4,
-      amount: 1,
-      checked: false
-    }
-  ];
+  state = {
+    inventory: []
+  }
 
-  getItems = () => {
-    return this.items.map((item) => (
-        <InventoryItem key={item.key} item={item}/>
-    ));
+  componentDidMount() {
+    CSVParser.get(InventoryData, (data) => {
+      this.setState({
+        inventory: data
+      });
+    });
   }
 
   render() {
     return(
       <table id='inventory'>
         <tbody>
-        {this.getItems()}
+          {this.table(this.state.inventory)}
         </tbody>
       </table>
     );
   }
+
+  table = (tableData) => {
+    return tableData.map((row, index) => (
+      <tr key={index}>
+        <InventoryItem rowData={row}/>
+      </tr>
+    ));
+  };
 
 }
 
