@@ -3,46 +3,37 @@ import About from './sections/About';
 import Services from './sections/Services';
 import Credentials from './sections/Credentials';
 import Contact from './sections/Contact';
-import '../../stylesheets/Sections.css';
+import Section from './Section';
+import '../../stylesheets/Sections.scss';
 
-class Sections extends Component {
-
-  sections = [
-    {
-      content: <About/>,
-      id: 'about',
-      title: 'Über uns'
-    },
-    {
-      content: <Services/>,
-      id: 'services',
-      title: 'Leistungen'
-    },
-    {
-      content: <Credentials/>,
-      id: 'credentials',
-      title: 'Referenzen'
-    },
-    {
-      content: <Contact/>,
-      id: 'contact',
-      title: 'Kontakt'
-    }
-  ];
-
-  render() {
-    return this.sections.map((section) => (
-      <article key={section.id}>
-        <div className='container'>
-        <div className='title'>
-          <p>{section.title}</p>
-        </div>
-        {section.content}
-        </div>
-      </article>
-    ));
+const sectionList = [
+  {
+    content: <About/>,
+    title: 'Über uns'
+  },
+  {
+    content: <Services/>,
+    title: 'Leistungen'
+  },
+  {
+    content: <Credentials/>,
+    title: 'Referenzen'
+  },
+  {
+    content: <Contact/>,
+    title: 'Kontakt'
   }
+];
 
+const Sections = () => {
+
+  return sectionList.map((sectionItem, index) => (
+    <Section
+      key={index}
+      title={sectionItem.title}
+      content={sectionItem.content}
+    />
+  ));
 }
 
 export default Sections;

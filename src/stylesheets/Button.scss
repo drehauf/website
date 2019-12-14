@@ -1,0 +1,9 @@
+@import './Variables.scss';
+
+.button {
+  color: $color-button--light;
+
+  &:hover {
+    color: darken($color-button--light, 15%);
+  }
+}
