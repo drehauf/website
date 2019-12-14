@@ -3,15 +3,8 @@ import InventoryData from 'assets/data/inventory.csv';
 import InventoryItem from 'components/web/inventory/InventoryItem.js';
 import CSVParser from 'components/web/utils/CSVParser.js';
 
-const table = (tableData) => {
-  return tableData.map((row, index) => (
-    <tr key={index}>
-      <InventoryItem rowData={row}/>
-    </tr>
-  ));
-};
 
-const Inventory = () => {
+const Inventory = (props) => {
 
   const [inventory, setInventory] = useState(null);
 
@@ -20,6 +13,17 @@ const Inventory = () => {
       setInventory(data);
     })
   }, []);
+
+  const table = (tableData) => {
+    return tableData.map((row, index) => (
+      <tr key={index}>
+        <InventoryItem
+          rowData={row}
+          onItemChange={props.onItemChange}
+        />
+      </tr>
+    ));
+  };
 
   return(
     <table id='inventory'>
