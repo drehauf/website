@@ -1,9 +1,11 @@
 import React from 'react';
 import '../../stylesheets/Button.scss';
 
-const Button = (props) => {
+const Button = ({ link }) => {
   return (
-    <a className="button" href={props.link}>{props.text}</a>
+    <div className="button">
+      {link}
+    </div>
   );
 };
 
