@@ -27,7 +27,7 @@ const Inventory = (props) => {
 
 
   return(
-    <table class='table'>
+    <table className='table'>
       <thead className="table_head">
         <tr>
           <th>Auswahl</th>

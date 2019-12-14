@@ -20,11 +20,6 @@ const sectionList = [
     content: <Credentials/>,
     title: 'Referenzen',
     id: 'credentials'
-  },
-  {
-    content: <Contact/>,
-    title: 'Kontakt',
-    id: 'contact'
   }
 ];
 
