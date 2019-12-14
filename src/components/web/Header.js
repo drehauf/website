@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import BurgerMenu from './BurgerMenu';
+import Button from '../essentials/Button';
 // import '../../stylesheets/Header.scss';
 
 class Header extends Component {
@@ -14,20 +15,12 @@ class Header extends Component {
           
           <div className='h-right'>
             
-            <ul id='hamburger-list'>
-              <li>
-                <a href='#about'>ÜBER&nbsp;UNS</a>
-              </li>
-              <li>
-                <a href='#services'>LEISTUNGEN</a>
-              </li>
-              <li>
-                <a href='#credentials'>REFERENZEN</a>
-              </li>
-              <li>
-                <a href='#contact'>KONTAKT</a>
-              </li>
-            </ul>
+            <div id='hamburger-list'>   
+              <Button link="#about" text="ÜBER UNS"/>
+              <Button link="#service" text="LEISTUNGEN" />
+              <Button link="#credentials" text="REFERENZEN" />
+              <Button link="#contact" text="KONTAKT" />
+            </div>
             <BurgerMenu/>
           </div>
         </div>
