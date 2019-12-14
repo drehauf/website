@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import Dropdown from 'components/essentials/Dropdown';
+
 
 const InventoryItem = ({ rowData }) => {
 
@@ -14,18 +16,30 @@ const InventoryItem = ({ rowData }) => {
     return options;
   }
 
+  const setOptions = () => {
+    let options = [];
+    for (let value = 1; value <= quantity; value++) {
+      options.push(
+        {value: value, label: value}
+      );
+    }
+    return options;
+  }
+
   return(
     <Fragment>
-      <td>
+      <td className="table_column table_column_checkbox">
         <input type='checkbox'/>
       </td>
-      <td>
+      <td className="table_column table_column_name">
         {name}
       </td>
-      <td>
-        <select disabled>
+      <td className="table_column table_column_quantity">
+        <Dropdown options={5}/>
+        
+        {/* <select disabled>
           {selectOptions(quantity)}
-        </select>
+        </select> */}
       </td>
     </Fragment>
   );

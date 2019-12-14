@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Inventory from 'components/web/inventory/Inventory.js';
 import Subheadline from 'components/essentials/Subheadline';
 import TextBlock from 'components/essentials/TextBlock';
+import Dropdown from 'components/essentials/Dropdown';
+
 
 class Services extends Component {
 
@@ -34,7 +36,10 @@ class Services extends Component {
                 </p>
               </TextBlock>
             </div>
+
             <Inventory/>
+            <Dropdown options={4}/>
+            
             <div className='u-margin-top--large'>
               <a id='done' href='#contact' cart-is-empty='true'>FERTIG</a>
             </div>

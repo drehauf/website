@@ -19,7 +19,14 @@ class Inventory extends Component {
 
   render() {
     return(
-      <table id='inventory'>
+      <table class='table'>
+        <thead className="table_head">
+          <tr>
+            <th>Band</th>
+            <th>Year formed</th>
+            <th>No. of Albums</th>
+          </tr>
+        </thead>
         <tbody>
           {this.table(this.state.inventory)}
         </tbody>
@@ -29,7 +36,7 @@ class Inventory extends Component {
 
   table = (tableData) => {
     return tableData.map((row, index) => (
-      <tr key={index}>
+      <tr key={index} className="table_row">
         <InventoryItem rowData={row}/>
       </tr>
     ));
