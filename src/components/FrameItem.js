@@ -15,7 +15,7 @@ const FrameItem = (props) => {
             <p>{props.text}</p>
           </TextBlock>
         </div>
-        <Button link={props.link}/>
+        <Button href={props.href} text={props.actiontext} external={props.external}/>
       </div>
     </div>
   );
