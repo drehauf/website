@@ -8,13 +8,11 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <div className="header_wrapper">
+        <div className="header_wrapper container">
           <a className='h-left animate' href='#slider' hidden>
             <img className='h-logo' src={Logo} alt='Logo'/>
           </a>
-
           <div className='h-right'>
-
             <div id='hamburger-list'>
               <Button link="#about" text="ÜBER UNS"/>
               <Button link="#service" text="LEISTUNGEN" />

@@ -10,10 +10,10 @@ header {
   width: 100%;
   z-index: 10;
   color: $color-button--dark;
+  box-shadow: 0px 0px 15px rgba($color-text--light, .25);
 }
 
 .header_wrapper {
-  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -163,7 +163,4 @@ label:hover {
     align-items: center;
   }
 
-  .header_wrapper {
-    width: 70%;
-  }
 }
