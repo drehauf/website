@@ -1,39 +1,39 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import InventoryData from 'assets/data/inventory.csv';
 import InventoryItem from 'components/web/inventory/InventoryItem.js';
 import CSVParser from 'components/web/utils/CSVParser.js';
 
-class Inventory extends Component {
 
-  state = {
-    inventory: []
-  }
+const Inventory = (props) => {
 
-  componentDidMount() {
+  const [inventory, setInventory] = useState(null);
+
+  useEffect(() => {
     CSVParser.get(InventoryData, (data) => {
-      this.setState({
-        inventory: data
-      });
-    });
-  }
+      setInventory(data);
+    })
+  }, []);
 
-  render() {
-    return(
-      <table id='inventory'>
-        <tbody>
-          {this.table(this.state.inventory)}
-        </tbody>
-      </table>
-    );
-  }
-
-  table = (tableData) => {
+  const table = (tableData) => {
     return tableData.map((row, index) => (
       <tr key={index}>
-        <InventoryItem rowData={row}/>
+        <InventoryItem
+          rowData={row}
+          onItemChange={props.onItemChange}
+        />
       </tr>
     ));
   };
+
+  return(
+    <table id='inventory'>
+      <tbody>
+        {
+          inventory ? table(inventory) : null
+        }
+      </tbody>
+    </table>
+  );
 
 }
 

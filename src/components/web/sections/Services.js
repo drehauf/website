@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Inventory from 'components/web/inventory/Inventory.js';
 import Subheadline from 'components/essentials/Subheadline';
 import TextBlock from 'components/essentials/TextBlock';
+import ShoppingCart from 'components/web/inventory/ShoppingCart';
 
 class Services extends Component {
 
@@ -34,9 +35,9 @@ class Services extends Component {
                 </p>
               </TextBlock>
             </div>
-            <Inventory/>
+            <ShoppingCart/>
             <div className='u-margin-top--large'>
-              <a id='done' href='#contact' cart-is-empty='true'>FERTIG</a>
+              <a id='done' href='#contact' cart-is-empty='true'>{this.getButtonName}</a>
             </div>
         </div>
         <div className='services_right-wrapper'>
