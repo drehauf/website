@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import InventoryData from 'assets/data/inventory.csv';
 import InventoryItem from 'components/web/inventory/InventoryItem.js';
 import CSVParser from 'components/web/utils/CSVParser.js';

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import About from './sections/About';
 import Services from './sections/Services';
 import Credentials from './sections/Credentials';

@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../../stylesheets/Header.scss';
 import Button from '../essentials/Button';
 import Link from '../essentials/Link';
 
 const Footer = () => {
-          
+
   const impressumLink = <Link href="/impressum" text="IMPRESSUM" />;
   const datenschutzLink = <Link href="/datenschutz" text="DATENSCHUTZ" />;
 
