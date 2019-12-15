@@ -8,7 +8,11 @@ const Impressum = () => {
   return (
     <Fragment>
       <Navbar />
-      <Section title="Impressum" content={Content}></Section>
+      <Section
+        title="Impressum"
+        content={Content}
+        sectionStyle={{ paddingTop: "4.8em" }}
+      />
     </Fragment>
   );
 }
