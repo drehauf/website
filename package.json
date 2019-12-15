@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "fs": "0.0.1-security",
     "jquery": "^3.4.1",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-paginate": "^6.3.2",
     "react-responsive-carousel": "^3.1.51",
     "react-router-dom": "^5.1.2",
     "react-router-hash-link": "^1.2.2",

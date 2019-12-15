@@ -10,7 +10,7 @@
 
   &_head {
     z-index: 2;
-    background-color: $color-text--light;
+    background-color: $color-nav--dark;
     color: $color-text--dark;
     position: sticky;
     top: 0;
@@ -28,15 +28,84 @@
   }
 
   & tfoot {
-    text-align: center;
     font-weight: bold;
     position: sticky;
     bottom: 0;
-    background-color: black;
-    color: white;
+    background-color: $color-nav--dark;
+    color: $color-text--dark;
 
-    & td {
-      padding: .8em;
+    & .pagination {
+
+      &_arrow {
+        position: absolute;
+        height: 0;
+        width: 0;
+
+        &-left {
+          left: 0;
+          border-top: solid 6px transparent;
+          border-right: solid 5px  $color-button--light;
+          border-bottom: solid 5px transparent;
+
+          // &:hover {
+          //   border-right: solid 5px darken($color-button--light, 15%);
+          // }
+
+        }
+
+        &-right {
+          right: 0;
+          border-top: solid 6px transparent;
+          border-left: solid 5px  $color-button--light;
+          border-bottom: solid 5px transparent;
+
+          // &:hover {
+          //   border-left: solid 5px darken($color-button--light, 15%);
+          // }
+
+        }
+
+      }
+
+    }
+
+    & ul {
+      display: flex;
+      justify-content: center;
+
+      & li {
+        padding: .8em;
+        list-style: none;
+        cursor: pointer;
+
+        &:first-child {
+          display: flex;
+          align-items: center;
+          position: absolute;
+          left: 1.5em;
+
+          & a {
+            padding-left: .5em;
+          }
+        }
+
+        &:last-child {
+          display: flex;
+          align-items: center;
+          position: absolute;
+          right: 1.5em;
+
+          & a {
+            padding-right: .5em;
+          }
+
+        }
+
+        & a {
+          user-select: none;
+
+        }
+      }
     }
   }
 
