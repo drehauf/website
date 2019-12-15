@@ -12,8 +12,7 @@ const Dropdown = ({ options, returnFunction, isDisabled }) => {
   }
 
   const style = {
-    color: isDisabled ? 'lightGray' : 'inherit',
-    borderColor: isDisabled ? 'lightGray' : 'black'
+    "--disabled": isDisabled ? 'lightGray' : 'black',
   };
 
   function handleClickOutside(event) {

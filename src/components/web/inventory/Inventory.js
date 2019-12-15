@@ -27,19 +27,28 @@ const Inventory = (props) => {
 
 
   return(
-    <table className='table'>
-      <thead className="table_head">
-        <tr>
-          <th colSpan='2'>Bezeichnung</th>
-          <th>Anzahl</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          inventory ? table(inventory) : null
-        }
-      </tbody>
-    </table>
+    <div className='table_wrapper'>
+      <table className='table'>
+        <thead className="table_head">
+          <tr>
+            <th colSpan='2'>Bezeichnung</th>
+            <th>Anzahl</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            inventory ? table(inventory) : null
+          }
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan='3'>
+              Hallo ich rieche nach Käse
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
   );
 
 }
