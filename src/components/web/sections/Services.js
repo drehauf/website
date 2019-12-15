@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-import Inventory from 'components/web/inventory/Inventory.js';
 import Subheadline from 'components/essentials/Subheadline';
 import TextBlock from 'components/essentials/TextBlock';
-import ShoppingCart from 'components/web/inventory/ShoppingCart';
-import Dropdown from 'components/essentials/Dropdown';
-
+import Table from 'components/web/inventory/Table';
 
 class Services extends Component {
 
@@ -37,7 +34,7 @@ class Services extends Component {
                 </p>
               </TextBlock>
             </div>
-            <ShoppingCart/>
+            <Table/>
             <div className='u-margin-top--large'>
               <a id='done' href='#contact' cart-is-empty='true'>{this.getButtonName}</a>
             </div>
