@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Main from './components/Main';
-import Impressum from './components/Impressum';
-import Datenschutz from "./components/Datenschutz";
+import Impressum from './components/Impressum/Impressum';
+import Datenschutz from "./components/Datenschutz/Datenschutz";
 import './stylesheets/index.scss';
 
 const App = () => {
