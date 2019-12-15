@@ -5,14 +5,21 @@ import FrameData from "./web/Frames";
 import Sections from "./web/Sections";
 import Carousel from "./Carousel";
 import Contact from 'components/web/sections/Contact';
+import ShoppingCart, {
+  ShoppingCartContext
+} from "components/Datamanagement/ShoppingCart";
 
 const Main = () => (
   <Fragment>
-    <Header />
-    <Carousel frameData={FrameData} />
-    <Sections />
-    <Contact />
-    <Footer />
+    <ShoppingCart>
+      <Header />
+      <Carousel frameData={FrameData} />
+      <Sections />
+      <ShoppingCartContext.Consumer>
+        {value => <Contact isCardSet={value.isCartSet}/>}
+      </ShoppingCartContext.Consumer>
+      <Footer />
+    </ShoppingCart>
   </Fragment>
 );
 

@@ -1,56 +1,41 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import Dropdown from 'components/essentials/Dropdown';
 
-const InventoryItem = (props) => {
+const InventoryItem = ({ rowData, onItemChange }) => {
 
-  const rowData = props.rowData;
-  const [ didMount, setDidMount ] = useState(false)
-  const [ name, setName ] = useState(rowData.name);
-  const [ quantity, setQuantitiy ] = useState(1);
-  const [ isChecked, setChecked ] = useState(false);
+  const name = rowData.name;
+  const [didMount, setDidMount] = useState(false);
+  const [quantity, setQuantitiy] = useState(1);
+  const [isChecked, setChecked] = useState(false);
 
-  const selectOptions = (quantity) => {
-    let options = []
-    for (let value = 1; value <= quantity; value++) {
-      options.push(
-        <option key={value}>{value}</option>
-      );
-    }
-    return options;
-  }
+  const quantityHandler = quantity => {
+    setQuantitiy(quantity);
+  };
 
-const quantityHandler = (quantity) => {
-  setQuantitiy(quantity);
-};
+  const checkedHandler = () => {
+    setChecked(!isChecked);
+  };
 
-const checkedHandler = (name, quantity = 1) => {
-  setChecked(!isChecked);
-};
+  useEffect(() => {
+    if (didMount) {
+      onItemChange({ name, quantity, isChecked });
+    } else setDidMount(true);
+  }, [quantity, isChecked]);
 
-useEffect(() => {
-  if (didMount) {
-    props.onItemChange({ name, quantity, isChecked });
-  } else setDidMount(true);
-}, [name, quantity, isChecked]);
-
-  return(
+  return (
     <Fragment>
       <td className="table_column table_column_checkbox">
         <input
-          type='checkbox'
+          type="checkbox"
           checked={isChecked}
-          onChange={
-            () => checkedHandler(rowData.name, quantity)
-          }
+          onChange={() => checkedHandler()}
         />
       </td>
       <td
         className="table_column table_column_name"
-        onClick={
-          () => setChecked(!isChecked)
-        }
+        onClick={() => setChecked(!isChecked)}
       >
-        {rowData.name}
+        {name}
       </td>
       <td className="table_column table_column_quantity">
         <Dropdown
@@ -61,7 +46,6 @@ useEffect(() => {
       </td>
     </Fragment>
   );
-
-}
+};
 
 export default InventoryItem;

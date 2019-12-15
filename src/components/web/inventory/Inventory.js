@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import InventoryData from 'assets/data/inventory.csv';
 import InventoryItem from 'components/web/inventory/InventoryItem.js';
 import CSVParser from 'components/web/utils/CSVParser.js';
-
+import { ShoppingCartContext } from 'components/Datamanagement/ShoppingCart'; 
 
 const Inventory = (props) => {
 
@@ -17,14 +17,14 @@ const Inventory = (props) => {
   const table = (tableData) => {
     return tableData.map((row, index) => (
       <tr key={index} className="table_row">
-        <InventoryItem
-          rowData={row}
-          onItemChange={props.onItemChange}
-        />
+        <ShoppingCartContext.Consumer>
+          {value => (
+            <InventoryItem rowData={row} onItemChange={value.onItemChange} />
+          )}
+        </ShoppingCartContext.Consumer>
       </tr>
     ));
   };
-
 
   return(
     <div className='table_wrapper'>
