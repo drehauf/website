@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import Button from 'components/essentials/Button';
 
 function BurgerMenu() {
 
@@ -12,17 +13,17 @@ function BurgerMenu() {
     );
   })();
 
-  return(
+  return (
     <div id="menuToggle">
       <input type="checkbox" />
-      
+
       {burger}
-      
+
       <ul id="menu">
-        <a href="#about"><li>ÜBER UNS</li></a>
-        <a href="#service"><li>LEISTUNGEN</li></a>
-        <a href="#credentials"><li>REFERENZEN</li></a>
-        <a href="#contact"><li>KONTAKT</li></a>
+        <Button href="/#about" text="ÜBER UNS" external={false} />
+        <Button href="/#service" text="LEISTUNGEN" external={false} />
+        <Button href="/#credentials" text="REFERENZEN" external={false} />
+        <Button href="/#contact" text="KONTAKT" external={false} />
       </ul>
     </div>
   );
