@@ -1,13 +1,20 @@
 import React, {useState, useEffect, useRef} from 'react';
 
-const Dropdown = ({ options, returnFunction, disabled }) => {
+const Dropdown = ({ options, returnFunction, isDisabled }) => {
   const dropdownMenu = useRef(null);
   const [show, setShow] = useState(false);
+  const [currentValue, setCurrentValue] = useState(1);
 
   const toggleMenu = () => {
-    setShow(!show);
+    if(!isDisabled) {
+      setShow(!show);
+    }
   }
 
+  const style = {
+    color: isDisabled ? 'lightGray' : 'inherit',
+    borderColor: isDisabled ? 'lightGray' : 'black'
+  };
 
   function handleClickOutside(event) {
     if (dropdownMenu.current && !dropdownMenu.current.contains(event.target)) {
@@ -24,6 +31,7 @@ const Dropdown = ({ options, returnFunction, disabled }) => {
 
   const setValue = (value) => {
     returnFunction(value);
+    setCurrentValue(value);
     toggleMenu();
   }
 
@@ -39,8 +47,12 @@ const Dropdown = ({ options, returnFunction, disabled }) => {
 
   return(
     <div className="dropdown" ref={dropdownMenu}>
-      <div className="dropdown_header" onClick={toggleMenu}>
-        Select
+      <div
+        className="dropdown_header"
+        onClick={toggleMenu}
+        style={style}
+      >
+        {currentValue}
       </div>
       {show ?
       <div className="dropdown_card">

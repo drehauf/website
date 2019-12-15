@@ -51,7 +51,7 @@ useEffect(() => {
         <Dropdown
           options={rowData.quantity}
           returnFunction={quantityHandler}
-          disabled={!isChecked}
+          isDisabled={!isChecked}
         />
       </td>
     </Fragment>
