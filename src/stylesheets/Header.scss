@@ -66,10 +66,6 @@ label:hover {
   }
 }
 
-#menuToggle a:hover {
-  color: red;
-}
-
 #menuToggle input {
   display: block;
   width: 21px;
@@ -129,23 +125,28 @@ label:hover {
 #menu {
   position: absolute;
   left: 100%;
-  width: 300px;
+  width: 250px;
   padding: 30px;
   border-radius: 5px;
 
   background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
+  box-shadow: 0px 5px 15px rgba($color-text--light, .25);
 
   transform-origin: 0% 0%;
   transform: translateX(10%);
 
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
 }
 
-#menu li {
-  padding: 10px 0;
-  font-size: 18px;
+.menu_item {
+  margin-bottom: 2em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 #menuToggle input:checked ~ ul {

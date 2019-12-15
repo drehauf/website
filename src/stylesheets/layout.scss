@@ -6,4 +6,21 @@
   display: flex;
   justify-content: center;
   padding: 4em 0;
+
+  @include tablet {
+    padding: 3em 0;
+  }
+}
+
+footer {
+
+  & ul {
+    display: flex;
+    justify-content: flex-end;
+    padding: .5em 0;
+  
+    & div {
+      margin-right: 2em;
+    }
+  }
 }
