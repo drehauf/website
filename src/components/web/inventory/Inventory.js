@@ -16,7 +16,7 @@ const Inventory = (props) => {
 
   const table = (tableData) => {
     return tableData.map((row, index) => (
-      <tr key={index}>
+      <tr key={index} className="table_row">
         <InventoryItem
           rowData={row}
           onItemChange={props.onItemChange}
@@ -27,20 +27,28 @@ const Inventory = (props) => {
 
 
   return(
-    <table class='table'>
-      <thead className="table_head">
-        <tr>
-          <th>Auswahl</th>
-          <th>Bezeichnung</th>
-          <th>Anzahl</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          inventory ? table(inventory) : null
-        }
-      </tbody>
-    </table>
+    <div className='table_wrapper'>
+      <table className='table'>
+        <thead className="table_head">
+          <tr>
+            <th colSpan='2'>Bezeichnung</th>
+            <th>Anzahl</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            inventory ? table(inventory) : null
+          }
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan='3'>
+              Hallo ich rieche nach Käse
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
   );
 
 }

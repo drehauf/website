@@ -1,7 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import Dropdown from 'components/essentials/Dropdown';
 
-
 const InventoryItem = (props) => {
 
   const rowData = props.rowData;
@@ -39,19 +38,25 @@ useEffect(() => {
       <td className="table_column table_column_checkbox">
         <input
           type='checkbox'
+          checked={isChecked}
           onChange={
             () => checkedHandler(rowData.name, quantity)
           }
         />
       </td>
-      <td className="table_column table_column_name">
+      <td
+        className="table_column table_column_name"
+        onClick={
+          () => setChecked(!isChecked)
+        }
+      >
         {rowData.name}
       </td>
       <td className="table_column table_column_quantity">
         <Dropdown
           options={rowData.quantity}
           returnFunction={quantityHandler}
-          disabled={!isChecked}
+          isDisabled={!isChecked}
         />
       </td>
     </Fragment>

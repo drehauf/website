@@ -1,27 +1,34 @@
 import React, {Component} from 'react';
 import BackgroundImg from 'assets/images/contact.jpg';
+import FrameOverlay from 'components/FrameOverlay';
 
 class Contact extends Component {
 
+  content = [
+    {
+      caption: "Alles fertig?",
+      text: "Schön, dass Sie fündig geworden sind! Sobald Sie unverbindlich eine Mietanfrage stellen, klären wir den Rest. Sie können Ihre Auswahl dann auch später noch verändern."
+    },
+    {
+      caption: "Noch Fragen?",
+      text: "Vielleicht können wir helfen."
+    }
+  ];
+
   render() {
     return (
-      <div>
-        <img src={BackgroundImg} alt='contact'/>
-        <div id='float'>
-          <h2>Alles fertig?</h2>
-          <p>Schön, dass Sie fündig geworden sind! Sobald Sie unverbindlich eine Mietanfrage stellen, klären wir den Rest. Sie können Ihre Auswahl dann auch noch verändern.</p>
-          <div id='request'>
-            <a id='request-action' href='/'>ANFRAGE STELLEN</a>
-            <p id='request-amount' cart-is-empty='true'></p>
-          </div>
+      <div id="contact" className='contact'>
+        <div className="contact_image">
+          <img src={BackgroundImg} alt='contact' width="100%" height="100%"/>
         </div>
-        <div id='float' hidden>
-          <h2>Noch Fragen?</h2>
-          <p>Vielleicht können wir helfen.</p>
-          <div id='request'>
-          <a href='/'>ANFRAGE STELLEN</a>
-          </div>
-        </div>
+        <FrameOverlay
+          src={BackgroundImg}
+          alt="kontakt"
+          href='/'
+          actiontext='ANFRAGE STELLEN'
+          caption={this.content[0].caption}
+          text={this.content[0].text}
+          />
       </div>
     );
   }

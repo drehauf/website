@@ -1,23 +1,34 @@
 .dropdown {
   position: relative;
-  width: 50%;
-
+  user-select: none;
 
   &_header {
-    padding: .2em;
+    padding: 0 2em;
     border-radius: 3px;
-    border: solid 1px rgba(black, .3);
+    color: var(--disabled);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: '';
+      position: relative;
+      margin-left: .3em;
+      border-top: solid 6px var(--disabled);
+      border-left: solid 5px transparent;
+      border-right: solid 5px transparent;
+    }
+
   }
 
   &_card {
     position: absolute;
+    transform: translateY(4px);
     width: 100%;
-    background-color: white;
     border-radius: 6px;
-    border-bottom: solid 1px rgba(black, .2);
-    border-left: solid 1px rgba(black, .2);
-    border-right: solid 1px rgba(black, .2);
+    border-bottom: solid 1px rgba($color-text--light, .2);
+    border-left: solid 1px rgba($color-text--light, .2);
+    border-right: solid 1px rgba($color-text--light, .2);
     overflow: hidden;
     z-index: 5;
 
@@ -25,13 +36,18 @@
       display: flex;
       justify-content: center;
       padding: .3em 0;
-      border-bottom: solid 1px rgba(black, .2);
+      background-color: $color-text--light;
+      color: $color-text--dark;
+      border-bottom: solid 1px rgba($color-text--dark, .2);
       width: 100%;
       cursor: pointer;
+      transition: all .1s;
 
       &:hover {
-        background-color: #eee;
+        background-color: lighten($color-text--light, 25%);
       }
+
     }
   }
+
 }
