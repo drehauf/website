@@ -20,10 +20,18 @@ function BurgerMenu() {
       {burger}
 
       <ul id="menu">
-        <Button href="/#about" text="ÜBER UNS" external={false} />
-        <Button href="/#service" text="LEISTUNGEN" external={false} />
-        <Button href="/#credentials" text="REFERENZEN" external={false} />
-        <Button href="/#contact" text="KONTAKT" external={false} />
+        <div className="menu_item">
+          <Button href="/#about" text="ÜBER UNS" external={false} />
+        </div>
+        <div className="menu_item">
+          <Button href="/#service" text="LEISTUNGEN" external={false} />
+        </div>
+        <div className="menu_item">
+          <Button href="/#credentials" text="REFERENZEN" external={false} />
+        </div>
+        <div className="menu_item">
+          <Button href="/#contact" text="KONTAKT" external={false} />
+        </div>
       </ul>
     </div>
   );
