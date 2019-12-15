@@ -2,14 +2,26 @@
 
   &_flex-wrapper {
     display: flex;
+
+    @include tablet {
+      flex-direction: column;
+    }
   }
 
   &_left-wrapper {
     min-width: 60%;
     margin-right: 3rem;
+
+    @include tablet {
+      margin-right: 0;
+    }
   }
 
-  &_right-wrapper { }
+  &_right-wrapper { 
+    @include tablet {
+      margin-top: 3em;
+    }
+  }
 
   &_cite {
     margin-left: 2rem;

@@ -2,13 +2,23 @@
 
   &_flex-wrapper {
     display: flex;
+
+    @include tablet {
+      flex-direction: column-reverse;
+    }
   }
 
   &_left-wrapper {
     min-width: 60%;
     margin-right: 3rem;
+
+    @include tablet {
+      margin-right: 0;
+      margin-top: 2em;
+    }
   }
 
-  &_right-wrapper { }
+  &_right-wrapper { 
 
+  }
 }
