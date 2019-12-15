@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "fs": "0.0.1-security",
     "jquery": "^3.4.1",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Button from 'components/essentials/Button';
 
-const Pagination = ({ previous, current, next, previousPage, nextPage }) => {
+const Pagination = ({ previous, current, next, handlePreviousPage, handleNextPage }) => {
 
   const handlePageChange = (direction) => {
     if (direction) {
-      nextPage()
+      handleNextPage()
     } else {
-      previousPage()
+      handlePreviousPage()
     }
   };
 
