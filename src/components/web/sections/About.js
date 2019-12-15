@@ -48,9 +48,9 @@ class About extends Component {
             </TextBlock>
           </div>
           <Button
-            href="#contact"
+            href="https://wego.here.com/deutschland/dresden/education-facility/freie-montessorischule-huckepack--276u31f3-f98f3c5dc3124f76b306cdafc6f2b4b0?map=51.0423,13.78616,15,normal"
             text="FIRMA UND SCHULE AUF KARTE ANZEIGEN"
-            external={false}
+            external={true}
           />
         </div>
         <div className="about_right-wrapper">
