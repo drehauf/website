@@ -20,3 +20,19 @@ $color-table--light: #fff;
 $color-table--dark: #eee;
 
 $color-underscore--light: #ECD444;
+
+@mixin phone {
+  @media only screen and (max-width: 599) { @content; }
+}
+@mixin tablet {
+  @media only screen and (max-width: 800px) { @content; }
+}
+@mixin landscape {
+  @media only screen and (max-width: 900px) { @content; }
+}
+@mixin desktop {
+  @media only screen and (max-width: 1200px) { @content; }
+}
+@mixin ultra-wide {
+  @media only screen and (max-width: 1800px) { @content; }
+}
