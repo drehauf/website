@@ -5,5 +5,14 @@
 
   &:hover {
     color: darken($color-button--light, 15%);
+
+    & + .pagination_arrow-right {
+      border-left: solid 5px darken($color-button--light, 15%);
+    }
+
+    & + .pagination_arrow-left {
+      border-right: solid 5px darken($color-button--light, 15%);
+    }
+
   }
 }

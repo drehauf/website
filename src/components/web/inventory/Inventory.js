@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import InventoryData from 'assets/data/inventory.csv';
 import InventoryItem from 'components/web/inventory/InventoryItem.js';
 import CSVParser from 'components/web/utils/CSVParser.js';
-
+import Pagination from 'components/essentials/Pagination';
 
 const Inventory = (props) => {
 
@@ -25,6 +25,13 @@ const Inventory = (props) => {
     ));
   };
 
+  const previousPage = () => {
+    console.log('previous');
+  };
+
+  const nextPage = () => {
+    console.log('next');
+  };
 
   return(
     <div className='table_wrapper'>
@@ -43,7 +50,13 @@ const Inventory = (props) => {
         <tfoot>
           <tr>
             <td colSpan='3'>
-              Hallo ich rieche nach Käse
+              <Pagination
+                previous='MIKROFONE'
+                current='Pulte'
+                next='LICHTER'
+                previousPage={previousPage}
+                nextPage={nextPage}
+              />
             </td>
           </tr>
         </tfoot>
