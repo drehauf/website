@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Subheadline from 'components/essentials/Subheadline';
 import TextBlock from 'components/essentials/TextBlock';
-import Table from 'components/web/inventory/Table';
+import Table from 'components/web/inventory/TableContainer';
 
 class Services extends Component {
 
