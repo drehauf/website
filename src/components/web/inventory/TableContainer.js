@@ -1,15 +1,31 @@
-import React, { Fragment } from 'react';
-import Inventory from 'components/web/inventory/InventoryWrapper';
+import React, { Fragment, useState } from 'react';
+import InventoryWrapper from 'components/web/inventory/InventoryWrapper';
+import ToggleButton from 'components/web/inventory/toggleButton';
+import { ShoppingCartContext } from "components/Datamanagement/ShoppingCart";
 
-const TableContainer = () => {
-  return(
+const TableContainer = ({ isCartSet }) => {
+
+  const [showSelected, setShowSelected] = useState(false);
+  const onClickHandler = () => setShowSelected(!showSelected);
+
+  const toggleButton = isCartSet ? <ToggleButton show={showSelected} toggleFunction={onClickHandler}/> : null
+
+  return (
     <Fragment>
-      <Inventory />
-      <div className='u-margin-top--large'>
-        <a href='/'>AUSWAHL ANZEIGEN</a>
-      </div>
+      <InventoryWrapper />
+      {toggleButton}
     </Fragment>
   );
 };
 
-export default TableContainer;
+const TableWrapper = () => {
+  return (
+    <ShoppingCartContext.Consumer>
+      { value => (
+        <TableContainer isCartSet={value.isCartSet} />
+      )}
+    </ShoppingCartContext.Consumer>
+  )
+}
+
+export default TableWrapper;
