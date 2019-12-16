@@ -8,7 +8,7 @@ const Inventory = ({ tableData }) => {
     <tr key={index} className="table_row">
       <ShoppingCartContext.Consumer>
         {value => (
-          <InventoryItem rowData={row} onItemChange={value.onItemChange} />
+          <InventoryItem rowData={row} onItemChange={value.onItemChange} cart={value.cart} />
         )}
       </ShoppingCartContext.Consumer>
     </tr>

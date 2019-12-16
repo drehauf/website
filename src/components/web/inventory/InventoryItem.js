@@ -1,9 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import Dropdown from 'components/essentials/Dropdown';
 
-const InventoryItem = ({ rowData, onItemChange }) => {
+const InventoryItem = ({ rowData, onItemChange, cart }) => {
 
   const name = rowData.name;
+  
   const [didMount, setDidMount] = useState(false);
   const [quantity, setQuantitiy] = useState(1);
   const [isChecked, setChecked] = useState(false);

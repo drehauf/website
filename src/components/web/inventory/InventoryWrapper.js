@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import CSVParser from 'components/web/utils/CSVParser.js';
-import Pagination from 'components/essentials/Pagination';
 import InventoryBody from 'components/web/inventory/InventoryBody';
 import InventoryData from 'components/web/inventory/InventoryData';
 import Table from 'components/web/inventory/Table';
@@ -28,29 +27,10 @@ const InventoryWrapper = (props) => {
     }
   }, [pages]);
 
-  const handlePreviousPage = () => {
-    console.log('previous');
-  };
-
-  const handleNextPage = () => {
-    console.log('next');
-  };
-
-  const pegination = () => {
-    return (
-      <Pagination
-        previous={pages[1].title}
-        current={pages[0].title}
-        next={pages[4].title}
-        handlePreviousPage={handlePreviousPage}
-        handleNextPage={handleNextPage}
-      />
-    )
-  }
-
   const table = () => {
+    console.log('pages ', pages);
     return (
-      <Table pegination={pegination}>
+      <Table showPegination={true} data={pages}>
         <InventoryBody tableData={pages[0].data}/>
       </Table>
     );
