@@ -2,13 +2,13 @@ import React from 'react';
 import { ShoppingCartContext } from 'components/Datamanagement/ShoppingCart';
 import InventoryItem from 'components/web/inventory/InventoryItem';
 
-const Inventory = ({ tableData }) => {
-
+const InventoryBody = ({ tableData }) => {
+  
   return tableData.map((row, index) => (
     <tr key={index} className="table_row">
       <ShoppingCartContext.Consumer>
         {value => (
-          <InventoryItem rowData={row} onItemChange={value.onItemChange} cart={value.cart} />
+          <InventoryItem rowData={row} onItemChange={value.onItemChange} />
         )}
       </ShoppingCartContext.Consumer>
     </tr>
@@ -16,4 +16,4 @@ const Inventory = ({ tableData }) => {
 
 }
 
-export default Inventory;
+export default InventoryBody;

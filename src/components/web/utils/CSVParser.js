@@ -31,7 +31,7 @@ export default {
       if (name !== '' && name !== '/' && name !== '\r' && quantity !== 0 && !isNaN(quantity)) {
         data.push({
           name: name,
-          quantity: quantity
+          maxQuantity: quantity
         });
       }
     }
@@ -65,7 +65,6 @@ export default {
         }
       }
     });
-    console.log(pages);
     callback(pages)
   }
 }
