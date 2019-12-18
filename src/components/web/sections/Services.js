@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Subheadline from 'components/essentials/Subheadline';
 import TextBlock from 'components/essentials/TextBlock';
-import Table from 'components/web/inventory/Table';
+import TableContainer from 'components/web/inventory/TableContainer';
 
 class Services extends Component {
 
@@ -34,7 +34,7 @@ class Services extends Component {
                 </p>
               </TextBlock>
             </div>
-            <Table/>
+            <TableContainer/>
             <div className='u-margin-top--large'>
               <a id='done' href='#contact' cart-is-empty='true'>{this.getButtonName}</a>
             </div>

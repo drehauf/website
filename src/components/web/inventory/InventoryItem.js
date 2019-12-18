@@ -4,16 +4,17 @@ import Dropdown from 'components/essentials/Dropdown';
 const InventoryItem = ({ rowData, onItemChange }) => {
 
   const name = rowData.name;
+  
   const [didMount, setDidMount] = useState(false);
-  const [quantity, setQuantitiy] = useState(1);
-  const [isChecked, setChecked] = useState(false);
+  const [quantity, setQuantitiy] = useState(rowData.quantity);
+  const [isChecked, setChecked] = useState(rowData.isChecked);
 
   const quantityHandler = quantity => {
     setQuantitiy(quantity);
   };
 
   const checkedHandler = () => {
-    setChecked(!isChecked);
+    setChecked(prev => !prev.isChecked);
   };
 
   useEffect(() => {
@@ -39,7 +40,8 @@ const InventoryItem = ({ rowData, onItemChange }) => {
       </td>
       <td className="table_column table_column_quantity">
         <Dropdown
-          options={rowData.quantity}
+          maxQuantity={rowData.maxQuantity}
+          quantity={quantity}
           returnFunction={quantityHandler}
           isDisabled={!isChecked}
         />

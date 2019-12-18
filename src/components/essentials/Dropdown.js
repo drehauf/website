@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useRef} from 'react';
 
-const Dropdown = ({ options, returnFunction, isDisabled }) => {
+const Dropdown = ({ maxQuantity, quantity, returnFunction, isDisabled }) => {
   const dropdownMenu = useRef(null);
   const [show, setShow] = useState(false);
-  const [currentValue, setCurrentValue] = useState(1);
+  const [currentValue, setCurrentValue] = useState(quantity);
 
   const toggleMenu = () => {
     if(!isDisabled) {
@@ -42,7 +42,7 @@ const Dropdown = ({ options, returnFunction, isDisabled }) => {
     return options;
   }
 
-  const parsedOptions = getOptions(options);
+  const parsedOptions = getOptions(maxQuantity);
 
   return(
     <div className="dropdown" ref={dropdownMenu}>
