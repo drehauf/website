@@ -1,19 +1,18 @@
 import React from 'react';
-import Button from './essentials/Button';
 import Subheadline from 'components/essentials/Subheadline';
 import TextBlock from 'components/essentials/TextBlock';
 
-const FrameItem = (props) => {
+const FrameItem = ({ caption, text, button }) => {
 
   return(
     <div className="carousel_overlay">
-      <Subheadline text={props.caption}/>
+      <Subheadline text={caption}/>
       <div className='u-margin-top-bottom--medium'>
         <TextBlock>
-          <p>{props.text}</p>
+          <p>{text}</p>
         </TextBlock>
       </div>
-      <Button href={props.href} text={props.actiontext} external={props.external}/>
+      {button}
     </div>
   );
 
