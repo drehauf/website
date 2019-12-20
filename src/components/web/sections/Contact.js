@@ -2,6 +2,7 @@ import React from 'react';
 import BackgroundImg from 'assets/images/contact.jpg';
 import FrameOverlay from 'components/FrameOverlay';
 import Button from 'components/essentials/Button';
+import MailButton from 'components/web/MailButton';
 
 const Contact = ({ isCardSet }) => {
 
@@ -9,7 +10,7 @@ const Contact = ({ isCardSet }) => {
     card: {
       caption: "Alles fertig?",
       text: "Schön, dass Sie fündig geworden sind! Sobald Sie unverbindlich eine Mietanfrage stellen, klären wir den Rest. Sie können Ihre Auswahl dann auch später noch verändern.",
-      button: <Button href="/" text="ANFRAGE STELLEN" external={false}/>
+      button: <MailButton text="ANFRAGE STELLEN"/>
     },
     withoutCart: {
       caption: "Noch Fragen?",

@@ -30,10 +30,25 @@ const ShoppingCartFacade = () => {
     return returnArray;
   }
 
+  const getEmailText = selected => {
+    console.log('selected ', selected);
+
+    let NEWLINE = "%0D%0A";
+    let emailText = `${NEWLINE}${NEWLINE}Ich habe folgendes Equipment online ausgewählt:${NEWLINE}${NEWLINE}`;
+
+    for (let item of selected) {
+      console.log('item ', item);
+      emailText += `${item.quantity}x ${item.name}${NEWLINE}`;
+    }
+    
+    return emailText;
+  }
+
   return {
     updateCart: updateCart,
-    getSelected: getSelected
-  }
+    getSelected: getSelected,
+    getEmailText: getEmailText
+  };
 }
 
 export default ShoppingCartFacade();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import InventoryData from "components/web/inventory/InventoryData";
 import ShoppingCartFacade from 'components/Datamanagement/ShoppingCartFacade';
 
@@ -16,6 +16,7 @@ const ShoppingCart = (props) => {
   const [isCartSet, setIsCartSet] = useState(false);
   const [fetchData, setFetchData] = useState([]);
   const [selected, setSelected] = useState(undefined);
+  const emailText = useRef(undefined);
 
   useEffect(() => {
       InventoryData.fetchTables(table => { setFetchData(prev => [...prev, table]) });
@@ -37,6 +38,7 @@ const ShoppingCart = (props) => {
   useEffect(() => {
     if (selected) {
       setIsCartSet(selected.length > 0)
+      emailText.current = ShoppingCartFacade.getEmailText(selected);
     }
   }, [selected])
   
@@ -46,19 +48,20 @@ const ShoppingCart = (props) => {
   };
 
   return (
-    <ShoppingCartContext.Provider value={{onItemChange: onItemChange, isCartSet: isCartSet, cart: cart, selected: selected}}>
+    <ShoppingCartContext.Provider
+      value={
+        {
+          onItemChange: onItemChange,
+          isCartSet: isCartSet,
+          cart: cart,
+          selected: selected,
+          emailText: emailText.current
+        }
+      }
+    >
       {props.children}
     </ShoppingCartContext.Provider>
   )
 }
 
 export default ShoppingCart;
-
-// const toString = () => {
-//   let NEWLINE = '%0D%0A';
-//   let str = `${NEWLINE}${NEWLINE}Ich habe folgendes Equipment online ausgewählt:${NEWLINE}${NEWLINE}`;
-//   for (let item of cart.items) {
-//     str += `${item.quantity}x ${item.name}${NEWLINE}`;
-//   }
-//   return str;
-// }
