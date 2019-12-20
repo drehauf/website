@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import Inventory from 'components/web/inventory/Inventory';
 import ToggleButton from 'components/web/inventory/toggleButton';
 import { ShoppingCartContext } from "components/Datamanagement/ShoppingCart";

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import BackgroundImg from 'assets/images/contact.jpg';
 import FrameOverlay from 'components/FrameOverlay';
 

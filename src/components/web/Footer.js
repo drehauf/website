@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import '../../stylesheets/Header.scss';
 import Button from '../essentials/Button';
 

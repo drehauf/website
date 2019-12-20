@@ -1,11 +1,11 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useRef } from 'react';
 import Dropdown from 'components/essentials/Dropdown';
 
 const InventoryItem = ({ rowData, onItemChange }) => {
 
   const name = rowData.name;
   
-  const [didMount, setDidMount] = useState(false);
+  const didMount = useRef(false);
   const [quantity, setQuantitiy] = useState(rowData.quantity);
   const [isChecked, setChecked] = useState(rowData.isChecked);
 
@@ -20,8 +20,8 @@ const InventoryItem = ({ rowData, onItemChange }) => {
   useEffect(() => {
     if (didMount) {
       onItemChange({ name, quantity, isChecked });
-    } else setDidMount(true);
-  }, [quantity, isChecked]);
+    } else didMount.current =true;
+  }, [name, quantity, isChecked]);
 
   return (
     <Fragment>
