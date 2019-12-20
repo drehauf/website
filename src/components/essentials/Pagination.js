@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Button from 'components/essentials/Button';
+import React from 'react';
 
 const Pagination = ({ previous, current, next, handlePreviousPage, handleNextPage }) => {
 

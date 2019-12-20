@@ -1,17 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
 import BackgroundImg from 'assets/images/contact.jpg';
 import FrameOverlay from 'components/FrameOverlay';
+import Button from 'components/essentials/Button';
+import MailButton from 'components/web/MailButton';
 
 const Contact = ({ isCardSet }) => {
 
   const text = {
     card: {
       caption: "Alles fertig?",
-      text: "Schön, dass Sie fündig geworden sind! Sobald Sie unverbindlich eine Mietanfrage stellen, klären wir den Rest. Sie können Ihre Auswahl dann auch später noch verändern."
+      text: "Schön, dass Sie fündig geworden sind! Sobald Sie unverbindlich eine Mietanfrage stellen, klären wir den Rest. Sie können Ihre Auswahl dann auch später noch verändern.",
+      button: <MailButton text="ANFRAGE STELLEN"/>
     },
     withoutCart: {
       caption: "Noch Fragen?",
-      text: "Vielleicht können wir helfen."
+      text: "Vielleicht können wir helfen.",
+      button: null
     }
   };
 
@@ -25,8 +29,7 @@ const Contact = ({ isCardSet }) => {
       <FrameOverlay
         src={BackgroundImg}
         alt="kontakt"
-        href='/'
-        actiontext='ANFRAGE STELLEN'
+        button={content.button}
         caption={content.caption}
         text={content.text}
         />

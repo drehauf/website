@@ -1,40 +1,36 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useRef } from 'react';
 import Dropdown from 'components/essentials/Dropdown';
 
 const InventoryItem = ({ rowData, onItemChange }) => {
 
   const name = rowData.name;
+  const quantity = rowData.quantity;
   
-  const [didMount, setDidMount] = useState(false);
-  const [quantity, setQuantitiy] = useState(rowData.quantity);
-  const [isChecked, setChecked] = useState(rowData.isChecked);
+  const checked = useRef(rowData.isChecked);
 
   const quantityHandler = quantity => {
-    setQuantitiy(quantity);
+    const isChecked = checked.current;
+    onItemChange({ name, quantity, isChecked });
   };
 
-  const checkedHandler = () => {
-    setChecked(prev => !prev.isChecked);
-  };
-
-  useEffect(() => {
-    if (didMount) {
-      onItemChange({ name, quantity, isChecked });
-    } else setDidMount(true);
-  }, [quantity, isChecked]);
+  const onClickHandler = () => {
+    checked.current = !checked.current
+    const isChecked = checked.current;
+    onItemChange({ name, quantity, isChecked });
+  }
 
   return (
     <Fragment>
       <td className="table_column table_column_checkbox">
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={() => checkedHandler()}
+          checked={checked.current}
+          onChange={() => onClickHandler()}
         />
       </td>
       <td
         className="table_column table_column_name"
-        onClick={() => setChecked(!isChecked)}
+        onClick={() => onClickHandler()}
       >
         {name}
       </td>
@@ -43,7 +39,7 @@ const InventoryItem = ({ rowData, onItemChange }) => {
           maxQuantity={rowData.maxQuantity}
           quantity={quantity}
           returnFunction={quantityHandler}
-          isDisabled={!isChecked}
+          isDisabled={!checked.current}
         />
       </td>
     </Fragment>
