@@ -9,7 +9,7 @@ header {
   height: 3.5em;
   width: 100%;
   z-index: 10;
-  color: $color-button--dark;
+  // color: $color-button--dark;
   box-shadow: 0px 0px 15px rgba($color-text--light, .25);
 }
 
@@ -24,7 +24,10 @@ header {
 }
 
 .h-logo {
-  height: 2em;
+  height: 2.25em;
+  width: 5em;
+  background: url("../assets/images/logo.png") no-repeat;
+  background-size: 100% auto;
 }
 
 label {

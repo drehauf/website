@@ -1,16 +1,15 @@
 import React from 'react';
 import BurgerMenu from './BurgerMenu';
 import Button from "components/essentials/Button";
-import Logo from '../../assets/images/logo.png';
 
 const Header = () => {
 
-  const logoImg = <img className="h-logo" src={Logo} alt="Logo" />;
+  const logo = <div className='h-logo'></div>
 
   return (
     <header>
       <div className="header_wrapper container">
-        <Button href="/#carousel" text={logoImg} external={false} />
+        <Button href="/#carousel" text={logo} external={false} />
         <div className="h-right">
           <div id="hamburger-list">
             <Button href="/#about" text="ÜBER UNS" external={false} />
