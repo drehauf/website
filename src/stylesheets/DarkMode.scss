@@ -1,0 +1,91 @@
+@media (prefers-color-scheme: dark) {
+
+  //MARK: reset
+  html {
+    background-color: $color-background--dark;
+  }
+
+  p, h1, h2, h3 {
+    color: white;
+  }
+
+  //MARK: elements
+
+  a:visited {
+    color: $color-button--dark;
+  }
+
+  .headline::after {
+    // background-color: darken($color-nav--light, 50%);
+    background-color: $color-button--dark;
+  }
+
+  .button {
+    color: $color-button--dark;
+
+    &:hover {
+      color: darken($color-button--dark, 15%);
+
+      & + .pagination_arrow-right {
+        border-left: solid 5px darken($color-button--dark, 15%);
+      }
+
+      & + .pagination_arrow-left {
+        border-right: solid 5px darken($color-button--dark, 15%);
+      }
+    }
+  }
+
+  //MARK: header
+
+  header {
+    // background-color: #161616;
+    background-color: $color-nav--dark;
+    // box-shadow: 0px 0px 15px rgba($color-text--light, 1);
+    box-shadow: 0px 0px 15px rgba($color-nav--dark, .75);
+  }
+
+  .h-logo {
+    background-image: url("../assets/images/logo-dark.png");
+  }
+
+  #menuToggle span {
+    // background: $color-button--light;
+  }
+
+  #menu {
+    box-shadow: 0px 5px 15px rgba($color-text--dark, .25);
+  }
+
+  //MARK: carousel
+
+  .carousel_overlay {
+    background-color: rgba($color-background--dark, .97);
+    color: $color-text--dark;
+  }
+
+  //MARK: About
+
+  .about_cite {
+    color: rgba($color-text--dark, .75);
+  }
+
+  //MARK: table
+
+  .table {
+    color: white;
+
+    &_row {
+      background-color: lighten($color-nav--dark, 5%);
+
+      &:hover {
+        background-color: $color-button--dark;
+      }
+    }
+  }
+
+  //MARK: Dropdown
+
+
+
+}
