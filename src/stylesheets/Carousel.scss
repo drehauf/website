@@ -28,3 +28,7 @@
   font-family: 'arial-rounded';
   font-size: 1.7em;
 }
+
+#carousel li { //TODO: this is a hack
+  background-color: rgba($color-background--light, .97);
+}

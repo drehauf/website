@@ -13,14 +13,15 @@
 }
 
 footer {
+  // background-color: $color-background--dark;
 
   & ul {
     display: flex;
-    justify-content: flex-end;
-    padding: .5em 0;
+    justify-content: center;
 
-    & div {
-      margin-right: 2em;
+    & li {
+      list-style: none;
+      padding: 1em;
     }
   }
 }
