@@ -8,9 +8,11 @@ import Contact from 'components/web/sections/Contact';
 import ShoppingCart, {
   ShoppingCartContext
 } from "components/Datamanagement/ShoppingCart";
+import SecurityDisclaimer from './SecurityDisclaimer';
 
 const Main = () => (
   <Fragment>
+    <SecurityDisclaimer/>
     <ShoppingCart>
       <Header />
       <Carousel frameData={FrameData} />

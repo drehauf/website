@@ -96,8 +96,7 @@ const Content = (
           erteilt oder es besteht bereits eine Geschäftsbeziehung. Der Anbieter
           und alle auf dieser Website genannten Personen widersprechen hiermit
           jeder kommerziellen Verwendung und Weitergabe ihrer Daten. Weitere
-          Informationen finden Sie in unserer Datenschutzerklärung{" "}
-          <Button href="/datenschutz" text="hier" external={false} />.
+          Informationen finden Sie in unserer Datenschutzerklärung.
         </p>
       </TextBlock>
     </div>

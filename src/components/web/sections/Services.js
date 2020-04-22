@@ -25,20 +25,22 @@ class Services extends Component {
           </div>
         </div>
         <div className='services_flex-wrapper'>
-          <div className='services_left-wrapper'>
-            <Subheadline text='Für Feinschmecker'/>
-            <div className='u-margin-top-bottom--large'>
-              <TextBlock>
-                <p>
-                  Eine Auswahl von Lautsprechern, Mikrofonen und mehr aus unserem Lager. Herein!
-                </p>
-              </TextBlock>
-            </div>
-            <TableContainer/>
-            <div className='u-margin-top--large'>
-              <a id='done' href='#contact' cart-is-empty='true'>{this.getButtonName}</a>
-            </div>
-        </div>
+        {
+          //   <div className='services_left-wrapper'>
+          //     <Subheadline text='Für Feinschmecker'/>
+          //     <div className='u-margin-top-bottom--large'>
+          //       <TextBlock>
+          //         <p>
+          //           Eine Auswahl von Lautsprechern, Mikrofonen und mehr aus unserem Lager. Herein!
+          //         </p>
+          //       </TextBlock>
+          //     </div>
+          //     <TableContainer/>
+          //     <div className='u-margin-top--large'>
+          //       <a id='done' href='#contact' cart-is-empty='true'>{this.getButtonName}</a>
+          //     </div>
+          // </div>
+        }
         <div className='services_right-wrapper'>
           <Subheadline text='Pakete'/>
           <div className='u-margin-top-bottom--large'>

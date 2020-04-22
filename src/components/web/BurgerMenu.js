@@ -24,7 +24,7 @@ function BurgerMenu() {
           <Button href="/#about" text="ÜBER UNS" external={false} />
         </div>
         <div className="menu_item">
-          <Button href="/#service" text="LEISTUNGEN" external={false} />
+          <Button href="/#services" text="LEISTUNGEN" external={false} />
         </div>
         <div className="menu_item">
           <Button href="/#credentials" text="REFERENZEN" external={false} />

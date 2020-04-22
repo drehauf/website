@@ -94,7 +94,11 @@ const Content = (
           entgegenstehen und nachfolgend keine anderslautenden Angaben zu
           einzelnen Verarbeitungsverfahren gemacht werden.
         </p>
-        <Subheadline text="Serverdaten" />
+      </TextBlock>
+    </div>
+    <Subheadline text="Serverdaten" />
+    <div className="u-margin-top-bottom--large">
+      <TextBlock>
         <p>
           Aus technischen Gründen, insbesondere zur Gewährleistung eines
           sicheren und stabilen Internetauftritts, werden Daten durch Ihren
@@ -115,7 +119,11 @@ const Content = (
           Andernfalls sind die Daten bis zur endgültigen Klärung eines Vorfalls
           ganz oder teilweise von der Löschung ausgenommen.
         </p>
-        <Subheadline text="Kontaktanfragen / Kontaktmöglichkeit" />
+      </TextBlock>
+    </div>
+    <Subheadline text="Kontaktanfragen / Kontaktmöglichkeit" />
+    <div className="u-margin-top-bottom--large">
+      <TextBlock>
         <p>
           Sofern Sie per Kontaktformular oder E-Mail mit uns in Kontakt treten,
           werden die dabei von Ihnen angegebenen Daten zur Bearbeitung Ihrer
@@ -127,106 +135,6 @@ const Content = (
           abschließend beantwortet worden ist und der Löschung keine
           gesetzlichen Aufbewahrungspflichten entgegenstehen, wie bspw. bei
           einer sich etwaig anschließenden Vertragsabwicklung.
-        </p>
-        <Subheadline text="Google-Maps" />
-        <p>
-          In unserem Internetauftritt setzen wir Google Maps zur Darstellung
-          unseres Standorts sowie zur Erstellung einer Anfahrtsbeschreibung ein.
-          Es handelt sich hierbei um einen Dienst der Google LLC, 1600
-          Amphitheatre Parkway, Mountain View, CA 94043 USA, nachfolgend nur
-          „Google“ genannt. Durch die Zertifizierung nach dem
-          EU-US-Datenschutzschild{" "}
-          <a href="https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&status=Active">
-            („EU-US Privacy Shield“)
-          </a>{" "}
-          garantiert Google, dass die Datenschutzvorgaben der EU auch bei der
-          Verarbeitung von Daten in den USA eingehalten werden. Um die
-          Darstellung bestimmter Schriften in unserem Internetauftritt zu
-          ermöglichen, wird bei Aufruf unseres Internetauftritts eine Verbindung
-          zu dem Google-Server in den USA aufgebaut. Sofern Sie die in unseren
-          Internetauftritt eingebundene Komponente Google Maps aufrufen,
-          speichert Google über Ihren Internet-Browser ein Cookie auf Ihrem
-          Endgerät. Um unseren Standort anzuzeigen und eine Anfahrtsbeschreibung
-          zu erstellen, werden Ihre Nutzereinstellungen und -daten verarbeitet.
-          Hierbei können wir nicht ausschließen, dass Google Server in den USA
-          einsetzt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f) DSGVO. Unser
-          berechtigtes Interesse liegt in der Optimierung der Funktionalität
-          unseres Internetauftritts. Durch die so hergestellte Verbindung zu
-          Google kann Google ermitteln, von welcher Website Ihre Anfrage
-          gesendet worden ist und an welche IP-Adresse die Anfahrtsbeschreibung
-          zu übermitteln ist.Sofern Sie mit dieser Verarbeitung nicht
-          einverstanden sind, haben Sie die Möglichkeit, die Installation der
-          Cookies durch die entsprechenden Einstellungen in Ihrem
-          Internet-Browser zu verhindern. Einzelheiten hierzu finden Sie
-          vorstehend unter dem Punkt „Cookies“. Zudem erfolgt die Nutzung von
-          Google Maps sowie der über Google Maps erlangten Informationen nach
-          den Google-Nutzungsbedingungen
-          https://policies.google.com/terms?gl=DE&hl=de und den{" "}
-          <a href="https://www.google.com/intl/de_de/help/terms_maps.html">
-            Geschäftsbedingungen für Google Maps
-          </a>
-          . Überdies bietet Google unter{" "}
-          <a href="https://adssettings.google.com/authenticated">
-            adssettings.google.com
-          </a>
-          ,{" "}
-          <a href="https://policies.google.com/privacy">policies.google.com</a>{" "}
-          weitergehende Informationen an.
-        </p>
-        <Subheadline text="Google reCAPTCHA" />
-        <p>
-          In unserem Internetauftritt setzen wir Google reCAPTCHA zur
-          Überprüfung und Vermeidung von Interaktionen auf unserer Internetseite
-          durch automatisierte Zugriffe, bspw. durch sog. Bots, ein. Es handelt
-          sich hierbei um einen Dienst der Google LLC, 1600 Amphitheatre
-          Parkway, Mountain View, CA 94043 USA, nachfolgend nur „Google“
-          genannt.Durch die Zertifizierung nach dem EU-US-Datenschutzschild{" "}
-          <a href="https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&status=Active">
-            („EU-US Privacy Shield“)
-          </a>{" "}
-          garantiert Google, dass die Datenschutzvorgaben der EU auch bei der
-          Verarbeitung von Daten in den USA eingehalten werden. Durch diesen
-          Dienst kann Google ermitteln, von welcher Webseite eine Anfrage
-          gesendet wird sowie von welcher IP-Adresse aus Sie die sog.
-          reCAPTCHA-Eingabebox verwenden. Neben Ihrer IP-Adresse werden
-          womöglich noch weitere Informationen durch Google erfasst, die für das
-          Angebot und die Gewährleistung dieses Dienstes notwendig sind.
-          Rechtsgrundlage ist Art. 6 Abs. 1 lit. f) DSGVO. Unser berechtigtes
-          Interesse liegt in der Sicherheit unseres Internetauftritts sowie in
-          der Abwehr unerwünschter, automatisierter Zugriffe in Form von Spam
-          o.ä.. Google bietet unter{" "}
-          <a href="https://policies.google.com/privacy">policies.google.com</a>{" "}
-          weitergehende Informationen zu dem allgemeinen Umgang mit Ihren
-          Nutzerdaten an.
-        </p>
-        <Subheadline text="Google Fonts" />
-        <p>
-          In unserem Internetauftritt setzen wir Google Fonts zur Darstellung
-          externer Schriftarten ein. Es handelt sich hierbei um einen Dienst der
-          Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043 USA,
-          nachfolgend nur „Google“ genannt. Durch die Zertifizierung nach dem
-          EU-US-Datenschutzschild{" "}
-          <a href="https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&status=Active">
-            („EU-US Privacy Shield“)
-          </a>{" "}
-          garantiert Google, dass die Datenschutzvorgaben der EU auch bei der
-          Verarbeitung von Daten in den USA eingehalten werden. Um die
-          Darstellung bestimmter Schriften in unserem Internetauftritt zu
-          ermöglichen, wird bei Aufruf unseres Internetauftritts eine Verbindung
-          zu dem Google-Server in den USA aufgebaut. Rechtsgrundlage ist Art. 6
-          Abs. 1 lit. f) DSGVO. Unser berechtigtes Interesse liegt in der
-          Optimierung und dem wirtschaftlichen Betrieb unseres
-          Internetauftritts. Durch die bei Aufruf unseres Internetauftritts
-          hergestellte Verbindung zu Google kann Google ermitteln, von welcher
-          Website Ihre Anfrage gesendet worden ist und an welche IP-Adresse die
-          Darstellung der Schrift zu übermitteln ist. Google bietet unter{" "}
-          <a href="https://adssettings.google.com/authenticated">
-            adssettings.google.com
-          </a>
-          ,{" "}
-          <a href="https://policies.google.com/privacy">policies.google.com</a>{" "}
-          weitere Informationen an und zwar insbesondere zu den Möglichkeiten
-          der Unterbindung der Datennutzung.
         </p>
       </TextBlock>
     </div>
