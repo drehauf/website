@@ -1,14 +1,16 @@
 import React from 'react';
-import '../../stylesheets/Header.scss';
 import Button from '../essentials/Button';
 
 const Footer = () => {
-
   return (
     <footer>
       <ul>
-        <Button href="/impressum" text="IMPRESSUM" />
-        <Button href="/datenschutz" text="DATENSCHUTZ" />
+        <li>
+          <Button href="/impressum" text="IMPRESSUM" />
+        </li>
+        <li>
+          <Button href="/datenschutz" text="DATENSCHUTZ" />
+        </li>
       </ul>
     </footer>
   );

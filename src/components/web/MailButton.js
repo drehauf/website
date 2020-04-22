@@ -4,7 +4,7 @@ import { ShoppingCartContext } from 'components/Datamanagement/ShoppingCart';
 const MailButton = ({ text, emailText}) => {
   const emailAddresse = 'info@dreh-auf.com';
   const subject = 'Anfrage für Equipment';
-  const emailBody = emailText;
+  const emailBody = emailText ?? '';
   const href = "mailto:" + emailAddresse + "?subject=" + subject + "&body=" + emailBody;
 
   return (
@@ -15,7 +15,9 @@ const MailButton = ({ text, emailText}) => {
 const MailButtonContextConsumer = ({ text }) => {
   return (
     <ShoppingCartContext.Consumer>
-      { value => <MailButton text={text} emailText={value.emailText}/> }
+      {
+        (value) => <MailButton text={text} emailText={value.emailText}/>
+      }
     </ShoppingCartContext.Consumer>
   )
 }

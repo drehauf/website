@@ -15,14 +15,14 @@ const Contact = ({ isCardSet }) => {
     withoutCart: {
       caption: "Noch Fragen?",
       text: "Vielleicht können wir helfen.",
-      button: null
+      button: <MailButton text="KONTAKT AUFNEHMEN"/> //null
     }
   };
 
   const content = isCardSet ? text.card : text.withoutCart;
 
   return (
-    <div id="contact" className='contact'>
+    <section id="contact" className='contact'>
       <div className="contact_image">
         <img src={BackgroundImg} alt='contact' width="100%" height="100%"/>
       </div>
@@ -33,7 +33,7 @@ const Contact = ({ isCardSet }) => {
         caption={content.caption}
         text={content.text}
         />
-    </div>
+    </section>
   );
 
 }
