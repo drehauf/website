@@ -15,4 +15,13 @@
     }
 
   }
+
+  &:visited {
+    color: $color-button--light;
+  }
+
+}
+
+button, a {
+  color: $color-button--light;
 }
