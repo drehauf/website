@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Button from './essentials/Button';
-import Subheadline from './essentials/Subheadline';
-import TextBlock from './essentials/TextBlock';
+import Subheadline from 'components/simple/Subheadline';
+import TextBlock from 'components/simple/TextBlock';
 
 const SecurityDisclaimer = () => {
 
@@ -42,7 +41,7 @@ const SecurityDisclaimer = () => {
         <div className="disclaimer_sheet_content u-margin-top-bottom--large">
           <TextBlock>
             <p className='disclaimer_sheet_content_text'>
-              Weil wir Ihre Privatsphäre schätzen, teilen wir Ihre Nutzerdaten nicht mit Dritten und sammeln keine Cookies. 
+              Weil wir Ihre Privatsphäre schätzen, teilen wir Ihre Nutzerdaten nicht mit Dritten und sammeln keine Cookies.
             </p>
           </TextBlock>
         </div>

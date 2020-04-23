@@ -1,26 +1,24 @@
 import React, { Fragment } from 'react';
-import Header from "./web/Header";
-import Footer from "./web/Footer";
-import FrameData from "./web/Frames";
-import Sections from "./web/Sections";
-import Carousel from "./Carousel";
-import Contact from 'components/web/sections/Contact';
-import ShoppingCart, {
-  ShoppingCartContext
-} from "components/Datamanagement/ShoppingCart";
-import SecurityDisclaimer from './SecurityDisclaimer';
+import Header from "components/header/Header";
+import Footer from "components/footer/Footer";
+import FrameData from "components/carousel/Frames";
+import Sections from "components/sections/Sections";
+import Carousel from "components/carousel/Carousel";
+import Contact from 'components/sections/Contact';
+import ShoppingCart, { ShoppingCartContext } from "components/shopping/ShoppingCart";
+import SecurityDisclaimer from 'components/SecurityDisclaimer';
 
 const Main = () => (
   <Fragment>
     <SecurityDisclaimer/>
     <ShoppingCart>
-      <Header />
+      <Header/>
       <Carousel frameData={FrameData} />
-      <Sections />
+      <Sections/>
       <ShoppingCartContext.Consumer>
         {value => <Contact isCardSet={value.isCartSet}/>}
       </ShoppingCartContext.Consumer>
-      <Footer />
+      <Footer/>
     </ShoppingCart>
   </Fragment>
 );

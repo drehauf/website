@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Main from './components/Main';
-import Impressum from './components/Impressum/Impressum';
-import Datenschutz from "./components/Datenschutz/Datenschutz";
+import Legal from './components/footer/Legal';
+import Privacy from "./components/footer/Privacy";
 import './stylesheets/index.scss';
 
 const App = () => {
@@ -12,16 +12,16 @@ const App = () => {
       <Router>
         <Switch>
           <Route path="/impressum">
-            <Impressum />
+            <Legal/>
           </Route>
           <Route path="/datenschutz">
-            <Datenschutz />
+            <Privacy/>
           </Route>
           <Route path="/home">
-            <Main />
+            <Main/>
           </Route>
           <Route path="/">
-            <Main />
+            <Main/>
           </Route>
         </Switch>
       </Router>
