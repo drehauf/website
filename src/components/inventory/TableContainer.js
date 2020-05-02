@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Inventory from 'components/inventory/Inventory';
-import ToggleButton from 'components/inventory/ToggleButton';
+import ActionArea from 'components/inventory/ActionArea';
 import { ShoppingCartContext } from "components/shopping/ShoppingCart";
 import Table from "components/inventory/Table";
 import InventoryBody from "components/inventory/InventoryBody";
@@ -14,7 +14,7 @@ const TableContainer = ({ isCartSet, cart, selected }) => {
     return <Table><InventoryBody tableData={data}/></Table>
   }
 
-  const toggleButton = isCartSet ? <ToggleButton show={showSelected} toggleFunction={onClickHandler}/> : null
+  const toggleButton = isCartSet ? <ActionArea show={showSelected} toggleFunction={onClickHandler}/> : null
 
   return (
     <Fragment>
@@ -27,9 +27,9 @@ const TableContainer = ({ isCartSet, cart, selected }) => {
 const TableWrapper = () => {
   return (
     <ShoppingCartContext.Consumer>
-      { value => (
-        <TableContainer isCartSet={value.isCartSet} cart={value.cart} selected={value.selected} />
-      )}
+      {
+        (value) => (<TableContainer isCartSet={value.isCartSet} cart={value.cart} selected={value.selected}/>)
+      }
     </ShoppingCartContext.Consumer>
   )
 }

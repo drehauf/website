@@ -25,3 +25,21 @@
 button, a {
   color: $color-button--light;
 }
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    color: darken($color-button--light, 15%);
+    cursor: pointer;
+  }
+
+  &:visited {
+    // color: $color-button--light;
+  }
+}
+
+.destructive {
+  color: red;
+}

@@ -1,46 +1,40 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Subheadline from 'components/simple/Subheadline';
 import TextBlock from 'components/simple/TextBlock';
 import TableContainer from 'components/inventory/TableContainer';
 
-class Services extends Component {
+const Services = () => {
 
-  render() {
-    return (
-      <div>
-        <div className='supply'>
-          <Subheadline text='Sie + Wir'/>
-          <div className='u-margin-top-bottom--large'>
-            <TextBlock>
+  return (
+    <div>
+      <div className='supply'>
+        <Subheadline text='Sie + Wir'/>
+        <div className='u-margin-top-bottom--large'>
+          <TextBlock>
             <p>Wir stehen Ihnen beratend bei der Ideenkonzeption, Planung und Kostenkalkulation nach Ihren Vorstellungen zur Verfügung.</p>
-            </TextBlock>
-          </div>
-          <Subheadline text='Licht, Ton und Bühnentechnik'/>
+          </TextBlock>
+        </div>
+        <Subheadline text='Licht, Ton und Bühnentechnik'/>
+        <div className='u-margin-top-bottom--large'>
+          <TextBlock>
+            <p>
+              Aus Ihren Vorstellungen entwickeln wir mit Ihnen Konzepte und Pläne, stellen Ihnen die nötigen Beschallungs- und Beleuchtungsanlagen zusammen und begleiten Sie während der Veranstaltung vom Auf- bis zum Abbau mit einem kompetenten jungen Team. Die Installation und Betreuung von Event- und Bühnentechnik baut dabei auf einem Material- und Kompetenzfundus auf, welchen wir stetig erweitern.
+            </p>
+          </TextBlock>
+        </div>
+      </div>
+      <div className='services_flex-wrapper'>
+        <div className='services_left-wrapper'>
+          <Subheadline text='Für Feinschmecker'/>
           <div className='u-margin-top-bottom--large'>
             <TextBlock>
               <p>
-                Aus Ihren Vorstellungen entwickeln wir mit Ihnen Konzepte und Pläne, stellen Ihnen die nötigen Beschallungs- und Beleuchtungsanlagen zusammen und begleiten Sie während der Veranstaltung vom Auf- bis zum Abbau mit einem kompetenten jungen Team. Die Installation und Betreuung von Event- und Bühnentechnik baut dabei auf einem Material- und Kompetenzfundus auf, welchen wir stetig erweitern.
+                Eine Auswahl von Lautsprechern, Mikrofonen und mehr aus unserem Lager. Herein!
               </p>
             </TextBlock>
           </div>
+          <TableContainer/>
         </div>
-        <div className='services_flex-wrapper'>
-
-            <div className='services_left-wrapper'>
-              <Subheadline text='Für Feinschmecker'/>
-              <div className='u-margin-top-bottom--large'>
-                <TextBlock>
-                  <p>
-                    Eine Auswahl von Lautsprechern, Mikrofonen und mehr aus unserem Lager. Herein!
-                  </p>
-                </TextBlock>
-              </div>
-              <TableContainer/>
-              <div className='u-margin-top--large'>
-                <a id='done' href='#contact' cart-is-empty='true'>{this.getButtonName}</a>
-              </div>
-          </div>
-
         <div className='services_right-wrapper'>
           <Subheadline text='Pakete'/>
           <div className='u-margin-top-bottom--large'>
@@ -51,11 +45,10 @@ class Services extends Component {
             </TextBlock>
           </div>
           <a href='#contact'>MIETANFRAGE SCHICKEN</a>
-          </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 
 }
 

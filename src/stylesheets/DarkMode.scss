@@ -5,7 +5,11 @@
     background-color: $color-background--dark;
   }
 
-  p, h1, h2, h3 {
+  p, h2, h3 {
+    color: $color-text--dark;
+  }
+
+  .headline, .subheadline {
     color: white;
   }
 
@@ -39,10 +43,10 @@
   //MARK: header
 
   header {
-    // background-color: #161616;
-    background-color: $color-nav--dark;
+    background-color: lighten($color-background--dark, 3.5%);
+    // background-color: $color-nav--dark;
     // box-shadow: 0px 0px 15px rgba($color-text--light, 1);
-    box-shadow: 0px 0px 15px rgba($color-nav--dark, .75);
+    box-shadow: 0px 0px 15px rgba(black, .5);
   }
 
   .h-logo {
@@ -60,8 +64,16 @@
   //MARK: carousel
 
   .carousel_overlay {
-    background-color: rgba($color-background--dark, .97);
+    background-color: lighten($color-background--dark, 3.5%);
     color: $color-text--dark;
+  }
+
+  #carousel li { //TODO: this is a hack
+    background-color: lighten($color-background--dark, 3.5%);
+  }
+
+  .dot {
+    background-color: white !important;
   }
 
   //MARK: About
@@ -75,13 +87,29 @@
   .table {
     color: white;
 
+    &_wrapper {
+      box-shadow: 0px 0px 15px rgba(black, .5);
+    }
+
     &_row {
-      background-color: lighten($color-nav--dark, 5%);
+      // background-color: lighten($color-nav--dark, 5%);
+      background-color: $color-background--dark;
+
+      &:nth-child(odd) {
+        background-color: lighten($color-background--dark, 2.5%);
+      }
 
       &:hover {
-        background-color: $color-button--dark;
+        background-color: rgba($color-nav--dark, .5);
       }
+
     }
+
+    &_head, tfoot {
+      color: $color-text--dark;
+      background-color: $color-nav--dark;
+    }
+
   }
 
   //MARK: Dropdown
@@ -116,6 +144,14 @@
       }
     }
 
+  }
+
+  .customer p, .about-cite {
+    color: darken($color-text--dark, 50%);
+  }
+
+  .disclaimer_sheet {
+    background-color: $color-background--dark;
   }
 
 }
