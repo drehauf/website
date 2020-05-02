@@ -37,12 +37,12 @@ const Content = (
           Verantwortlicher Anbieter dieses Internetauftritts im
           datenschutzrechtlichen Sinne ist:
         </p>
-        <cite>
+        <p className="about_cite">
           Dreh Auf s-GmbH <br/>
           Schülerfirma der Freien Montessorischule Huckepack <br/>
           Glashütterstraße 10 <br/>
           01309 Dresden <br/>
-        </cite>
+      </p>
       </TextBlock>
     </div>
     <Subheadline text="II. Rechte der Nutzer und Betroffenen" />

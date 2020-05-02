@@ -2,7 +2,7 @@ import React from 'react';
 import { ShoppingCartContext } from 'components/shopping/ShoppingCart';
 
 const MailButton = ({ text, emailText}) => {
-  const emailAddresse = 'info@dreh-auf.com';
+  const emailAddresse = 'info@drehauf.com';
   const subject = 'Anfrage für Equipment';
   const emailBody = emailText ?? '';
   const href = "mailto:" + emailAddresse + "?subject=" + subject + "&body=" + emailBody;

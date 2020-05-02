@@ -35,7 +35,7 @@ const SecurityDisclaimer = () => {
 
   return (
     <div className='disclaimer' hide={(isPresented ?? false).toString()}>
-      <div className='disclaimer_backdrop'></div>
+      <div className='disclaimer_backdrop' onClick={() => dismissSheet()}></div>
       <div className='disclaimer_sheet'>
         <Subheadline text="Wir sammeln keine Nutzerdaten"/>
         <div className="disclaimer_sheet_content u-margin-top-bottom--large">
