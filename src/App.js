@@ -4,6 +4,7 @@ import ScrollToTop from 'ScrollToTop';
 import Main from 'components/Main';
 import Legal from 'components/footer/Legal';
 import Privacy from 'components/footer/Privacy';
+import Dashboard from 'components/Dashboard';
 import './stylesheets/index.scss';
 
 const App = () => {
@@ -13,6 +14,9 @@ const App = () => {
       <Fragment>
         <ScrollToTop/>
         <Switch>
+          <Route path="/login">
+            <Dashboard/>
+          </Route>
           <Route path="/impressum">
             <Legal/>
           </Route>

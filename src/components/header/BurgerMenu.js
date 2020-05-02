@@ -1,40 +1,27 @@
 import React, {Fragment} from 'react';
 import Button from 'components/simple/Button';
 
-function BurgerMenu() {
+const HamburgerMenu = ({ items }) => {
 
-  const burger = (() => {
-    return (
+  const menu = items.map((item, index) => (
+    <div className="menu_item" key={index}>
+      {item}
+    </div>
+  ));
+
+  return (
+    <div id="menuToggle">
+      <input type="checkbox"/>
       <Fragment>
         <span></span>
         <span></span>
         <span></span>
       </Fragment>
-    );
-  })();
-
-  return (
-    <div id="menuToggle">
-      <input type="checkbox" />
-
-      {burger}
-
       <ul id="menu">
-        <div className="menu_item">
-          <Button href="/#about" text="ÜBER UNS" external={false} />
-        </div>
-        <div className="menu_item">
-          <Button href="/#services" text="LEISTUNGEN" external={false} />
-        </div>
-        <div className="menu_item">
-          <Button href="/#credentials" text="REFERENZEN" external={false} />
-        </div>
-        <div className="menu_item">
-          <Button href="/#contact" text="KONTAKT" external={false} />
-        </div>
+        {menu}
       </ul>
     </div>
   );
-}
+};
 
-export default BurgerMenu;
+export default HamburgerMenu;

@@ -6,10 +6,13 @@ const Footer = () => {
     <footer>
       <ul>
         <li>
-          <Button href="/impressum" text="IMPRESSUM" />
+          <Button href="/login" text="LOGIN"/>
         </li>
         <li>
-          <Button href="/datenschutz" text="DATENSCHUTZ" />
+          <Button href="/impressum" text="IMPRESSUM"/>
+        </li>
+        <li>
+          <Button href="/datenschutz" text="DATENSCHUTZ"/>
         </li>
       </ul>
     </footer>

@@ -2,22 +2,23 @@ import React from 'react';
 import BurgerMenu from 'components/header/BurgerMenu';
 import Button from "components/simple/Button";
 
-const Header = () => {
+const Header = ({ items }) => {
 
   const logo = <div className='h-logo'></div>
 
   return (
     <header>
       <div className="header_wrapper container">
-        <Button href="/#carousel" text={logo} external={false} />
+        <Button
+          href="/"
+          text={logo}
+          external={false}
+        />
         <div className="h-right">
           <div id="hamburger-list">
-            <Button href="/#about" text="ÜBER UNS" external={false} />
-            <Button href="/#services" text="LEISTUNGEN" external={false} />
-            <Button href="/#credentials" text="REFERENZEN" external={false} />
-            <Button href="/#contact" text="KONTAKT" external={false} />
+            {items}
           </div>
-          <BurgerMenu />
+          <BurgerMenu items={items}/>
         </div>
       </div>
     </header>
