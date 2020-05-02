@@ -34,6 +34,5 @@ export const LogoutItem = <Button
   href='/'
   text='LOG OUT'
   external={false}
-  className='destructive'
   key='5'
 />;

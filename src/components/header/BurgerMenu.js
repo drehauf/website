@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import Button from 'components/simple/Button';
 
 const HamburgerMenu = ({ items }) => {
 

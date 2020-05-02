@@ -161,4 +161,26 @@
     background-color: $color-background--dark;
   }
 
+  .sidebar {
+
+    &_item_name {
+      background-color: $color-nav--dark !important;
+
+    }
+
+    &_action {
+      background-color: $color-background--dark !important;
+
+      &:nth-child(odd) {
+        background-color: lighten($color-background--dark, 2.5%) !important;
+      }
+
+      &:hover {
+        background-color: rgba($color-nav--dark, .5) !important;
+      }
+    }
+
+
+  }
+
 }

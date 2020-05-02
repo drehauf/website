@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ScrollToTop from 'ScrollToTop';
-import Main from 'components/Main';
+import Main from 'components/main/Main';
 import Legal from 'components/footer/Legal';
 import Privacy from 'components/footer/Privacy';
-import Dashboard from 'components/Dashboard';
+import Dashboard from 'components/dashboard/Dashboard';
 import './stylesheets/index.scss';
 
 const App = () => {

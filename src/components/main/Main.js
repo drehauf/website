@@ -6,7 +6,7 @@ import Sections from "components/sections/Sections";
 import Carousel from "components/carousel/Carousel";
 import Contact from 'components/sections/Contact';
 import ShoppingCart, { ShoppingCartContext } from "components/shopping/ShoppingCart";
-import SecurityDisclaimer from 'components/SecurityDisclaimer';
+import SecurityDisclaimer from 'components/main/SecurityDisclaimer';
 import { AboutItem, ServicesItem, CredentialsItem, ContactItem } from 'components/header/HeaderItems'
 
 
