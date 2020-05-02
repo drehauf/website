@@ -40,6 +40,10 @@
     }
   }
 
+  .destructive {
+    color: red;
+  }
+
   //MARK: header
 
   header {
@@ -85,7 +89,7 @@
   //MARK: table
 
   .table {
-    color: white;
+    color: $color-text--dark;
 
     &_wrapper {
       box-shadow: 0px 0px 15px rgba(black, .5);
@@ -117,10 +121,11 @@
   .dropdown {
 
     &_header {
-      color: var(--disabled);
+      // color: var(--disabled);
+      color: $color-text--dark;
 
       &::after {
-        border-top: solid 6px var(--disabled);
+        border-top: solid 6px $color-text--dark;
         border-left: solid 5px transparent;
         border-right: solid 5px transparent;
       }
@@ -128,17 +133,19 @@
     }
 
     &_card {
-      border-bottom: solid 1px rgba($color-text--light, .2);
-      border-left: solid 1px rgba($color-text--light, .2);
-      border-right: solid 1px rgba($color-text--light, .2);
+      border-bottom: solid 1px rgba($color-text--dark, .2);
+      border-left: solid 1px rgba($color-text--dark, .2);
+      border-right: solid 1px rgba($color-text--dark, .2);
+      border-top: solid 1px rgba($color-text--dark, .2);
 
       &_item {
-        background-color: $color-text--light;
+        background-color: $color-background--dark;
         color: $color-text--dark;
         border-bottom: solid 1px rgba($color-text--dark, .2);
 
         &:hover {
-          background-color: lighten($color-text--light, 25%);
+          // background-color: lighten($color-text--dark, 25%);
+          background-color: $color-nav--dark;
         }
 
       }

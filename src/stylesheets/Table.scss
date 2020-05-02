@@ -43,6 +43,7 @@
 
       &_arrow {
         position: absolute;
+        top: 1em;
         height: 0;
         width: 0;
 
@@ -170,4 +171,12 @@
   & .destructive {
     padding: 0 1em;
   }
+}
+
+@media screen and (max-width: 600px) { /* Small screens */
+
+  .pagination .button span:first-of-type {
+    display: none;
+  }
+
 }

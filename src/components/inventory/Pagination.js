@@ -8,6 +8,7 @@ const Pagination = ({ previous, current, next, handlePreviousPage, handleNextPag
     } else {
       handlePreviousPage()
     }
+    console.log(direction ? 'right' : 'left');
   };
 
   return(
@@ -21,9 +22,9 @@ const Pagination = ({ previous, current, next, handlePreviousPage, handleNextPag
               () => handlePageChange(false)
             }
           >
-            {previous}
+            <span>{previous}</span>
+            <span className='pagination_arrow pagination_arrow-left'></span>
           </div>
-          <span className='pagination_arrow pagination_arrow-left'></span>
         </li>
         <li>
           <p>{current}</p>
@@ -36,9 +37,9 @@ const Pagination = ({ previous, current, next, handlePreviousPage, handleNextPag
               () => handlePageChange(true)
             }
           >
-            {next}
+            <span>{next}</span>
+            <span className='pagination_arrow pagination_arrow-right'></span>
           </div>
-          <span className='pagination_arrow pagination_arrow-right'></span>
         </li>
       </ul>
     </div>
