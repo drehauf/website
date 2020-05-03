@@ -22,7 +22,7 @@ const Sidebar = ({ onSelection }) => {
               index={index}
               name={item.name}
               actions={item.actions}
-              onItemClicked={onClick}
+              onItemClick={onClick}
             />
           ))
         }

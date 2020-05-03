@@ -104,7 +104,7 @@
       }
 
       &:hover {
-        background-color: rgba($color-nav--dark, .5);
+        background-color: rgba($color-nav--dark, .25);
       }
 
     }
@@ -166,6 +166,9 @@
     &_item_name {
       background-color: $color-nav--dark !important;
 
+      &:hover {
+        background-color: lighten($color-nav--dark, 2.5%) !important;
+      }
     }
 
     &_action {
@@ -176,7 +179,7 @@
       }
 
       &:hover {
-        background-color: rgba($color-nav--dark, .5) !important;
+        background-color: rgba($color-nav--dark, .25) !important;
       }
     }
 

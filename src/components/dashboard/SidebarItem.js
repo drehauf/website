@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SidebarAction from 'components/dashboard/SidebarAction';
 
-const SidebarItem = ({ index, name, actions, onItemClicked }) => {
+const SidebarItem = ({ index, name, actions, onItemClick }) => {
 
   const [ isCollapsed, setIsCollapsed ] = useState(undefined)
 
@@ -9,8 +9,8 @@ const SidebarItem = ({ index, name, actions, onItemClicked }) => {
     setIsCollapsed(false);
   }, []);
 
-  const onActionClicked = (actionIndex) => {
-    onItemClicked(index, actionIndex)
+  const onActionClick = (actionIndex) => {
+    onItemClick(index, actionIndex)
   };
 
   const onClick = () => {
@@ -22,11 +22,12 @@ const SidebarItem = ({ index, name, actions, onItemClicked }) => {
   return (
     <li>
       <div
-        is-collapsed={getIsCollapsed()}
+        collapsed={getIsCollapsed()}
         className='sidebar_item'
         onClick={() => onClick(index)}
         >
           <p className='sidebar_item_name'>{name}</p>
+          <span className='sidebar_item_arrow'></span>
         </div>
         {
           actions.map((action, index) => (
@@ -35,7 +36,7 @@ const SidebarItem = ({ index, name, actions, onItemClicked }) => {
               index={index}
               name={action.name}
               description={action.description}
-              onActionClicked={onActionClicked}
+              onActionClick={onActionClick}
               isCollapsed={getIsCollapsed()}
             />
           ))

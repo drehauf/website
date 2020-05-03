@@ -8,12 +8,12 @@ const Dashboard = () => {
   const [ selectedAction, setSelectedAction ] = useState(undefined);
 
   return (
-    <section>
+    <section className='dashboard'>
       <Header items={
         [LogoutItem]
       }/>
       <Sidebar onSelection={setSelectedAction}/>
-      <p className='dashboard_current-action'>{selectedAction ?? 'Nichts ausgewählt'}</p>
+      <p className='dashboard_current-action'>{selectedAction ? '' : 'Nichts ausgewählt'}</p>
     </section>
   );
 
