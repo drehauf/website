@@ -40,10 +40,6 @@
     }
   }
 
-  .destructive {
-    color: red;
-  }
-
   //MARK: header
 
   header {
@@ -163,6 +159,8 @@
 
   .sidebar {
 
+    background-color: $color-background--dark !important;
+
     &_item_name {
       background-color: $color-nav--dark !important;
 
@@ -182,8 +180,10 @@
         background-color: rgba($color-nav--dark, .25) !important;
       }
     }
+  }
 
-
+  .widget_footer {
+    background-color: $color-nav--dark !important;
   }
 
 }

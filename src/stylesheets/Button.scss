@@ -41,5 +41,9 @@ a {
 }
 
 .destructive {
-  color: red;
+  color: orangeRed !important;
+
+  &:hover {
+    color: darken(orangeRed, 15%) !important;
+  }
 }

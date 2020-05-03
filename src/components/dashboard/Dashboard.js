@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Header from 'components/header/Header';
-import { LogoutItem } from 'components/header/HeaderItems'
+import { LogoutItem, SidebarItem } from 'components/header/HeaderItems'
 import Sidebar from 'components/dashboard/Sidebar';
+import Widget from 'components/Widget';
 
 const Dashboard = () => {
 
   const [ selectedAction, setSelectedAction ] = useState(undefined);
 
   return (
-    <section className='dashboard'>
+    <Fragment>
       <Header items={
-        [LogoutItem]
+        [SidebarItem, LogoutItem]
       }/>
-      <Sidebar onSelection={setSelectedAction}/>
-      <p className='dashboard_current-action'>{selectedAction ? '' : 'Nichts ausgewählt'}</p>
-    </section>
+      <div className='dashboard'>
+        <Sidebar onSelection={setSelectedAction}/>
+        <div className='dashboard_context-area'>
+          <div className='dashboard_context-area_wrapper'>
+            <Widget
+              action={selectedAction}
+              onClose={() => setSelectedAction(undefined)}
+            />
+          </div>
+        </div>
+      </div>
+    </Fragment>
   );
 
 }

@@ -36,3 +36,11 @@ export const LogoutItem = <Button
   external={false}
   key='5'
 />;
+
+export const SidebarItem = <Button
+  className='destructive'
+  href='#'
+  text='NAVIGATION'
+  external={false}
+  key='6'
+/>;
