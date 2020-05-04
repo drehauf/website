@@ -5,6 +5,7 @@ import Main from 'components/main/Main';
 import Legal from 'components/footer/Legal';
 import Privacy from 'components/footer/Privacy';
 import Dashboard from 'components/dashboard/Dashboard';
+import Login from 'components/login/Login';
 import './stylesheets/index.scss';
 
 const App = () => {
@@ -16,6 +17,9 @@ const App = () => {
         <Switch>
           <Route path="/dashboard">
             <Dashboard/>
+          </Route>
+          <Route path="/login">
+            <Login/>
           </Route>
           <Route path="/impressum">
             <Legal/>

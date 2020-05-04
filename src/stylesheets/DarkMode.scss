@@ -186,4 +186,25 @@
     background-color: $color-nav--dark !important;
   }
 
+  .login_dialogue {
+
+    &_header, &_footer {
+      background-color: $color-nav--dark !important;
+    }
+
+    &_body {
+      background-color: $color-background--dark !important;
+    }
+
+    label {
+      color: $color-text--dark;
+    }
+
+    input {
+      background-color: lighten($color-background--dark, 5%);
+      color: white;
+    }
+
+  }
+
 }
