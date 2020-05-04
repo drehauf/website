@@ -6,7 +6,7 @@ const Footer = () => {
     <footer>
       <ul>
         <li>
-          <Button href="/login" text="LOGIN"/>
+          <Button href="/dashboard" text="LOGIN"/>
         </li>
         <li>
           <Button href="/impressum" text="IMPRESSUM"/>

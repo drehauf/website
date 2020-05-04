@@ -1,16 +1,15 @@
 import React from 'react';
-import { items } from 'components/dashboard/SidebarItems';
+// import { items } from 'components/dashboard/DashboardItems';
 import SidebarItem from 'components/dashboard/SidebarItem';
 
-const Sidebar = ({ onSelection }) => {
+const Sidebar = ({ items, onSelection, onHover }) => {
 
-  const onClick = (parentIndex, childIndex) => {
-    if (childIndex === undefined) {
-    } else {
-      let action = items[parentIndex].actions[childIndex].name;
-      onSelection(action);
-    }
-  }
+  // const onClick = (parentIndex, childIndex) => {
+  //   if (childIndex !== undefined) {
+  //     let action = items[parentIndex].actions[childIndex].name;
+  //     onSelection(action);
+  //   }
+  // }
 
   return (
     <div className='sidebar'>
@@ -23,7 +22,8 @@ const Sidebar = ({ onSelection }) => {
                 index={index}
                 name={item.name}
                 actions={item.actions}
-                onItemClick={onClick}
+                onItemClick={onSelection}
+                onActionHover={onHover}
               />
             ))
           }

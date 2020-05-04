@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SidebarAction from 'components/dashboard/SidebarAction';
 
-const SidebarItem = ({ index, name, actions, onItemClick }) => {
+const SidebarItem = ({ index, name, actions, onItemClick, onActionHover }) => {
 
   const [ isCollapsed, setIsCollapsed ] = useState(undefined)
 
@@ -34,9 +34,11 @@ const SidebarItem = ({ index, name, actions, onItemClick }) => {
             <SidebarAction
               key={index}
               index={index}
+              id={action.id}
               name={action.name}
               description={action.description}
               onActionClick={onActionClick}
+              onActionHover={onActionHover}
               isCollapsed={getIsCollapsed()}
             />
           ))

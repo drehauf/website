@@ -11,6 +11,7 @@
     overflow: scroll;
     flex-grow: 1;
     min-width: 15em;
+    // position: relative;
 
     @include tablet { //TODO: hack, no idea whats wrong with the flex items here
       min-height: 0;

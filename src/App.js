@@ -14,7 +14,7 @@ const App = () => {
       <Fragment>
         <ScrollToTop/>
         <Switch>
-          <Route path="/login">
+          <Route path="/dashboard">
             <Dashboard/>
           </Route>
           <Route path="/impressum">
