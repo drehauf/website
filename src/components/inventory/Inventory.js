@@ -8,7 +8,7 @@ const Inventory = ({ pages }) => {
 
   const table = () => {
     return (
-      <Table showPegination={true} data={pages}>
+      <Table data={pages}>
         <InventoryBody tableData={pages[0].data}/>
       </Table>
     )

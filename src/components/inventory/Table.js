@@ -1,29 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Pagination from "components/inventory/Pagination";
 
+const Table = ({ children, data }) => {
 
-const Table = ({ children, showPegination = false, data }) => {
-  const handlePreviousPage = () => {
-    console.log("previous");
+  const [pages, setPages] = useState();
+  const [pageIndex, setPageIndex] = useState(0);
+  
+  useEffect(() => {
+    if (data) {
+      setPages({
+        previous: data[getIndex(false)].title,
+        current: data[pageIndex].title,
+        next: data[getIndex(true)].title
+      });
+      console.log(pages);
+    }
+  }, [data, pageIndex]);
+
+  const getIndex = (direction) => {
+    if (direction) {
+      return pageIndex == 0 ? data.length - 1 : pageIndex - 1;
+    } else {
+      return pageIndex == data.length - 1 ? 0 : pageIndex + 1;
+    }
+  }
+
+  const handlePageChange = (direction) => {
+    setPageIndex(getIndex(direction));
   };
 
-  const handleNextPage = () => {
-    console.log("next");
-  };
-
-  const pegination = () => {
+  const pagination = () => {    
     return (
       <Pagination
-        previous={data[1].title}
-        current={data[0].title}
-        next={data[4].title}
-        handlePreviousPage={handlePreviousPage}
-        handleNextPage={handleNextPage}
+        pages={pages}
+        handlePageChange={handlePageChange}
       />
     );
   };
 
-  const renderPegination = showPegination ? pegination() : null;
+  const renderPagination = pages ? pagination() : null;
 
   return (
     <div className="table_wrapper">
@@ -37,7 +52,7 @@ const Table = ({ children, showPegination = false, data }) => {
         <tbody>{children}</tbody>
         <tfoot>
           <tr>
-            <td colSpan="3">{renderPegination}</td>
+            <td colSpan="3">{renderPagination}</td>
           </tr>
         </tfoot>
       </table>

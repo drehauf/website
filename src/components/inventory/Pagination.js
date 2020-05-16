@@ -1,15 +1,6 @@
 import React from 'react';
 
-const Pagination = ({ previous, current, next, handlePreviousPage, handleNextPage }) => {
-
-  const handlePageChange = (direction) => {
-    if (direction) {
-      handleNextPage()
-    } else {
-      handlePreviousPage()
-    }
-    console.log(direction ? 'right' : 'left');
-  };
+const Pagination = ({ pages, handlePageChange }) => {
 
   return(
     <div className='pagination'>
@@ -22,12 +13,12 @@ const Pagination = ({ previous, current, next, handlePreviousPage, handleNextPag
               () => handlePageChange(false)
             }
           >
-            <span>{previous}</span>
+            <span>{pages.previous}</span>
             <span className='pagination_arrow pagination_arrow-left'></span>
           </div>
         </li>
         <li>
-          <p>{current}</p>
+          <p>{pages.current}</p>
         </li>
         <li>
           <div
@@ -37,7 +28,7 @@ const Pagination = ({ previous, current, next, handlePreviousPage, handleNextPag
               () => handlePageChange(true)
             }
           >
-            <span>{next}</span>
+            <span>{pages.next}</span>
             <span className='pagination_arrow pagination_arrow-right'></span>
           </div>
         </li>

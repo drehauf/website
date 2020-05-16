@@ -17,17 +17,17 @@ const ShoppingCartFacade = () => {
     return newCart;
   }
 
-  const getSelected = (array) => {
-    const returnArray = []
+  const getSelectedItems = (array) => {
+    const items = []
     array.map(table => {
       table.data.forEach(tableItem => {
         if (tableItem.isChecked) {
-          returnArray.push(tableItem);
+          items.push(tableItem);
         }
       })
       return table;
     })
-    return returnArray;
+    return items;
   }
 
   const getEmailText = selected => {
@@ -46,7 +46,7 @@ const ShoppingCartFacade = () => {
 
   return {
     updateCart: updateCart,
-    getSelected: getSelected,
+    getSelectedItems: getSelectedItems,
     getEmailText: getEmailText
   };
 }

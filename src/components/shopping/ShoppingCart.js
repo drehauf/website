@@ -3,7 +3,7 @@ import InventoryData from "components/inventory/InventoryData";
 import ShoppingCartFacade from 'components/shopping/ShoppingCartFacade';
 
 export const ShoppingCartContext = React.createContext({
-  onItemChange: () => {},
+  onItemChange: () => { },
   isCartSet: false,
   cart: undefined,
   selected: undefined
@@ -12,33 +12,35 @@ export const ShoppingCartContext = React.createContext({
 const ShoppingCart = (props) => {
   const [cart, setCart] = useState(undefined);
   const [isCartSet, setIsCartSet] = useState(false);
-  const [fetchData, setFetchData] = useState([]);
-  const [selected, setSelected] = useState(undefined);
+  const [fetchedData, setFetchedData] = useState([]);
+  const [selectedItems, setSelectedItems] = useState(undefined);
   const emailText = useRef(undefined);
 
   useEffect(() => {
-      InventoryData.fetchTables(table => { setFetchData(prev => [...prev, table]) });
+    InventoryData.fetchTables(table => { 
+      setFetchedData(prev => [...prev, table]) 
+    });
   }, []);
 
   useEffect(() => {
-    if (InventoryData.allDataLoaded(fetchData)) {
-      setCart([...fetchData]);
+    if (InventoryData.allDataLoaded(fetchedData)) {
+      setCart([...fetchedData]);
     }
-  }, [fetchData]);
+  }, [fetchedData]);
 
   useEffect(() => {
     if (cart) {
-      const getSelected = ShoppingCartFacade.getSelected(cart)
-      setSelected(getSelected);
+      const getSelectedItems = ShoppingCartFacade.getSelectedItems(cart)
+      setSelectedItems(getSelectedItems);
     }
   }, [cart])
 
   useEffect(() => {
-    if (selected) {
-      setIsCartSet(selected.length > 0)
-      emailText.current = ShoppingCartFacade.getEmailText(selected);
+    if (selectedItems) {
+      setIsCartSet(selectedItems.length > 0)
+      emailText.current = ShoppingCartFacade.getEmailText(selectedItems);
     }
-  }, [selected])
+  }, [selectedItems])
 
   const onItemChange = item => {
     const newCart = ShoppingCartFacade.updateCart(cart, item);
@@ -52,7 +54,7 @@ const ShoppingCart = (props) => {
           onItemChange: onItemChange,
           isCartSet: isCartSet,
           cart: cart,
-          selected: selected,
+          selected: selectedItems,
           emailText: emailText.current
         }
       }
