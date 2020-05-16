@@ -1,21 +1,17 @@
-import React, { Fragment, useRef } from 'react';
+import React, { Fragment } from 'react';
 import Dropdown from 'components/inventory/Dropdown';
 
 const TableRow = ({ data, onItemChange }) => {
-
-  const name = data.name;
-  const quantity = data.quantity;
-
-  const checked = useRef(data.isChecked);
+  
+  const { name, quantity } = data;
+  let isChecked = data.isChecked;
 
   const quantityHandler = quantity => {
-    const isChecked = checked.current;
     onItemChange({ name, quantity, isChecked });
   };
 
   const onClickHandler = () => {
-    checked.current = !checked.current
-    const isChecked = checked.current;
+    isChecked = !isChecked
     onItemChange({ name, quantity, isChecked });
   }
 
@@ -24,7 +20,7 @@ const TableRow = ({ data, onItemChange }) => {
       <td className="table_column table_column_checkbox">
         <input
           type="checkbox"
-          checked={checked.current}
+          checked={isChecked}
           onChange={() => onClickHandler()}
         />
       </td>
@@ -39,7 +35,7 @@ const TableRow = ({ data, onItemChange }) => {
           maxQuantity={data.maxQuantity}
           quantity={quantity}
           returnFunction={quantityHandler}
-          isDisabled={!checked.current}
+          isDisabled={!isChecked}
         />
       </td>
     </Fragment>

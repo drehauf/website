@@ -15,7 +15,7 @@ export default {
         this.parse(file, callback);
       },
       error: (error) => {
-        console.log('Parsing CSV file failed:', error);
+        console.error('Parsing CSV file failed:', error);
       }
     });
   },

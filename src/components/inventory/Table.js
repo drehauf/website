@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import TableBody from 'components/inventory/TableBody';
 
 const Table = ({ data, pagination }) => {
@@ -13,7 +13,6 @@ const Table = ({ data, pagination }) => {
           </tr>
         </thead>
         <tbody>
-        {/* {children} */}
           <TableBody rows={data}/>
         </tbody>
         <tfoot>

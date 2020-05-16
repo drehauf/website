@@ -1,12 +1,12 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Dropdown = ({ maxQuantity, quantity, returnFunction, isDisabled }) => {
+
   const dropdownMenu = useRef(null);
   const [show, setShow] = useState(false);
-  const [currentValue, setCurrentValue] = useState(quantity);
 
   const toggleMenu = () => {
-    if(!isDisabled) {
+    if (!isDisabled) {
       setShow(!show);
     }
   }
@@ -25,18 +25,18 @@ const Dropdown = ({ maxQuantity, quantity, returnFunction, isDisabled }) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      dropdownMenu.current = null;
     };
   });
 
   const setValue = (value) => {
     returnFunction(value);
-    setCurrentValue(value);
     toggleMenu();
   }
 
   const getOptions = (value) => {
     let options = [];
-    for(let i = 1; i <= value; i++) {
+    for (let i = 1; i <= value; i++) {
       options.push(i);
     }
     return options;
@@ -44,24 +44,26 @@ const Dropdown = ({ maxQuantity, quantity, returnFunction, isDisabled }) => {
 
   const parsedOptions = getOptions(maxQuantity);
 
-  return(
+  return (
     <div className="dropdown" ref={dropdownMenu}>
       <div
         className="dropdown_header"
         onClick={toggleMenu}
         style={style}
       >
-        {currentValue}
+        {quantity}
       </div>
-      {show ?
-      <div className="dropdown_card">
-        {parsedOptions.map((value, index) => {
-          return (
-            <div key={index} className="dropdown_card_item" onClick={() => setValue(value)}>{value}</div>
-          );
-        })}
-      </div>
-       : ""}
+      {
+        show ?
+          <div className="dropdown_card">
+            {
+              parsedOptions.map((value, index) => {
+                return <div key={index} className="dropdown_card_item" onClick={() => setValue(value)}>{value}</div>
+              })
+            }
+          </div>
+        : ""
+      }
     </div>
   )
 }

@@ -34,7 +34,6 @@ const ShoppingCartFacade = () => {
     let NEWLINE = "%0D%0A";
     let emailText = `${NEWLINE}${NEWLINE}Ich habe folgendes Equipment online ausgewählt:${NEWLINE}${NEWLINE}`;
     for (let item of selected) {
-      // console.log('item ', item.name, item.quantity);
       emailText += `${item.quantity}x ${item.name}${NEWLINE}`;
     }
     return emailText;
