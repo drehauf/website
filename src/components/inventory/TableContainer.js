@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import TableActions from 'components/inventory/TableActions';
 import Table from "components/inventory/Table";
 import Pagination from "components/inventory/Pagination";
+import ShoppingCart, { ShoppingCartContext } from "components/shopping/ShoppingCart";
 
 const TableContainer = ({ isCartSet, items, selected }) => {
 
@@ -33,11 +34,18 @@ const TableContainer = ({ isCartSet, items, selected }) => {
   const [showSelected, setShowSelected] = useState(false);
   const onToggleAction = () => setShowSelected(!showSelected);
   
-  const tableActions = () => (isCartSet ? 
-    <TableActions
-      show={showSelected}
-      onClick={onToggleAction}
-    /> : null
+  const tableActions = () => (
+    isCartSet ? 
+    <ShoppingCartContext.Consumer>
+      {
+        (value) => <TableActions
+          show={showSelected}
+          onClick={onToggleAction}
+          onUnselect={value.uncheckAll}
+        />
+      }
+    </ShoppingCartContext.Consumer>
+    : null
   );
 
   const pagination = () => {    
@@ -52,10 +60,10 @@ const TableContainer = ({ isCartSet, items, selected }) => {
   const renderPagination = pages ? pagination() : null;
 
   const table = () => {    
-    if (showSelected && isCartSet) {
-      return <Table data={selected} />
-    } else if (items) {
+    if (items) { //TODO: or no items are checked
       return <Table data={items[pageIndex].data} pagination={renderPagination}/>
+    } else if (showSelected && isCartSet) {
+      return <Table data={selected} />
     } else {
       return <p>Daten werden geladen...</p>
     }

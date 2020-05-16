@@ -56,6 +56,18 @@ const ShoppingCart = (props) => {
     setItems(newItems);
   };
 
+  const removeAllSelectedItems = () => {
+    const newItems = items.map((page) => {
+      page.data.forEach((item) => {
+        if (item.isChecked) {
+          item.isChecked = false;
+        }
+      })
+      return page;
+    });
+    setItems(newItems);
+  };
+
   return (
     <ShoppingCartContext.Provider
       value={
@@ -64,7 +76,8 @@ const ShoppingCart = (props) => {
           isCartSet: isCartSet,
           items: items,
           selected: selectedItems,
-          emailText: emailText.current
+          emailText: emailText.current,
+          uncheckAll: removeAllSelectedItems
         }
       }
     >

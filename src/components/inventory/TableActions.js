@@ -1,5 +1,5 @@
 import React from 'react';
-import MailButton from 'components/simple/MailButton'
+import MailButton from 'components/simple/MailButton';
 
 const actions = {
   show: "ALLE ANZEIGEN",
@@ -8,7 +8,7 @@ const actions = {
   done: "ANFRAGE STELLEN"
 };
 
-const ActionArea = ({ show, onClick }) => {
+const ActionArea = ({ show, onClick, onUnselect }) => {
 
   let content = {
     text: actions.hide,
@@ -22,7 +22,7 @@ const ActionArea = ({ show, onClick }) => {
   return (
     <div className="u-margin-top--large inventory-actions">
       <a className="button" onClick={content.onClick}>{content.text}</a>
-      <a className="button destructive" onClick={undefined}>{actions.remove}</a>
+      <a className="button destructive" onClick={onUnselect}>{actions.remove}</a>
       <MailButton text={actions.done}/>
     </div>
   );
