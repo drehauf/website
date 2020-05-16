@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShoppingCartContext } from 'components/shopping/ShoppingCart';
 
-const MailButton = ({ text, emailText}) => {
+const MailButton = ({ text, emailText }) => {
   const emailAddresse = 'info@drehauf.com';
   const subject = 'Anfrage für Equipment';
   const emailBody = emailText ?? '';
@@ -16,7 +16,7 @@ const MailButtonContextConsumer = ({ text }) => {
   return (
     <ShoppingCartContext.Consumer>
       {
-        (value) => (<MailButton text={text} emailText={value.emailText}/>)
+        (value) => <MailButton text={text} emailText={value.emailText}/>
       }
     </ShoppingCartContext.Consumer>
   )

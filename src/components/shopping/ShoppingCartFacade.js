@@ -30,11 +30,13 @@ const ShoppingCartFacade = () => {
     return items;
   }
 
-  const getEmailText = selected => {
+  const getEmailText = (selected) => {
     let NEWLINE = "%0D%0A";
     let emailText = `${NEWLINE}${NEWLINE}Ich habe folgendes Equipment online ausgewählt:${NEWLINE}${NEWLINE}`;
     for (let item of selected) {
-      emailText += `${item.quantity}x ${item.name}${NEWLINE}`;
+      emailText += `${item.quantity}x `;
+      emailText += encodeURIComponent(item.name);
+      emailText += NEWLINE;
     }
     return emailText;
   }
