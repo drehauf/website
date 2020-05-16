@@ -3,6 +3,7 @@ import Subheadline from 'components/simple/Subheadline';
 import TextBlock from 'components/simple/TextBlock';
 import TableContainer from 'components/inventory/TableContainer';
 import { ShoppingCartContext } from "components/shopping/ShoppingCart";
+import Packages from 'components/inventory/Packages';
 
 const Services = () => {
 
@@ -54,6 +55,9 @@ const Services = () => {
                 Wir haben etwas für jeden Anlass. Für Ihre Veranstaltung erstellen wir Ihnen gern unverbindlich ein spezifisches Paket und Angebot ganz nach Ihren Anforderungen.
               </p>
             </TextBlock>
+            <div className='packages'>
+              <Packages/>
+            </div>
           </div>
           <a href='#contact'>MIETANFRAGE SCHICKEN</a>
         </div>

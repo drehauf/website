@@ -60,10 +60,10 @@ const TableContainer = ({ isCartSet, items, selected }) => {
   const renderPagination = pages ? pagination() : null;
 
   const table = () => {    
-    if (items) { //TODO: or no items are checked
-      return <Table data={items[pageIndex].data} pagination={renderPagination}/>
-    } else if (showSelected && isCartSet) {
+    if (showSelected && isCartSet) { //TODO: OR nothing checked
       return <Table data={selected} />
+    } else if (items) {
+      return <Table data={items[pageIndex].data} pagination={renderPagination} />
     } else {
       return <p>Daten werden geladen...</p>
     }
