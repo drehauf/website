@@ -1,14 +1,14 @@
 import React from 'react';
 import { ShoppingCartContext } from 'components/shopping/ShoppingCart';
-import InventoryItem from 'components/inventory/InventoryItem';
+import TableRow from 'components/inventory/TableRow';
 
-const InventoryBody = ({ tableData }) => {
+const TableBody = ({ rows }) => {  
 
-  return tableData.map((row, index) => (
+  return rows.map((row, index) => (
     <tr key={index} className="table_row">
       <ShoppingCartContext.Consumer>
         {value => (
-          <InventoryItem rowData={row} onItemChange={value.onItemChange} />
+          <TableRow data={row} onItemChange={value.onItemChange}/>
         )}
       </ShoppingCartContext.Consumer>
     </tr>
@@ -16,4 +16,4 @@ const InventoryBody = ({ tableData }) => {
 
 }
 
-export default InventoryBody;
+export default TableBody;

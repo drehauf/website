@@ -8,11 +8,11 @@ const actions = {
   done: "ANFRAGE STELLEN"
 };
 
-const ActionArea = ({ show, toggleFunction }) => {
+const ActionArea = ({ show, onClick }) => {
 
   let content = {
     text: actions.hide,
-    onClick: toggleFunction
+    onClick: onClick
   }
 
   if (show) {

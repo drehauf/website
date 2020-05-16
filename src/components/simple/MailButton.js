@@ -16,7 +16,7 @@ const MailButtonContextConsumer = ({ text }) => {
   return (
     <ShoppingCartContext.Consumer>
       {
-        (value) => <MailButton text={text} emailText={value.emailText}/>
+        (value) => (<MailButton text={text} emailText={value.emailText}/>)
       }
     </ShoppingCartContext.Consumer>
   )

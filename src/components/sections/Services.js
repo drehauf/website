@@ -2,6 +2,7 @@ import React from 'react';
 import Subheadline from 'components/simple/Subheadline';
 import TextBlock from 'components/simple/TextBlock';
 import TableContainer from 'components/inventory/TableContainer';
+import { ShoppingCartContext } from "components/shopping/ShoppingCart";
 
 const Services = () => {
 
@@ -33,7 +34,17 @@ const Services = () => {
               </p>
             </TextBlock>
           </div>
-          <TableContainer/>
+          <ShoppingCartContext.Consumer>
+            {
+              (value) => (
+                <TableContainer
+                  isCartSet={value.isCartSet}
+                  items={value.items}
+                  selected={value.selected}
+                />
+              )
+            }
+          </ShoppingCartContext.Consumer>
         </div>
         <div className='services_right-wrapper'>
           <Subheadline text='Pakete'/>

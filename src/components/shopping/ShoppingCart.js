@@ -5,35 +5,44 @@ import ShoppingCartFacade from 'components/shopping/ShoppingCartFacade';
 export const ShoppingCartContext = React.createContext({
   onItemChange: () => { },
   isCartSet: false,
-  cart: undefined,
+  items: undefined,
   selected: undefined
 });
 
 const ShoppingCart = (props) => {
-  const [cart, setCart] = useState(undefined);
+  const [items, setItems] = useState(undefined);
   const [isCartSet, setIsCartSet] = useState(false);
   const [fetchedData, setFetchedData] = useState([]);
   const [selectedItems, setSelectedItems] = useState(undefined);
   const emailText = useRef(undefined);
 
+  /*
+  * Fetch csv data for table pages
+  */
   useEffect(() => {
     InventoryData.fetchTables(table => { 
       setFetchedData(prev => [...prev, table]) 
     });
   }, []);
 
+  /*
+  * If all data is fetched, add to items
+  */
   useEffect(() => {
     if (InventoryData.allDataLoaded(fetchedData)) {
-      setCart([...fetchedData]);
+      setItems([...fetchedData]);
     }
   }, [fetchedData]);
 
+  /*
+  * Detect all changes to cart and add items to selectedItems
+  */
   useEffect(() => {
-    if (cart) {
-      const getSelectedItems = ShoppingCartFacade.getSelectedItems(cart)
+    if (items) {
+      const getSelectedItems = ShoppingCartFacade.getSelectedItems(items)
       setSelectedItems(getSelectedItems);
     }
-  }, [cart])
+  }, [items])
 
   useEffect(() => {
     if (selectedItems) {
@@ -43,8 +52,8 @@ const ShoppingCart = (props) => {
   }, [selectedItems])
 
   const onItemChange = item => {
-    const newCart = ShoppingCartFacade.updateCart(cart, item);
-    setCart(newCart);
+    const newItems = ShoppingCartFacade.updateItems(items, item);
+    setItems(newItems);
   };
 
   return (
@@ -53,7 +62,7 @@ const ShoppingCart = (props) => {
         {
           onItemChange: onItemChange,
           isCartSet: isCartSet,
-          cart: cart,
+          items: items,
           selected: selectedItems,
           emailText: emailText.current
         }

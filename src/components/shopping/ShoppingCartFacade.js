@@ -4,8 +4,8 @@ const ShoppingCartFacade = () => {
     return a.name === b.name && (a.isChecked !== b.isChecked || a.quantity !== b.quantity);
   }
 
-  const updateCart = (cart, item) => {
-    const newCart = cart.map(table => {
+  const updateItems = (items, item) => {
+    const newItems = items.map(table => {
       table.data.forEach(tableItem => {
         if (sameItemUnequalValue(tableItem, item)) {
           tableItem.quantity = item.quantity;
@@ -14,7 +14,7 @@ const ShoppingCartFacade = () => {
       })
       return table;
     });
-    return newCart;
+    return newItems;
   }
 
   const getSelectedItems = (array) => {
@@ -31,21 +31,17 @@ const ShoppingCartFacade = () => {
   }
 
   const getEmailText = selected => {
-    console.log('selected ', selected);
-
     let NEWLINE = "%0D%0A";
     let emailText = `${NEWLINE}${NEWLINE}Ich habe folgendes Equipment online ausgewählt:${NEWLINE}${NEWLINE}`;
-
     for (let item of selected) {
-      console.log('item ', item);
+      // console.log('item ', item.name, item.quantity);
       emailText += `${item.quantity}x ${item.name}${NEWLINE}`;
     }
-    
     return emailText;
   }
 
   return {
-    updateCart: updateCart,
+    updateItems: updateItems,
     getSelectedItems: getSelectedItems,
     getEmailText: getEmailText
   };

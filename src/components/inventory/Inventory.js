@@ -1,5 +1,5 @@
 import React from 'react';
-import InventoryBody from 'components/inventory/InventoryBody';
+import TableBody from 'components/inventory/TableBody';
 import Table from 'components/inventory/Table';
 
 const Inventory = ({ pages }) => {
@@ -9,12 +9,12 @@ const Inventory = ({ pages }) => {
   const table = () => {
     return (
       <Table data={pages}>
-        <InventoryBody tableData={pages[0].data}/>
+        <TableBody tableData={pages[0].data}/>
       </Table>
     )
   }
 
-  return pages ? table() : loading;
+  return pages ? <Table data={pages} /> : loading;
 }
 
 export default Inventory;

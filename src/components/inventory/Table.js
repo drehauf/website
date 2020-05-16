@@ -1,44 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Pagination from "components/inventory/Pagination";
+import TableBody from 'components/inventory/TableBody';
 
-const Table = ({ children, data }) => {
-
-  const [pages, setPages] = useState();
-  const [pageIndex, setPageIndex] = useState(0);
-  
-  useEffect(() => {
-    if (data) {
-      setPages({
-        previous: data[getIndex(false)].title,
-        current: data[pageIndex].title,
-        next: data[getIndex(true)].title
-      });
-      console.log(pages);
-    }
-  }, [data, pageIndex]);
-
-  const getIndex = (direction) => {
-    if (direction) {
-      return pageIndex == 0 ? data.length - 1 : pageIndex - 1;
-    } else {
-      return pageIndex == data.length - 1 ? 0 : pageIndex + 1;
-    }
-  }
-
-  const handlePageChange = (direction) => {
-    setPageIndex(getIndex(direction));
-  };
-
-  const pagination = () => {    
-    return (
-      <Pagination
-        pages={pages}
-        handlePageChange={handlePageChange}
-      />
-    );
-  };
-
-  const renderPagination = pages ? pagination() : null;
+const Table = ({ data, pagination }) => {
 
   return (
     <div className="table_wrapper">
@@ -49,10 +12,15 @@ const Table = ({ children, data }) => {
             <th>Anzahl</th>
           </tr>
         </thead>
-        <tbody>{children}</tbody>
+        <tbody>
+        {/* {children} */}
+          <TableBody rows={data}/>
+        </tbody>
         <tfoot>
           <tr>
-            <td colSpan="3">{renderPagination}</td>
+            <td colSpan="3">
+              {pagination}
+            </td>
           </tr>
         </tfoot>
       </table>

@@ -1,12 +1,12 @@
 import React, { Fragment, useRef } from 'react';
 import Dropdown from 'components/inventory/Dropdown';
 
-const InventoryItem = ({ rowData, onItemChange }) => {
+const TableRow = ({ data, onItemChange }) => {
 
-  const name = rowData.name;
-  const quantity = rowData.quantity;
+  const name = data.name;
+  const quantity = data.quantity;
 
-  const checked = useRef(rowData.isChecked);
+  const checked = useRef(data.isChecked);
 
   const quantityHandler = quantity => {
     const isChecked = checked.current;
@@ -36,7 +36,7 @@ const InventoryItem = ({ rowData, onItemChange }) => {
       </td>
       <td className="table_column table_column_quantity">
         <Dropdown
-          maxQuantity={rowData.maxQuantity}
+          maxQuantity={data.maxQuantity}
           quantity={quantity}
           returnFunction={quantityHandler}
           isDisabled={!checked.current}
@@ -46,4 +46,4 @@ const InventoryItem = ({ rowData, onItemChange }) => {
   );
 };
 
-export default InventoryItem;
+export default TableRow;

@@ -5,7 +5,6 @@ import InventoryData5 from "assets/data/Inventur190827/data5.csv";
 import InventoryData6 from "assets/data/Inventur190827/data6.csv";
 import CSVParser from "components/utils/CSVParser";
 
-
 const Data = [
   InventoryData2,
   InventoryData3,
