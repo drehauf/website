@@ -25,7 +25,6 @@ const Dropdown = ({ maxQuantity, quantity, returnFunction, isDisabled }) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      dropdownMenu.current = null;
     };
   });
 

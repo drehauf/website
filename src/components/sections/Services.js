@@ -52,11 +52,20 @@ const Services = () => {
           <div className='u-margin-top-bottom--large'>
             <TextBlock>
               <p>
-                Wir haben etwas für jeden Anlass. Für Ihre Veranstaltung erstellen wir Ihnen gern unverbindlich ein spezifisches Paket und Angebot ganz nach Ihren Anforderungen.
+                Wir haben etwas für jeden Anlass. Für Ihre Veranstaltung erstellen wir Ihnen gern unverbindlich ein spezifisches Paket und Angebot ganz nach Ihren Anforderungen oder auf Basis Ihrer Auswahl.
               </p>
             </TextBlock>
             <div className='packages'>
-              <Packages/>
+              <ShoppingCartContext.Consumer>
+                {
+                  (value) => (
+                    <Packages
+                      tableHasSelectedItems={value.selected.length > 0}
+                      selectPackage={value.onPackageChange}
+                    />
+                  )
+                }  
+              </ShoppingCartContext.Consumer>
             </div>
           </div>
           <a href='#contact'>MIETANFRAGE SCHICKEN</a>

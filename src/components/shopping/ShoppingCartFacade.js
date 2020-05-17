@@ -17,6 +17,14 @@ const ShoppingCartFacade = () => {
     return newItems;
   }
 
+  const updatePackage = (items, packageItems) => {
+    let newItems = [];
+    packageItems.forEach((item) => {
+      newItems = updateItems(items, item);
+    });
+    return newItems;
+  };
+
   const getSelectedItems = (array) => {
     const items = []
     array.map(table => {
@@ -29,6 +37,17 @@ const ShoppingCartFacade = () => {
     })
     return items;
   }
+
+  const clearItems = (items) => {
+    return items.map((page) => {
+      page.data.forEach((item) => {
+        if (item.isChecked) {
+          item.isChecked = false;
+        }
+      })
+      return page;
+    });
+  };
 
   const getEmailText = (selected) => {
     let NEWLINE = "%0D%0A";
@@ -43,6 +62,8 @@ const ShoppingCartFacade = () => {
 
   return {
     updateItems: updateItems,
+    updatePackage: updatePackage,
+    clearItems: clearItems,
     getSelectedItems: getSelectedItems,
     getEmailText: getEmailText
   };

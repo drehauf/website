@@ -13,7 +13,7 @@ const ShoppingCart = (props) => {
   const [items, setItems] = useState(undefined);
   const [isCartSet, setIsCartSet] = useState(false);
   const [fetchedData, setFetchedData] = useState([]);
-  const [selectedItems, setSelectedItems] = useState(undefined);
+  const [selectedItems, setSelectedItems] = useState([]);
   const emailText = useRef(undefined);
 
   /*
@@ -52,20 +52,16 @@ const ShoppingCart = (props) => {
   }, [selectedItems])
 
   const onItemChange = item => {
-    const newItems = ShoppingCartFacade.updateItems(items, item);
-    setItems(newItems);
+    setItems(ShoppingCartFacade.updateItems(items, item));
+  };  
+
+  const onPackageChange = (packageItems) => {
+    removeAllSelectedItems();
+    setItems(ShoppingCartFacade.updatePackage(items, packageItems));
   };
 
   const removeAllSelectedItems = () => {
-    const newItems = items.map((page) => {
-      page.data.forEach((item) => {
-        if (item.isChecked) {
-          item.isChecked = false;
-        }
-      })
-      return page;
-    });
-    setItems(newItems);
+    setItems(ShoppingCartFacade.clearItems(items));
   };
 
   return (
@@ -73,6 +69,7 @@ const ShoppingCart = (props) => {
       value={
         {
           onItemChange: onItemChange,
+          onPackageChange: onPackageChange,
           isCartSet: isCartSet,
           items: items,
           selected: selectedItems,
