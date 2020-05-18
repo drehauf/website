@@ -76,7 +76,7 @@ const Packages = ({ tableHasSelectedItems, selectPackage }) => {
         type='radio'
         className='packages_item_checkbox'
         id={item.id}
-        checked={
+        defaultChecked={
           activePackage ? (activePackage.id == item.id) : false
         }
       />

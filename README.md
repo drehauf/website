@@ -6,8 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Runs the client app and the server backend in development mode.<br/>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-Open [http://localhost:8000/api](http://localhost:8000/api) to test the exposed database.
+Database access can be tested by appending `/api`;
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.

@@ -20,7 +20,9 @@ const Main = () => (
       <Carousel frameData={FrameData} />
       <Sections/>
       <ShoppingCartContext.Consumer>
-        {value => <Contact isCardSet={value.isCartSet}/>}
+        {
+          value => <Contact isCardSet={value.isCartSet}/>
+        }
       </ShoppingCartContext.Consumer>
       <Footer/>
     </ShoppingCart>

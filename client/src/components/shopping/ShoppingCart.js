@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, createContext } from "react";
 import InventoryData from "components/inventory/InventoryData";
 import ShoppingCartFacade from 'components/shopping/ShoppingCartFacade';
 
-export const ShoppingCartContext = React.createContext({
-  onItemChange: () => { },
+export const ShoppingCartContext = createContext({
+  onItemChange: () => {},
   isCartSet: false,
   items: undefined,
   selected: undefined
@@ -51,7 +51,7 @@ const ShoppingCart = (props) => {
     }
   }, [selectedItems])
 
-  const onItemChange = item => {
+  const onItemChange = (item) => {
     setItems(ShoppingCartFacade.updateItems(items, item));
   };  
 
