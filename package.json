@@ -1,39 +1,35 @@
 {
   "name": "dreh-auf-web",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "fs": "0.0.1-security",
-    "jquery": "^3.4.1",
-    "node-sass": "^4.13.0",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-paginate": "^6.3.2",
-    "react-responsive-carousel": "^3.1.51",
-    "react-router-dom": "^5.1.2",
-    "react-router-hash-link": "^1.2.2",
-    "react-scripts": "^3.3.0",
-    "react-select": "^3.0.8"
-  },
+  "version": "1.0.0",
+  "description": "Dreh Auf Web",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antoniusmaximus/dreh-auf-web.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "Anton Quietzsch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antoniusmaximus/dreh-auf-web/issues"
+  },
+  "homepage": "https://www.drehauf.com",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
+    "express": "^4.17.1",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.14",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "validator": "^13.0.0"
   }
 }
