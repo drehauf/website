@@ -1,0 +1,44 @@
+@font-face {
+	font-family: arial-rounded;
+	src: url(../assets/arial-rounded.ttf);
+}
+
+.text-block {
+  line-height: 2rem;
+  font-family: Arial;
+
+  & p {
+		hyphens: auto;
+		word-wrap: break-word;
+    margin-bottom: 1rem;
+		text-align: justify;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+}
+
+.subheadline {
+  font-family: arial-rounded;
+  font-size: 1.5em;
+}
+
+.headline {
+	display: inline-block;
+	position: relative;
+  font-family: arial-rounded;
+  font-size: 2em;
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: -10px;
+		left: 0;
+		width: 100%;
+		height: .175em;
+		border-radius: 5px;
+		background-color: $color-nav--light;
+	}
+}

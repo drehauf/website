@@ -1,0 +1,22 @@
+.services {
+
+  &_flex-wrapper {
+    display: flex;
+
+    @include tablet {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &_left-wrapper {
+    position: relative;
+    min-width: 50%;
+    margin-right: 3rem;
+
+    @include tablet {
+      margin-right: 0;
+      margin-top: 2em;
+    }
+
+  }
+}

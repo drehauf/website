@@ -1,0 +1,47 @@
+.disclaimer {
+
+  &_sheet {
+
+    overflow: hidden;
+    position: fixed;
+    padding: 2em;
+    width: calc(100% - 4em);
+    background-color: $color-background--light;
+    z-index: 100;
+    bottom: 0;
+    box-shadow: 0px 0px 15px rgba($color-text--light, .25);
+
+    &_content {
+
+      &_button {
+
+        user-select: none;
+        font-weight: bold;
+
+        &:hover {
+
+          cursor: pointer;
+
+        }
+      }
+    }
+  }
+
+  &_backdrop {
+
+    z-index: 99;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(1, 1, 1, 0.25);
+    cursor: pointer;
+
+  }
+
+  &[hide=true] {
+
+    display: none;
+
+  }
+
+}

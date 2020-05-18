@@ -1,0 +1,61 @@
+@import './Variables.scss';
+
+.button {
+  color: $color-button--light;
+
+  &:hover {
+    color: darken($color-button--light, 15%);
+
+    & + .pagination_arrow-right {
+      border-left: solid 5px darken($color-button--light, 15%);
+    }
+
+    & + .pagination_arrow-left {
+      border-right: solid 5px darken($color-button--light, 15%);
+    }
+
+  }
+
+  &:visited {
+    color: $color-button--light;
+  }
+
+}
+
+button {
+  border: none;
+  background: none;
+  font-size: 11pt;
+  font-weight: bold;
+
+  &:hover {
+    color: darken($color-button--light, 15%);
+    cursor: pointer;
+  }
+}
+
+button, a {
+  color: $color-button--light;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    color: darken($color-button--light, 15%);
+    cursor: pointer;
+  }
+
+  &:visited {
+    // color: $color-button--light;
+  }
+}
+
+.destructive {
+  color: orangeRed !important;
+
+  &:hover {
+    color: darken(orangeRed, 15%) !important;
+  }
+}

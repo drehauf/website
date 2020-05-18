@@ -1,0 +1,42 @@
+$color-button--light: #347FC4;
+$color-button--dark: #409BEF;
+
+$color-delete--light: #EA2B1F;
+$color-delete--dark: #941B0C;
+
+$color-add--light: #06AA1F;
+$color-add--dark: #248232;
+
+$color-nav--light: #C6E6FF;
+$color-nav--dark: #071E30;
+
+$color-background--light: #FBFBFB;
+// $color-background--dark: rgb(25, 31, 32);
+// $color-background--dark: #222;
+$color-background--dark: #2d2d2d;
+
+$color-text--light: #080808;
+// $color-text--dark: #F0EFF4;
+// $color-text--dark: gray;
+$color-text--dark: gainsboro;
+
+$color-table--light: #fff;
+$color-table--dark: #eee;
+
+$color-underscore--light: #ECD444;
+
+@mixin phone {
+  @media only screen and (max-width: 599) { @content; }
+}
+@mixin tablet {
+  @media only screen and (max-width: 800px) { @content; }
+}
+@mixin landscape {
+  @media only screen and (max-width: 900px) { @content; }
+}
+@mixin desktop {
+  @media only screen and (max-width: 1200px) { @content; }
+}
+@mixin ultra-wide {
+  @media only screen and (max-width: 1800px) { @content; }
+}

@@ -1,0 +1,25 @@
+.tooltip {
+
+  display: none;
+  z-index: 100;
+  position: absolute;
+  // margin-top: -2.5em;
+  padding: 0.25em;
+  border-radius: 0.25em;
+  left: 10em;
+  right: 0;
+  max-width: 15em;
+  // height: 3em;
+  background-color: yellow;
+  // vertical-align: middle;
+  border: 1px solid darken(yellow, 15%);
+
+
+  p {
+    display: inline;
+    font-size: 10pt;
+    color: darken(yellow, 25%);
+    word-wrap: break-word;
+  }
+
+}

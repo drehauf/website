@@ -1,0 +1,27 @@
+.container {
+  width: 90%;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  padding: 4em 0;
+
+  @include tablet {
+    padding: 3em 0;
+  }
+}
+
+footer {
+  // background-color: $color-background--dark;
+
+  & ul {
+    display: flex;
+    justify-content: center;
+
+    & li {
+      list-style: none;
+      padding: 1em;
+    }
+  }
+}

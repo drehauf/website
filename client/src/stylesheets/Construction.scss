@@ -1,0 +1,57 @@
+h1, h2 {
+  font-family: arial-rounded, Arial;
+}
+
+#construction {
+  width: 80%;
+  padding: 0 10%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+#message * {
+  display: inline;
+  padding-right: 0.5em;
+}
+
+img {
+  width: 12em;
+}
+
+h1 {
+  font-size: 34pt;
+  padding: 1em 0;
+}
+
+h2 {
+  font-weight: normal;
+  line-height: 1.5em;
+}
+
+code {
+  font-family: monospace;
+  font-size: 16pt;
+  color: blue;
+}
+
+code:hover {
+  cursor: pointer;
+  color: dodgerblue;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  html {
+    background-color: #222;
+  }
+
+  h1, h2 {
+    color: white;
+  }
+
+  code {
+    color: cornflowerblue;
+  }
+
+}

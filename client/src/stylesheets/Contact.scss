@@ -1,0 +1,16 @@
+.contact {
+  position: relative;
+
+  &_image {
+    // position: relative;
+    // object-fit: fill;
+    // height: 100%;
+  }
+
+  &_overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

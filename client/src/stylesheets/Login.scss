@@ -1,0 +1,76 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.login {
+
+  fieldset {
+    border: none;
+  }
+
+  &_dialogue {
+
+    overflow: hidden;
+    box-shadow: 0px 0px 15px rgba($color-text--light, .25);
+    border-radius: 0.25em;
+    width: 30em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10em;
+
+    &_header p {
+      font-weight: bold;
+    }
+
+    &_body {
+      background-color: $color-background--light;
+
+      ul {
+        display: block;
+        list-style: none;
+
+        li {
+          padding: 0.5em;
+          display: flex;
+          line-height: 1.75em;
+        }
+      }
+
+      label {
+        width: 7em;
+        display: inherit !important;
+        padding-right: 1em;
+      }
+
+      input {
+        flex-grow: 1;
+        float: right;
+        font-size: 10pt;
+        padding: 0.25em 0.5em;
+        height: 1.5em;
+        // width: 65%;
+        border-radius: 0.25em;
+        border: none;
+      }
+    }
+
+    &_header, &_body, &_footer {
+      width: calc(100% - 2em);
+      padding: 1em;
+    }
+
+    &_header, &_footer {
+      background-color: $color-nav--light;
+      display: inline-block;
+    }
+
+    @include tablet {
+      border-radius: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+}
