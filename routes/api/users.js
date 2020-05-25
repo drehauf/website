@@ -29,7 +29,7 @@ router.post('/register', (request, result) => {
         });
       } else {
         const newUser = new User({
-          name: request.body.name,
+          username: request.body.username,
           email: request.body.email,
           password: request.body.password
         });
@@ -64,16 +64,16 @@ router.post('/login', (request, result) => {
   if (!isValid) {
     return result.status(400).json(errors);
   }
-  const email = request.body.email;
+  const username = request.body.username;
   const password = request.body.password;
 
   // Find user by email
-  User.findOne({ email }).then((user) => {
+  User.findOne({ username: username }).then((user) => {
 
     // Check if user exists
     if (!user) {
       return result.status(404).json({
-        emailnotfound: 'Email not found'
+        usernamenotfound: 'Username not found'
       });
     }
 
@@ -82,7 +82,7 @@ router.post('/login', (request, result) => {
       if (isMatch) {
         const payload = {
           id: user.id,
-          name: user.name
+          username: user.username
         };
 
         // Sign token
