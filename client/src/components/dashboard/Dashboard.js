@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Header from 'components/header/Header';
 import { LogoutItem, SidebarItem } from 'components/header/HeaderItems'
 import Sidebar from 'components/dashboard/Sidebar';
-import Widget from 'components/Widget';
+import Widget from 'components/dashboard/Widget';
 import { items } from 'components/dashboard/DashboardItems';
 
 const Dashboard = () => {

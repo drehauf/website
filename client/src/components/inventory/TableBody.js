@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingCartContext } from 'components/shopping/ShoppingCart';
+import { ShoppingCartContext } from 'components/inventory/ShoppingCart';
 import TableRow from 'components/inventory/TableRow';
 
 const TableBody = ({ rows }) => {  

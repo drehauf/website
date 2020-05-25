@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'components/simple/Button';
+import { AuthenticationContext } from 'components/authentication/Authentication';
 
 export const AboutItem = <Button
   href='/#about'
@@ -28,6 +29,22 @@ export const ContactItem = <Button
   external={false}
   key='4'
 />;
+
+// export const LogoutItem = 
+// <ManagerContext.Consumer>
+// {
+//   (value) => (
+//     <Button
+//       className='destructive'
+//       href='/'
+//       text='LOG OUT'
+//       external={false}
+//       key='5'
+//       onClick={value.onLogout}
+//     />
+//   )
+// }
+// </ManagerContext.Consumer>;
 
 export const LogoutItem = <Button
   className='destructive'

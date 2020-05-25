@@ -2,7 +2,7 @@ import React from 'react';
 import Subheadline from 'components/simple/Subheadline';
 import TextBlock from 'components/simple/TextBlock';
 import TableContainer from 'components/inventory/TableContainer';
-import { ShoppingCartContext } from "components/shopping/ShoppingCart";
+import { ShoppingCartContext } from "components/inventory/ShoppingCart";
 import Packages from 'components/inventory/Packages';
 
 const Services = () => {

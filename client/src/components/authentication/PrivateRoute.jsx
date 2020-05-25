@@ -1,18 +1,18 @@
 import React from 'react';
-import Manager, { ManagerContext } from 'components/manager/Manager';
+import { AuthenticationContext } from 'components/authentication/Authentication';
 import { Route, Redirect } from "react-router-dom";
 
 const PrivateRoute = ({ path, component: Component, ...props }) => {
 
   return (
     <Route path={path}>
-      <ManagerContext.Consumer>
+      <AuthenticationContext.Consumer>
         {
           (value) => value.isAuthenticated
             ? <Component {...props} />
             : <Redirect to='/login' />
         }
-      </ManagerContext.Consumer>
+      </AuthenticationContext.Consumer>
     </Route>
   );
 };

@@ -5,26 +5,26 @@ import FrameData from "components/carousel/Frames";
 import Sections from "components/sections/Sections";
 import Carousel from "components/carousel/Carousel";
 import Contact from 'components/sections/Contact';
-import ShoppingCart, { ShoppingCartContext } from "components/shopping/ShoppingCart";
+import ShoppingCart, { ShoppingCartContext } from "components/inventory/ShoppingCart";
 import SecurityDisclaimer from 'components/main/SecurityDisclaimer';
 import { AboutItem, ServicesItem, CredentialsItem, ContactItem } from 'components/header/HeaderItems'
 
 
 const Main = () => (
   <Fragment>
-    <SecurityDisclaimer/>
+    <SecurityDisclaimer />
     <ShoppingCart>
       <Header items={
         [AboutItem, ServicesItem, CredentialsItem, ContactItem]
-      }/>
+      } />
       <Carousel frameData={FrameData} />
-      <Sections/>
+      <Sections />
       <ShoppingCartContext.Consumer>
         {
-          value => <Contact isCardSet={value.isCartSet}/>
+          value => <Contact isCardSet={value.isCartSet} />
         }
       </ShoppingCartContext.Consumer>
-      <Footer/>
+      <Footer />
     </ShoppingCart>
   </Fragment>
 );

@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import TableActions from 'components/inventory/TableActions';
 import Table from "components/inventory/Table";
 import Pagination from "components/inventory/Pagination";
-import ShoppingCart, { ShoppingCartContext } from "components/shopping/ShoppingCart";
+import { ShoppingCartContext } from "components/inventory/ShoppingCart";
 
 const TableContainer = ({ isCartSet, items, selected }) => {
 

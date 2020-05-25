@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingCartContext } from 'components/shopping/ShoppingCart';
+import { ShoppingCartContext } from 'components/inventory/ShoppingCart';
 
 const MailButton = ({ text, emailText }) => {
   const emailAddresse = 'info@drehauf.com';

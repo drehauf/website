@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, createContext } from "react";
 import InventoryData from "components/inventory/InventoryData";
-import ShoppingCartFacade from 'components/shopping/ShoppingCartFacade';
+import ShoppingCartFacade from 'components/inventory/ShoppingCartFacade';
 
 export const ShoppingCartContext = createContext({
   onItemChange: () => {},
