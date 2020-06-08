@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, createContext } from "react";
+import React, { useState, useEffect, useRef, createContext, useContext } from "react";
 import InventoryData from "components/inventory/InventoryData";
 import ShoppingCartFacade from 'components/inventory/ShoppingCartFacade';
 
@@ -9,7 +9,7 @@ export const ShoppingCartContext = createContext({
   selected: undefined
 });
 
-const ShoppingCart = (props) => {
+const ShoppingCart = ({ children }) => {
   const [items, setItems] = useState(undefined);
   const [isCartSet, setIsCartSet] = useState(false);
   const [fetchedData, setFetchedData] = useState([]);
@@ -78,9 +78,10 @@ const ShoppingCart = (props) => {
         }
       }
     >
-      {props.children}
+      {children}
     </ShoppingCartContext.Provider>
   )
 }
 
+export const useShoppingContext = () => useContext(ShoppingCartContext);
 export default ShoppingCart;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingCartContext } from 'components/inventory/ShoppingCart';
+import { useShoppingContext } from 'components/inventory/ShoppingCart';
 
 const MailButton = ({ text, emailText }) => {
   const emailAddresse = 'info@drehauf.com';
@@ -13,13 +13,10 @@ const MailButton = ({ text, emailText }) => {
 }
 
 const MailButtonContextConsumer = ({ text }) => {
-  return (
-    <ShoppingCartContext.Consumer>
-      {
-        (value) => <MailButton text={text} emailText={value.emailText}/>
-      }
-    </ShoppingCartContext.Consumer>
-  )
+
+  const { emailText } = useShoppingContext();
+  return <MailButton text={text} emailText={emailText}/>;
+
 }
 
 export default MailButtonContextConsumer;

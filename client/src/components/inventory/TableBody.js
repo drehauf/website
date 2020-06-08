@@ -1,16 +1,14 @@
 import React from 'react';
-import { ShoppingCartContext } from 'components/inventory/ShoppingCart';
+import { useShoppingContext } from 'components/inventory/ShoppingCart';
 import TableRow from 'components/inventory/TableRow';
 
-const TableBody = ({ rows }) => {  
+const TableBody = ({ rows }) => {
+
+  const { onItemChange } = useShoppingContext();
 
   return rows.map((row, index) => (
     <tr key={index} className="table_row">
-      <ShoppingCartContext.Consumer>
-        {value => (
-          <TableRow data={row} onItemChange={value.onItemChange}/>
-        )}
-      </ShoppingCartContext.Consumer>
+      <TableRow data={row} onItemChange={onItemChange} />
     </tr>
   ));
 
