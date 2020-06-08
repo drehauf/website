@@ -64,7 +64,7 @@ router.post('/login', (request, result) => {
     return result.status(400).json(errors);
   }
   const username = request.body.username;
-  const password = request.body.password;  
+  const password = request.body.password;
 
   // Find user by email
   User.findOne({
@@ -72,7 +72,7 @@ router.post('/login', (request, result) => {
   })
     // Check if user exists
     .then((user) => {
-      
+
       if (!user) {
         return result.status(404).json({
           error: 'Username not found'
@@ -108,12 +108,12 @@ router.post('/login', (request, result) => {
 
 router.get('/', (request, result) => {
   User.find()
-  .then((users) => {
-    console.log(users);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
+    .then((item) => {
+      result.json(item);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
 });
 
 module.exports = router;
