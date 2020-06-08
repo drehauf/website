@@ -1,5 +1,5 @@
-import React, { useState, createContext } from 'react';
-import axios from 'axios';
+import React, { useState, createContext, useContext } from 'react';
+import api from 'components/utils/API';
 
 export const AuthenticationContext = createContext({
   isAuthenticated: false,
@@ -7,23 +7,22 @@ export const AuthenticationContext = createContext({
   logoutUser: () => {}
 });
 
-const Authentication = (props) => {
+const Authentication = ({ children }) => {
 
   const [ isAuthenticated, setAuthenticated ] = useState(false);
   const [ user, setUser ] = useState();
 
-  const onLogin = (user) => {
-    axios.post('/api/users/login', {
+  const onLogin = (user, callback) => {    
+    api.post('/users/login', {
       username: user.username,
-      password: user.password
+      password: user.password    
     })
       .then((result) => {
-        console.log(result);
         setAuthenticated(true);
         setUser(user);
       })
       .catch((error) => {
-        console.error(error);
+        callback(error.response.data);
       });
   }
 
@@ -42,9 +41,10 @@ const Authentication = (props) => {
         }
       }
     >
-      {props.children}
+      {children}
     </AuthenticationContext.Provider>
   )
 };
 
+export const useAuthContext = () => useContext(AuthenticationContext);
 export default Authentication;

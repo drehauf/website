@@ -49,7 +49,7 @@ export const ContactItem = <Button
 export const LogoutItem = <Button
   className='destructive'
   href='/'
-  text='LOG OUT'
+  text='ABMELDEN'
   external={false}
   key='5'
 />;

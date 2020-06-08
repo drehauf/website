@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { AuthenticationContext } from 'components/authentication/Authentication';
+import { useAuthContext } from 'components/authentication/Authentication';
+import { Redirect } from "react-router-dom";
 
 const Login = () => {
 
+  const { isAuthenticated, loginUser } = useAuthContext();
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState({
-    username: 'Falscher Benutzername',
-    password: 'Password inkorrekt'
-  });
 
   const onUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -16,6 +15,10 @@ const Login = () => {
 
   const onPasswordChange = (event) => {
     setPassword(event.target.value);
+  }
+
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard'/>;
   }
 
   return (
@@ -33,7 +36,6 @@ const Login = () => {
                   type='text'
                   name='username'
                   id='username'
-                  error={errors.username}
                   required
                   onChange={onUsernameChange}
                 />
@@ -44,7 +46,6 @@ const Login = () => {
                   type='password'
                   name='password'
                   id='password'
-                  error={errors.password}
                   required
                   onChange={onPasswordChange}
                 />
@@ -52,21 +53,17 @@ const Login = () => {
             </ul>
           </div>
           <div className='login_dialogue_footer'>
-            <AuthenticationContext.Consumer>
-              {
-                (value) => (
-                  <button
-                    type='submit'
-                    value='Anmelden'
-                    onClick={(event) => {
-                      event.preventDefault();
-                      value.loginUser({ username, password });
-                    }}
-                  >LOGIN</button>
-                )
-              }
-            </AuthenticationContext.Consumer>
-          </div> 
+            <button
+              type='submit'
+              value='Anmelden'
+              onClick={(event) => {
+                event.preventDefault();
+                loginUser({ username, password }, (error) => {
+                  window.alert(Object.values(error));
+                });
+              }}
+            >LOGIN</button>
+          </div>
         </form>
       </div>
     </div>

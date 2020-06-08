@@ -21,16 +21,15 @@ router.post('/register', (request, result) => {
   if (!isValid) {
     return result.status(400).json(errors);
   }
-  User.findOne({ email: request.body.email })
+  User.findOne({ username: request.body.username })
     .then((user) => {
       if (user) {
         return result.status(400).json({
-          email: 'Email already exists'
+          error: 'Username is already in use'
         });
       } else {
         const newUser = new User({
           username: request.body.username,
-          email: request.body.email,
           password: request.body.password
         });
 
@@ -65,41 +64,56 @@ router.post('/login', (request, result) => {
     return result.status(400).json(errors);
   }
   const username = request.body.username;
-  const password = request.body.password;
+  const password = request.body.password;  
 
   // Find user by email
-  User.findOne({ username: username }).then((user) => {
-
+  User.findOne({
+    username: username
+  })
     // Check if user exists
-    if (!user) {
-      return result.status(404).json({
-        usernamenotfound: 'Username not found'
-      });
-    }
+    .then((user) => {
+      
+      if (!user) {
+        return result.status(404).json({
+          error: 'Username not found'
+        });
+      }
 
-    // Check password
-    bcrypt.compare(password, user.password).then((isMatch) => {
-      if (isMatch) {
-        const payload = {
-          id: user.id,
-          username: user.username
-        };
+      // Check password
+      bcrypt.compare(password, user.password).then((isMatch) => {
+        if (isMatch) {
+          const payload = {
+            id: user.id,
+            username: user.username
+          };
 
-        // Sign token
-        jwt.sign(payload, keys.secretOrKey, {
-          expiresIn: 31556926 // 1 year in seconds
-        }, (error, token) => {
-          result.json({
-            success: true,
-            token: 'Bearer ' + token
+          // Sign token
+          jwt.sign(payload, keys.secretOrKey, {
+            expiresIn: 31556926 // 1 year in seconds
+          }, (error, token) => {
+            result.json({
+              success: true,
+              token: 'Bearer ' + token
+            });
+          }
+          );
+        } else {
+          return result.status(400).json({
+            error: 'Password incorrect'
           });
         }
-        );
-      } else {
-        return result.status(400).json({ passwordincorrect: 'Password incorrect' });
-      }
+      });
     });
-  });
+});
+
+router.get('/', (request, result) => {
+  User.find()
+  .then((users) => {
+    console.log(users);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
 });
 
 module.exports = router;

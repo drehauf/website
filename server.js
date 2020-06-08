@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
+
 var cors = require('cors');
 app.use(cors());
 
