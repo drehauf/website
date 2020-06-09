@@ -1,4 +1,8 @@
-export const items = [
+import React from 'react';
+import CreateInventory from 'components/dashboard/editors/CreateInventory';
+import CreateUser from 'components/dashboard/editors/CreateUser';
+
+const editors = [
   {
     name: 'Tagesgeschäft',
     actions: [
@@ -45,7 +49,13 @@ export const items = [
       {
         id: 'inventar-bearbeiten',
         name: 'Inventar bearbeiten',
-        description: 'Öffnet eine Liste aller Vermögensgegenstände und gemieteten Artikel'
+        description: 'Öffnet eine Liste aller Vermögensgegenstände und gemieteten Artikel',
+        widget: <CreateInventory/>
+      },
+      {
+        id: 'pakete-bearbeiten',
+        name: 'Pakete bearbeiten',
+        description: 'Öffnet die Konfiguration der Pakete'
       },
       {
         id: 'dienstleistung-erstellen',
@@ -65,7 +75,8 @@ export const items = [
       {
         id: 'gesellschafter',
         name: 'Gesellschafter erstellen',
-        description: 'Erzeugt eine leere Gesellschafterkartei'
+        description: 'Erzeugt eine leere Gesellschafterkartei',
+        widget: <CreateUser/>
       },
       {
         id: 'firma',
@@ -115,3 +126,6 @@ export const items = [
     ]
   }
 ];
+
+export { CreateInventory, CreateUser };
+export default editors;

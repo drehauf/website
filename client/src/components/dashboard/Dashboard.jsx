@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import Header from 'components/header/Header';
 import { LogoutItem, SidebarItem } from 'components/header/HeaderItems'
-import Sidebar from 'components/dashboard/Sidebar';
-import Widget from 'components/dashboard/Widget';
-import { items } from 'components/dashboard/DashboardItems';
+import Sidebar from 'components/dashboard/sidebar';
+import EditorContainer from 'components/dashboard/EditorContainer';
+import editors from 'components/dashboard/editors';
 
 const Dashboard = () => {
 
@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   const onSelection = (parentIndex, childIndex) => {
     if (childIndex !== undefined) {
-      let action = items[parentIndex].actions[childIndex];
+      let action = editors[parentIndex].actions[childIndex];
       setSelectedAction(action);
     }
   }
@@ -24,7 +24,7 @@ const Dashboard = () => {
       }/>
       <div className='dashboard'>
         <Sidebar
-          items={items}
+          items={editors}
           onSelection={onSelection}
           onHover={setHoverAction}
         />
@@ -32,7 +32,7 @@ const Dashboard = () => {
           <div className='dashboard_context-area_wrapper'>
             {
               selectedAction ?
-              <Widget
+              <EditorContainer
                 action={selectedAction}
                 onClose={
                   () => {

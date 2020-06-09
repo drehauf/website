@@ -1,6 +1,6 @@
 import React from 'react';
 // import { items } from 'components/dashboard/DashboardItems';
-import SidebarItem from 'components/dashboard/SidebarItem';
+import SidebarItem from 'components/dashboard/sidebar/SidebarItem';
 
 const Sidebar = ({ items, onSelection, onHover }) => {
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SidebarAction from 'components/dashboard/SidebarAction';
+import SidebarAction from 'components/dashboard/sidebar/SidebarAction';
 
 const SidebarItem = ({ index, name, actions, onItemClick, onActionHover }) => {
 

@@ -9,4 +9,32 @@ const api = axios.create({
   }
 });
 
+api.getEquipment = (callback) => {
+  http.get('/equipment', callback);
+};
+
+api.getUsers = (callback) => {
+  http.get('/users', callback);
+};
+
+const http = {
+
+  get: (url, callback) => {
+    api.get(url)
+    .then((result) => {
+      callback(result.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  },
+
+  post: undefined,
+  patch: undefined,
+  delete: undefined
+
+};
+
+
+
 export default api;
