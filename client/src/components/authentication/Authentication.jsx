@@ -2,14 +2,14 @@ import React, { useState, createContext, useContext } from 'react';
 import api from 'components/utils/API';
 
 export const AuthenticationContext = createContext({
-  isAuthenticated: false,
+  isAuthenticated: true,
   loginUser: () => {},
   logoutUser: () => {}
 });
 
 const Authentication = ({ children }) => {
 
-  const [ isAuthenticated, setAuthenticated ] = useState(false);
+  const [ isAuthenticated, setAuthenticated ] = useState(true);
   const [ user, setUser ] = useState();
 
   const onLogin = (user, callback) => {    

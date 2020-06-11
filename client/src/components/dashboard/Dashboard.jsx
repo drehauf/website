@@ -14,7 +14,6 @@ const Dashboard = () => {
   }, [editor])
 
   const onOpenEditor = (editor) => {
-    console.log('onOpen', editor);
     setEditor(editor);
   };
 
@@ -24,7 +23,6 @@ const Dashboard = () => {
   }
 
   const showEditor = () => {
-    // console.log('showEditor', editor)
     if (isEditing) {
       return <EditorContainer editor={editor} onCloseEditor={onCloseEditor} />
     }

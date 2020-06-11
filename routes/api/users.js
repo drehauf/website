@@ -1,119 +1,148 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const keys = require('../../config/keys');
 
-// Load input validation
-const validateRegisterInput = require('../../validation/register');
-const validateLoginInput = require('../../validation/login');
-
-// Load User model
+const { encrypt, decrypt } = require('../../validation/validator.js');
 const User = require('../../models/User');
 
-// REGISTER
-router.post('/register', (request, result) => {
-
-  // Form validation
-  const { errors, isValid } = validateRegisterInput(request.body);
-
-  // Check validation
-  if (!isValid) {
-    return result.status(400).json(errors);
-  }
-  User.findOne({ username: request.body.username })
+//MARK: POST Register
+router.post('/register', (request, response) => {
+  User.findOne({
+    username: request.body.username
+  })
     .then((user) => {
       if (user) {
-        return result.status(400).json({
-          error: 'Username is already in use'
+        return response.status(400).json({
+          error: 'Username is not available'
         });
       } else {
         const newUser = new User({
           username: request.body.username,
-          password: request.body.password
+          password: request.body.password,
+          isAdmin: request.body.isAdmin
         });
-
-        // Hash password before saving in database
-        bcrypt.genSalt(10, (error, salt) => {
-          bcrypt.hash(newUser.password, salt, (error, hash) => {
-            if (error) {
-              throw error;
-            }
-            newUser.password = hash;
-            newUser.save()
-              .then((user) => {
-                result.json(user);
-              })
-              .catch((error) => {
-                console.log(error);
-              });
-          });
+        encrypt(newUser.password, (hash) => {
+          newUser.password = hash;
+          newUser.save()
+            .then((user) => {
+              response.status(200).json(user);
+            })
+            .catch((error) => {
+              response.status(500).json(error);
+            })
+        }, (error) => {
+          throw error;
         });
       }
     });
 });
 
-// LOGIN
-router.post('/login', (request, result) => {
-
-  // Form validation
-  const { errors, isValid } = validateLoginInput(request.body);
-
-  // Check validation
-  if (!isValid) {
-    return result.status(400).json(errors);
-  }
-  const username = request.body.username;
-  const password = request.body.password;
-
-  // Find user by email
+//MARK: POST Login
+router.post('/login', (request, response) => {
   User.findOne({
-    username: username
+    username: request.body.username
   })
-    // Check if user exists
     .then((user) => {
-
       if (!user) {
-        return result.status(404).json({
+        return response.status(404).json({
           error: 'Username not found'
         });
       }
-
-      // Check password
-      bcrypt.compare(password, user.password).then((isMatch) => {
-        if (isMatch) {
-          const payload = {
-            id: user.id,
-            username: user.username
-          };
-
-          // Sign token
-          jwt.sign(payload, keys.secretOrKey, {
-            expiresIn: 31556926 // 1 year in seconds
-          }, (error, token) => {
-            result.json({
-              success: true,
-              token: 'Bearer ' + token
-            });
-          }
-          );
-        } else {
-          return result.status(400).json({
-            error: 'Password incorrect'
-          });
-        }
+      decrypt(request.body.password, user, (token) => {
+        response.status(200).json({
+          success: true,
+          token: 'Bearer ' + token
+        });
+      }, (error) => {
+        response.status(404).json(error);
       });
     });
 });
 
-router.get('/', (request, result) => {
+//MARK: GET All
+router.get('/', (request, response) => {
   User.find()
     .then((item) => {
-      result.json(item);
+      response.status(200).json(item);
     })
     .catch((error) => {
-      console.log(error);
+      response.status(500).json(error);
     })
+});
+
+//MARK: GET By Username
+router.get('/:username', (request, response) => {
+  User.findOne({
+    username: request.params.username
+  })
+    .then((user) => {
+      response.status(200).json(user);
+    })
+    .catch((error) => {
+      response.status(500).json(error);
+    });
+});
+
+//MARK: DELETE By Username
+router.delete('/:username', (request, response) => { // response can be null
+  if (request.body.username && request.body.password) { 
+    User.findOne({
+      username: request.body.username
+    })
+      .then((user) => {
+        if (user) {
+          decrypt(request.body.password, user, (token) => {
+            if (user.isAdmin === true) {
+              User.findOneAndDelete({
+                username: request.params.username
+              })
+                .then((user) => {
+                  response.status(200).json(user);
+                })
+                .catch((error) => {
+                  response.status(500).json(error);
+                });
+            } else {
+              response.status(403).json({
+                error: 'Admin required'
+              })
+            }
+          }, (error) => {
+            response.status(404).json(error);
+          });
+        } else { // is username or password missing? or wrong? which one
+          return response.status(404).json({
+            error: 'Username not found'
+          });
+        }
+      })
+      .catch((error) => {
+        response.status(500).json(error);
+      })
+  } else {
+    response.status(404).json({ // username or password wrong?
+      error: 'Username not found'
+    })
+  }
+});
+
+//MARK: PATCH By Username
+router.patch('/:username', (request, response) => {
+  User.findOneAndUpdate({
+    username: request.params.username
+  }, request.body, {
+    new: true
+  })
+  .then((user) => {
+    if (!user) { // same as <DELETE by user as admin>, (username/password) missing/wrong?
+      response.status(404).json({
+        error: 'User not found'
+      });
+    }
+    response.status(200).json(user);
+  })
+  .catch((error) => {
+    response.status(500).json(error);
+  })
 });
 
 module.exports = router;
