@@ -3,4 +3,5 @@ import FormArea from "./FormArea";
 import FormRow from "./FormRow";
 import FormCell from "./FormCell";
 
-export { Editor, useEditorContext, FormArea, FormRow, FormCell };
+export { useEditorContext, FormArea, FormRow, FormCell };
+export default Editor;

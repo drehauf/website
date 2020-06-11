@@ -1,36 +1,36 @@
 import React from 'react';
-import { Editor } from 'components/dashboard/editor';
 
-const EditorContainer = ({ action, onClose }) => {
+const EditorContainer = ({ editor, onCloseEditor }) => {
 
-  const onDoneClick = () => {
-    document.getElementById(action.id).checked = false;
-    onClose()
+  const onDone = () => {
+    document.getElementById(editor.id).checked = false;
+    onCloseEditor()
   }
 
-  const onCancelClick = () => {
+  const onCancel = () => {
     if (window.confirm('Wirklich verlassen? Änderungen werden nicht gespeichert')) {
-      onDoneClick()
+      onDone()
     };
   }
 
-  return (
-    <Editor>
+  if (editor) {
+    return (
       <div className='widget'>
         <div className='widget_header'></div>
         <div className='widget_body'>
-          {action.widget}
+          {editor.form}
         </div>
         <div className='widget_footer'>
-          <p>{action.name}</p>
+          <p>{editor.name}</p>
           <div className='widget_footer_actions'>
-            <a className="button" onClick={() => onDoneClick()}>FERTIG</a>
-            <a className="button destructive" onClick={() => onCancelClick()}>ABBRECHEN</a>
+            <a className="button" onClick={() => onDone()}>FERTIG</a>
+            <a className="button destructive" onClick={() => onCancel()}>ABBRECHEN</a>
           </div>
         </div>
       </div>
-    </Editor>
-  );
+    );
+  }
+  return null;
 }
 
 export default EditorContainer;

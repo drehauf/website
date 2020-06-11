@@ -1,51 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import SidebarAction from 'components/dashboard/sidebar/SidebarAction';
+import React from 'react';
+import { useEditorContext } from 'components/dashboard/editor';
 
-const SidebarItem = ({ index, name, actions, onItemClick, onActionHover }) => {
-
-  const [ isCollapsed, setIsCollapsed ] = useState(undefined)
-
-  useEffect(() => {
-    setIsCollapsed(false);
-  }, []);
-
-  const onActionClick = (actionIndex) => {
-    onItemClick(index, actionIndex)
-  };
-
-  const onClick = () => {
-    setIsCollapsed(!isCollapsed)
-  }
-
-  const getIsCollapsed = () => ((isCollapsed ?? true).toString());
+const SidebarItem = ({ item, onOpenEditor, onHover, isCollapsed }) => { 
+  
+  const { setEditor } = useEditorContext();
 
   return (
-    <li>
-      <div
-        collapsed={getIsCollapsed()}
-        className='sidebar_item'
-        onClick={() => onClick(index)}
-        >
-          <p className='sidebar_item_name'>{name}</p>
-          <span className='sidebar_item_arrow'></span>
+    <div
+      className='sidebar_action'
+      collapsed={isCollapsed}
+      // onClick={() => onOpenEditor(item)}
+      onClick={() => setEditor(item)}
+      onMouseEnter={() => onHover(item.description)}
+      onMouseLeave={() => onHover(undefined)}
+    >
+      <input type='radio' name='sidebar_actions' id={item.id}/>
+      <label className='sidebar_action_wrapper' htmlFor={item.id}>
+        <p className='sidebar_action_wrapper_name'>{item.name}</p>
+        {/* 
+          <p className='sidebar_action_description'>{editor.description}</p> 
+        */}
+      </label>
+      {/*
+        <div className='tooltip'>
+          <p>{description}</p>
         </div>
-        {
-          actions.map((action, index) => (
-            <SidebarAction
-              key={index}
-              index={index}
-              id={action.id}
-              name={action.name}
-              description={action.description}
-              onActionClick={onActionClick}
-              onActionHover={onActionHover}
-              isCollapsed={getIsCollapsed()}
-            />
-          ))
-        }
-      </li>
-    );
+      */}
+    </div>
+  );
 
-  }
+}
 
-  export default SidebarItem;
+export default SidebarItem;

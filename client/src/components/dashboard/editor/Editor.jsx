@@ -1,29 +1,25 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 
 export const EditorContext = createContext({
-  data: undefined,
-  schema: undefined,
-  onWidgetChange: () => {}
+  editor: undefined,
+  setEditor: () => {}
 });
 
 const Editor = ({ children }) => {
 
-  const [widget, setWidget] = useState({
-    data: undefined,
-    schema: undefined
-  });
+  const [editor, setEditor] = useState();
 
-  const onWidgetChange = (newWidget) => {
-    setWidget(newWidget);
-  };
+  const onChangeEditor = (editor) => {
+    console.log('setEditor', editor);
+    setEditor(editor);
+  }
 
   return (
     <EditorContext.Provider
       value={
         {
-          data: widget.data,
-          schema: widget.schema,
-          onWidgetChange: onWidgetChange
+          editor: editor,
+          setEditor: onChangeEditor,
         }
       }
     >

@@ -1,27 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import FormRow from 'components/dashboard/editor/FormRow';
+import React from 'react';
+import { FormRow } from 'components/dashboard/editor';
+// import { useEditorContext } from 'components/dashboard/editor';
 
-const DataArea = ({ data, onDataChanged }) => {
+const DataArea = () => {
 
-  // const [rows, setRows] = useState();
+  // const { data } = useEditorContext();
 
-  // useEffect(() => {
-  //   if (data) {
-  //     setRows(data)
-  //   }
-  // }, []);
-
-  if (data) {
-    return data.map((row, index) => (
-      <FormRow key={index}>
-        {
-          (row) => row.map((cell, index) => (
-            <input key={index} value={cell}/>
-          ))
-        }
-      </FormRow>
-    ));
-  }
+  // if (data) {
+  //   return data.map((row, index) => (
+  //     <FormRow key={index}>
+  //       {
+  //         (row) => row.map((cell, index) => (
+  //           <input key={index} value={cell}/>
+  //         ))
+  //       }
+  //     </FormRow>
+  //   ));
+  // }
   return <p>loading</p>;
 }
 

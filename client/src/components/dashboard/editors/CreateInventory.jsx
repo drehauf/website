@@ -38,9 +38,20 @@ const CreateInventory = () => {
   });
 
   if (data) {
-    return <FormArea data={data}/>;
     return data.map((item, index) => {
-      return <p>hallo</p>//(
+      return (
+      <div key={index}>
+        <p>{item.name}</p>
+      </div>
+      );
+    });
+  }
+  return <p>loading</p>
+
+  // if (data) {
+  //   return <FormArea data={data}/>;
+  //   return data.map((item, index) => {
+  //     return <p>hallo</p>//(
         // <Row options={{ movable: true, deletable: true, modifiable: true }}>
         //   <input type="text" value={name} {...bindName} />
         //   <input type="text" value={commonName} {...bindCommonName} />
@@ -125,9 +136,9 @@ const CreateInventory = () => {
 
 
       // ); 
-    });
-  }
-  return <p>loading</p>
+    // });
+  // }
+  // return <p>loading</p>
 
 };
 

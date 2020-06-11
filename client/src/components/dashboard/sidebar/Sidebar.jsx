@@ -1,29 +1,21 @@
 import React from 'react';
-// import { items } from 'components/dashboard/DashboardItems';
-import SidebarItem from 'components/dashboard/sidebar/SidebarItem';
+import SidebarSection from 'components/dashboard/sidebar/SidebarSection';
 
-const Sidebar = ({ items, onSelection, onHover }) => {
-
-  // const onClick = (parentIndex, childIndex) => {
-  //   if (childIndex !== undefined) {
-  //     let action = items[parentIndex].actions[childIndex].name;
-  //     onSelection(action);
-  //   }
-  // }
+const Sidebar = ({ items, onOpenEditor, onHover }) => {
 
   return (
     <div className='sidebar'>
       <ul>
         <fieldset id='sidebar_actions'>
           {
-            items.map((item, index) => (
-              <SidebarItem
+            items.map((section, index) => (
+              <SidebarSection
                 key={index}
                 index={index}
-                name={item.name}
-                actions={item.actions}
-                onItemClick={onSelection}
-                onActionHover={onHover}
+                name={section.name}
+                items={section.items}
+                onOpenEditor={onOpenEditor}
+                onHover={onHover}
               />
             ))
           }
