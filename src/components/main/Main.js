@@ -1,0 +1,33 @@
+import React, { Fragment } from 'react';
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
+import FrameData from "../carousel/Frames";
+import Sections from "../sections/Sections";
+import Carousel from "../carousel/Carousel";
+import Contact from '../sections/Contact';
+import ShoppingCart, { useShoppingContext } from "../inventory/ShoppingCart";
+import SecurityDisclaimer from './SecurityDisclaimer';
+import { AboutItem, ServicesItem, CredentialsItem, ContactItem } from '../header/HeaderItems'
+
+const Main = () => {
+
+  const { isCartSet } = useShoppingContext();
+
+  return (
+    <Fragment>
+      <SecurityDisclaimer />
+      <ShoppingCart>
+        <Header items={
+          [AboutItem, ServicesItem, CredentialsItem, ContactItem]
+        } />
+        <Carousel frameData={FrameData} />
+        <Sections />
+        <Contact isCardSet={isCartSet} />
+        <Footer />
+      </ShoppingCart>
+    </Fragment>
+  );
+
+};
+
+export default Main;
