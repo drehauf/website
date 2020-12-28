@@ -1,50 +1,50 @@
 import React, { useState, createContext, useContext } from 'react';
 import api from '../utils/API';
 
-export const AuthenticationContext = createContext({
+export const Context = createContext({
   isAuthenticated: false,
   loginUser: () => {},
-  logoutUser: () => {}
+  logoutUser: () => {},
 });
 
 const Authentication = ({ children }) => {
+  const [isAuthenticated, setAuthenticated] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [_, setUser] = useState();
 
-  const [ isAuthenticated, setAuthenticated ] = useState(false);
-  const [ user, setUser ] = useState();
-
-  const onLogin = (user, callback) => {    
+  const onLogin = (newUser, callback) => {
     api.post('/users/login', {
-      username: user.username,
-      password: user.password    
+      username: newUser.username,
+      password: newUser.password,
     })
-      .then((result) => {
+      .then(() => {
         setAuthenticated(true);
-        setUser(user);
+        setUser(newUser);
       })
       .catch((error) => {
         callback(error.response.data);
       });
-  }
+  };
 
   const onLogout = () => {
     setAuthenticated(false);
     setUser(undefined);
-  }
+  };
 
   return (
-    <AuthenticationContext.Provider
+    <Context.Provider
       value={
         {
-          isAuthenticated: isAuthenticated,
+          isAuthenticated,
           loginUser: onLogin,
-          logoutUser: onLogout
+          logoutUser: onLogout,
         }
       }
     >
       {children}
-    </AuthenticationContext.Provider>
-  )
+    </Context.Provider>
+  );
 };
 
-export const useAuthContext = () => useContext(AuthenticationContext);
+export const useAuthentication = () => useContext(Context);
 export default Authentication;

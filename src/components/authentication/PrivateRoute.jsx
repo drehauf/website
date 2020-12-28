@@ -1,16 +1,15 @@
 import React from 'react';
-import { useAuthContext } from '../authentication/Authentication';
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect } from 'react-router-dom';
+import { useAuthentication } from './Authentication';
 
-const PrivateRoute = ({ path, component: Component, ...props }) => {
+const PrivateRoute = ({ path, component: RouteComponent, ...props }) => {
+  const { isAuthenticated } = useAuthentication();
 
-  const { isAuthenticated } = useAuthContext();
+  const child = isAuthenticated ? <RouteComponent {...props} /> : <Redirect to="/login" />;
 
   return (
     <Route path={path}>
-      {
-        () => isAuthenticated ? <Component {...props}/> : <Redirect to='/login'/>
-      }
+      { child }
     </Route>
   );
 };
