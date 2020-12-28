@@ -12,6 +12,7 @@ const Authentication = ({ children }) => {
   // eslint-disable-next-line no-unused-vars
   const [_, setUser] = useState();
 
+  // eslint-disable-next-line no-unused-vars
   const onLogin = (newUser, callback) => {
     api.post('/users/login', {
       username: newUser.username,
@@ -22,7 +23,8 @@ const Authentication = ({ children }) => {
         setUser(newUser);
       })
       .catch((error) => {
-        callback(error.response.data);
+        // eslint-disable-next-line no-console
+        console.error('fatal: Endpoint `/users/login` is not implemented', error);
       });
   };
 
