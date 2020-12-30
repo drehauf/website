@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react';
-import Navbar from '../header/Header';
-import Section from '../sections/Section';
+import React, { FC as Component, Fragment } from 'react';
+import SectionModel from '../../models/section.model';
+import Header from '../header/header.component';
+import Section from '../sections/section.component';
 import Subheadline from '../simple/Subheadline';
 import TextBlock from '../simple/TextBlock';
 
-const Impressum = () => {
-  const Content = (
+const Impressum: Component = () => {
+  const content = (
+    // TODO: move to a data file and create `Subheadline`, `TextBlock` iteratively
     /* eslint-disable max-len */
     <>
       <Subheadline text="1. Haftungsbeschränkung" />
@@ -69,11 +71,12 @@ const Impressum = () => {
 
   return (
     <>
-      <Navbar />
-      <Section
-        title="Impressum"
-        content={Content}
-        sectionStyle={{ paddingTop: '4.8em' }}
+      <Header />
+      <Section section={{
+        title: 'Impressum',
+        content,
+        style: { paddingTop: '4.8em' },
+      } as SectionModel}
       />
     </>
   );

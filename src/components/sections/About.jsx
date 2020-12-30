@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../simple/Button';
+import Button from '../simple/button.component';
 import Subheadline from '../simple/Subheadline';
 import TextBlock from '../simple/TextBlock';
 
@@ -23,7 +23,7 @@ const About = () => (
       </div>
       <Button
         href="https://wego.here.com/deutschland/dresden/education-facility/freie-montessorischule-huckepack--276u31f3-f98f3c5dc3124f76b306cdafc6f2b4b0?map=51.0423,13.78616,15,normal"
-        text="FIRMA UND SCHULE AUF KARTE ANZEIGEN"
+        content="FIRMA UND SCHULE AUF KARTE ANZEIGEN"
         external
       />
     </div>
@@ -44,7 +44,7 @@ const About = () => (
       </div>
       <Button
         href="https://www.huckepack-ev.de/montessorischule.html"
-        text="FREIE MONTESSORISCHULE HUCKEPACK"
+        content="FREIE MONTESSORISCHULE HUCKEPACK"
         external
       />
     </div>

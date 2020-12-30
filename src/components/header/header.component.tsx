@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { FC as Component } from 'react';
 import BurgerMenu from './BurgerMenu';
-import Button from '../simple/Button';
+import Button from '../simple/button.component';
 
-const Header = ({ items }) => {
+interface Props {
+  items?: Element[];
+}
+
+const Header: Component<Props> = ({ items }: Props) => {
   const logo = <div className="h-logo" />;
 
   return (
@@ -10,7 +14,7 @@ const Header = ({ items }) => {
       <div className="header_wrapper container">
         <Button
           href="/"
-          text={logo}
+          content={logo}
           external={false}
         />
         <div className="h-right">
@@ -23,5 +27,9 @@ const Header = ({ items }) => {
     </header>
   );
 };
+
+Header.defaultProps = {
+  items: [],
+} as Props;
 
 export default Header;

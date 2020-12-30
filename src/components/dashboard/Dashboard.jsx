@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import Header from '../header/Header';
+import Header from '../header/header.component';
 import { LogoutItem, SidebarItem } from '../header/HeaderItems';
 import Sidebar from './Sidebar';
 import Widget from './Widget';

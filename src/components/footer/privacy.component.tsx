@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react';
-import Navbar from '../header/Header';
-import Section from '../sections/Section';
+import React, { FC as Component, Fragment } from 'react';
+import SectionModel from '../../models/section.model';
+import Navbar from '../header/header.component';
+import Section from '../sections/section.component';
 import Subheadline from '../simple/Subheadline';
 import TextBlock from '../simple/TextBlock';
 
-const Datenschutz = () => {
-  const Content = (
+const Datenschutz: Component = () => {
+  const content = (
+    // TODO: move to a data file and create `Subheadline`, `TextBlock` iteratively
     /* eslint-disable max-len */
     <>
       <div className="u-margin-top-bottom--large">
@@ -91,10 +93,11 @@ const Datenschutz = () => {
   return (
     <>
       <Navbar />
-      <Section
-        title="Datenschutz"
-        content={Content}
-        sectionStyle={{ paddingTop: '4.8em' }}
+      <Section section={{
+        title: 'Datenschutz',
+        content,
+        style: { paddingTop: '4.8em' },
+      } as SectionModel}
       />
     </>
   );

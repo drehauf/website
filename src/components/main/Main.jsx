@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../header/Header';
-import Footer from '../footer/Footer';
+import Header from '../header/header.component';
+import Footer from '../footer/footer.component';
 import frames from '../../data/carousel.data';
-import Sections from '../sections/Sections';
+import Sections from '../sections/sections.component';
 import Carousel from '../carousel/carousel.component';
 import Contact from '../sections/Contact';
 import ShoppingCart, { useShoppingContext } from '../inventory/ShoppingCart';

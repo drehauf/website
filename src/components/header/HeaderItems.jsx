@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '../simple/Button';
+import Button from '../simple/button.component';
 
 export const AboutItem = (
   <Button
     href="/#about"
-    text="ÜBER UNS"
+    content="ÜBER UNS"
     external={false}
     key="1"
   />
@@ -13,7 +13,7 @@ export const AboutItem = (
 export const ServicesItem = (
   <Button
     href="/#services"
-    text="LEISTUNGEN"
+    content="LEISTUNGEN"
     external={false}
     key="2"
   />
@@ -22,7 +22,7 @@ export const ServicesItem = (
 export const CredentialsItem = (
   <Button
     href="/#credentials"
-    text="REFERENZEN"
+    content="REFERENZEN"
     external={false}
     key="3"
   />
@@ -31,7 +31,7 @@ export const CredentialsItem = (
 export const ContactItem = (
   <Button
     href="/#contact"
-    text="KONTAKT"
+    content="KONTAKT"
     external={false}
     key="4"
   />
@@ -57,7 +57,7 @@ export const LogoutItem = (
   <Button
     className="destructive"
     href="/"
-    text="ABMELDEN"
+    content="ABMELDEN"
     external={false}
     key="5"
   />
@@ -67,7 +67,7 @@ export const SidebarItem = (
   <Button
     className="destructive"
     href="#"
-    text="NAVIGATION"
+    content="NAVIGATION"
     external={false}
     key="6"
   />

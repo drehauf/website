@@ -1,10 +1,8 @@
-import React, { FC as Component } from 'react';
+import React, { FC as Component, PropsWithChildren } from 'react';
 import TextBlock from '../simple/TextBlock';
 import Customer from '../../models/customer.model';
 
-interface Props {
-  // eslint-disable-next-line react/no-unused-prop-types
-  key: string;
+interface Props extends PropsWithChildren<any> {
   customer: Customer;
 }
 

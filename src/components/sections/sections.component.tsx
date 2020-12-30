@@ -1,13 +1,12 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-import Section from './Section';
+import Section from './section.component';
 import About from './About';
 import Services from './Services';
 import Credentials from './credentials.component';
+import SectionModel from '../../models/section.model';
 
-// TODO: move to `/data`
-
-const sectionList = [
+const sections = [
   {
     content: <About />,
     title: 'Über uns',
@@ -25,12 +24,14 @@ const sectionList = [
   },
 ];
 
-const Sections = () => sectionList.map(({ id, title, content }) => (
+const Sections = () => sections.map(({ id, title, content }) => (
   <Section
     key={nanoid()}
     id={id}
-    title={title}
-    content={content}
+    section={{
+      title,
+      content,
+    } as SectionModel}
   />
 ));
 
