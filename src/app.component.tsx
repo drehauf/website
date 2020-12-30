@@ -5,9 +5,9 @@ import Main from './components/main/Main';
 import Legal from './components/footer/Legal';
 import Privacy from './components/footer/Privacy';
 import Dashboard from './components/dashboard/Dashboard';
-import Login from './components/authentication/Login';
-import PrivateRoute from './components/authentication/PrivateRoute';
-import Authentication from './components/authentication/Authentication';
+import Login from './components/authentication/login.component';
+import PrivateRoute from './components/authentication/private-route.component';
+import Authentication from './components/authentication/authentication.component';
 import './stylesheets/index.scss';
 
 const App: Component = () => (

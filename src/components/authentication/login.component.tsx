@@ -1,18 +1,29 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { useAuthentication } from './Authentication';
+import { useAuthentication } from './authentication.hook';
 
 const Login = () => {
   const { isAuthenticated, loginUser } = useAuthentication();
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  // TODO: use User interface instead
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
-  const onUsernameChange = (event) => {
+  /**
+   * Username change handler.
+   * Set value to `username`
+   * @param {ChangeEvent<HTMLInputElement>} event incoming input change event
+   */
+  const onUsernameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
   };
 
-  const onPasswordChange = (event) => {
+  /**
+   * Password change handler.
+   * Set value to `password`
+   * @param {ChangeEvent<HTMLInputElement>} event incoming input change event
+   */
+  const onPasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
@@ -57,7 +68,7 @@ const Login = () => {
               value="Anmelden"
               onClick={(event) => {
                 event.preventDefault();
-                loginUser({ username, password }, (error) => {
+                loginUser({ username, password }, (error: Error) => {
                   // eslint-disable-next-line no-alert
                   window.alert(Object.values(error));
                 });
