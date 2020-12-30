@@ -9,7 +9,7 @@ import ShoppingCart, { useShoppingContext } from '../inventory/ShoppingCart';
 import SecurityDisclaimer from './SecurityDisclaimer';
 import {
   AboutItem, ServicesItem, CredentialsItem, ContactItem,
-} from '../header/HeaderItems';
+} from '../header/header-items.component';
 
 const Main = () => {
   const { isCartSet } = useShoppingContext();

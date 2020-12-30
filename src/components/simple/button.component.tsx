@@ -1,7 +1,7 @@
-import React, { FC as Component, ReactNode } from 'react';
+import React, { FC as Component, PropsWithChildren, ReactNode } from 'react';
 import { HashLink } from 'react-router-hash-link';
 
-interface Props {
+interface Props extends PropsWithChildren<any> {
   href: string;
   content: string | ReactNode;
   external?: boolean;

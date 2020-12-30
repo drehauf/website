@@ -5,4 +5,5 @@ interface Customer {
   link: string;
 }
 
-export default Customer;
+type CustomerModel = Customer;
+export default CustomerModel;

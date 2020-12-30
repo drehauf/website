@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Header from '../header/header.component';
-import { LogoutItem, SidebarItem } from '../header/HeaderItems';
+import { LogoutItem, SidebarItem } from '../header/header-items.component';
 import Sidebar from './Sidebar';
 import Widget from './Widget';
 import items from './DashboardItems';

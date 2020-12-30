@@ -1,5 +1,5 @@
 import React, { FC as Component } from 'react';
-import BurgerMenu from './BurgerMenu';
+import BurgerMenu from './header-hamburger.component';
 import Button from '../simple/button.component';
 
 interface Props {

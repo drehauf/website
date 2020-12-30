@@ -6,4 +6,5 @@ interface Overlay {
   button: ReactNode;
 }
 
-export default Overlay;
+type OverlayModel = Overlay;
+export default OverlayModel;

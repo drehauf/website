@@ -3,4 +3,5 @@ interface User {
   password: string;
 }
 
-export default User;
+type UserModel = User;
+export default UserModel;
