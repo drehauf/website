@@ -1,6 +1,6 @@
 import React from 'react';
 import BackgroundImg from '../../assets/images/contact.jpg';
-import FrameOverlay from '../carousel/FrameOverlay';
+import FrameOverlay from '../carousel/frame-overlay.component';
 import MailButton from '../simple/MailButton';
 
 const Contact = ({ isCardSet }) => {

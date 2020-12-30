@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
-import FrameData from '../carousel/Frames';
+import FrameData from '../../data/carousel.data';
 import Sections from '../sections/Sections';
-import Carousel from '../carousel/Carousel';
+import Carousel from '../carousel/carousel.component';
 import Contact from '../sections/Contact';
 import ShoppingCart, { useShoppingContext } from '../inventory/ShoppingCart';
 import SecurityDisclaimer from './SecurityDisclaimer';

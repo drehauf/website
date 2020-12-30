@@ -1,7 +1,7 @@
 import React, { FC as Component, useState, ReactNode } from 'react';
-import Context from './authentication.hook';
+import Context from '../../hooks/authentication.hook';
 import api from '../utils/API';
-import User from '../../models/user';
+import User from '../../models/user.model';
 
 interface Props {
   children: ReactNode;

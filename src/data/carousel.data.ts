@@ -1,11 +1,12 @@
-import img1 from '../../assets/images/carousel/frame1.jpg';
-import img2 from '../../assets/images/carousel/frame2.jpg';
-import img3 from '../../assets/images/carousel/frame3.jpg';
-import img4 from '../../assets/images/carousel/frame4.jpg';
-import img5 from '../../assets/images/carousel/frame5.jpg';
-import img6 from '../../assets/images/carousel/frame6.jpg';
+import Frame from '../models/frame.model';
+import img1 from '../assets/images/carousel/frame1.jpg';
+import img2 from '../assets/images/carousel/frame2.jpg';
+import img3 from '../assets/images/carousel/frame3.jpg';
+import img4 from '../assets/images/carousel/frame4.jpg';
+import img5 from '../assets/images/carousel/frame5.jpg';
+import img6 from '../assets/images/carousel/frame6.jpg';
 
-const Frames = [
+const frames: Frame[] = [
   {
     src: img1,
     alt: 'conference hall',
@@ -67,4 +68,4 @@ const Frames = [
   },
 ];
 
-export default Frames;
+export default frames;

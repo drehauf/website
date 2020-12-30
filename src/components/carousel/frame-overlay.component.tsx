@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { FC as Component } from 'react';
 import Subheadline from '../simple/Subheadline';
 import TextBlock from '../simple/TextBlock';
+import Overlay from '../../models/overlay.model';
 
-const FrameItem = ({ caption, text, button }) => (
+const FrameOverlay: Component<Overlay> = ({ caption, text, button }: Overlay) => (
   <div className="carousel_overlay">
     <Subheadline text={caption} />
     <div className="u-margin-top-bottom--medium">
@@ -14,4 +15,4 @@ const FrameItem = ({ caption, text, button }) => (
   </div>
 );
 
-export default FrameItem;
+export default FrameOverlay;

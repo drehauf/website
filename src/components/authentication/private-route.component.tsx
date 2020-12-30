@@ -1,6 +1,6 @@
 import React, { FC as Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { useAuthentication } from './authentication.hook';
+import { useAuthentication } from '../../hooks/authentication.hook';
 
 interface Props {
   path: string;

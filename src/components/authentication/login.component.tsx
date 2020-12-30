@@ -1,8 +1,8 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { FC as Component, ChangeEvent, useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { useAuthentication } from './authentication.hook';
+import { useAuthentication } from '../../hooks/authentication.hook';
 
-const Login = () => {
+const Login: Component = () => {
   const { isAuthenticated, loginUser } = useAuthentication();
 
   // TODO: use User interface instead
