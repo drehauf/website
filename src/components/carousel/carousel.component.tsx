@@ -9,23 +9,21 @@ interface Props {
   frames: Frame[];
 }
 
-const ImageCarousel: Component<Props> = ({ frames }: Props) => {
-  // Create elements from `frames`
-  const FrameList = frames.map((frame: Frame) => <FrameItem key={nanoid()} {...frame} />);
-
-  return (
-    <div id="carousel">
-      <Carousel
-        autoPlay
-        showThumbs={false}
-        showStatus={false}
-        infiniteLoop
-        interval={6000}
-      >
-        {FrameList}
-      </Carousel>
-    </div>
-  );
-};
+const ImageCarousel: Component<Props> = ({ frames }: Props) => (
+  <div id="carousel">
+    <Carousel
+      autoPlay
+      showThumbs={false}
+      showStatus={false}
+      infiniteLoop
+      interval={6000}
+    >
+      {
+        // Create a `FrameItem` for each frame in `frames`
+        frames.map((frame) => <FrameItem key={nanoid()} {...frame} />)
+      }
+    </Carousel>
+  </div>
+);
 
 export default ImageCarousel;

@@ -3,7 +3,9 @@ import { nanoid } from 'nanoid';
 import Section from './Section';
 import About from './About';
 import Services from './Services';
-import Credentials from './Credentials';
+import Credentials from './credentials.component';
+
+// TODO: move to `/data`
 
 const sectionList = [
   {
