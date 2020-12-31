@@ -1,9 +1,9 @@
 import React from 'react';
 import Subheadline from '../simple/Subheadline';
 import TextBlock from '../simple/TextBlock';
-import TableContainer from '../inventory/TableContainer';
-import { ShoppingCartContext } from '../inventory/ShoppingCart';
-import Packages from '../inventory/Packages';
+import TableContainer from '../inventory/table-container.component';
+import Packages from '../inventory/packages.component';
+import Context from '../../hooks/shoppingcart.hook';
 
 const Services = () => (
   /* eslint-disable max-len */
@@ -34,7 +34,7 @@ const Services = () => (
             </p>
           </TextBlock>
         </div>
-        <ShoppingCartContext.Consumer>
+        <Context.Consumer>
           {
               (value) => (
                 <TableContainer
@@ -44,7 +44,7 @@ const Services = () => (
                 />
               )
             }
-        </ShoppingCartContext.Consumer>
+        </Context.Consumer>
       </div>
       <div className="services_right-wrapper">
         <Subheadline text="Pakete" />
@@ -55,16 +55,17 @@ const Services = () => (
             </p>
           </TextBlock>
           <div className="packages">
-            <ShoppingCartContext.Consumer>
+            <Context.Consumer>
               {
                   (value) => (
                     <Packages
                       tableHasSelectedItems={value.selected.length > 0}
-                      selectPackage={value.onPackageChange}
+                      selectPackageItems={value.onPackageChange}
+                      items={value.items}
                     />
                   )
                 }
-            </ShoppingCartContext.Consumer>
+            </Context.Consumer>
           </div>
         </div>
         <a href="#contact">MIETANFRAGE SCHICKEN</a>

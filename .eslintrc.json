@@ -50,8 +50,8 @@
         "react/prop-types": 1,
         "no-param-reassign": 1,
         "no-unused-vars": 1,
+        "no-use-before-define": 1,
         
-        "no-use-before-define": 0,
         "no-unresolved": 0,
         "import/no-unresolved": 0,
         "import/extensions": 0

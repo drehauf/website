@@ -1,16 +1,24 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import TableActions from './TableActions';
-import Table from './Table';
-import Pagination from './Pagination';
-import { useShoppingContext } from './ShoppingCart';
+import React, {
+  FC as Component, useState, useEffect,
+} from 'react';
+import TableActions from './table-actions.component';
+import Table from './table.component';
+import Pagination from './pagination.component';
+import InventoryItem from '../../models/inventory-item.model';
+import InventoryPage from '../../models/inventory-page.model';
+import InventoryPageTitle from '../../models/inventory-page-title.model';
 
-const TableContainer = ({ isCartSet, items, selected }) => {
-  const { uncheckAll } = useShoppingContext();
+interface Props {
+  isCartSet: boolean;
+  items: InventoryPage[];
+  selected: InventoryItem[];
+}
 
-  const [pages, setPages] = useState();
-  const [pageIndex, setPageIndex] = useState(0);
+const TableContainer: Component<Props> = ({ isCartSet, items, selected }: Props) => {
+  const [pages, setPages] = useState<InventoryPageTitle | null>(null);
+  const [pageIndex, setPageIndex] = useState<number>(0);
 
-  const getIndex = (direction) => {
+  const getIndex = (direction: boolean): number => {
     if (direction) {
       return pageIndex === 0 ? items.length - 1 : pageIndex - 1;
     }
@@ -27,11 +35,11 @@ const TableContainer = ({ isCartSet, items, selected }) => {
     }
   }, [items, pageIndex]);
 
-  const handlePageChange = (direction) => {
+  const handlePageChange = (direction: boolean) => {
     setPageIndex(getIndex(direction));
   };
 
-  const [showSelected, setShowSelected] = useState(false);
+  const [showSelected, setShowSelected] = useState<boolean>(false);
   const onToggleAction = () => setShowSelected(!showSelected);
 
   const tableActions = () => (
@@ -39,17 +47,11 @@ const TableContainer = ({ isCartSet, items, selected }) => {
       <TableActions
         show={showSelected}
         onClick={onToggleAction}
-        onUnselect={uncheckAll}
       />
     ) : null
   );
 
-  const pagination = () => (
-    <Pagination
-      pages={pages}
-      handlePageChange={handlePageChange}
-    />
-  );
+  const pagination = () => <Pagination page={pages} handlePageChange={handlePageChange} />;
 
   const renderPagination = pages ? pagination() : null;
 
@@ -59,6 +61,7 @@ const TableContainer = ({ isCartSet, items, selected }) => {
     } if (items) {
       return <Table data={items[pageIndex].data} pagination={renderPagination} />;
     }
+    // TODO: this is a duplicate
     return <p>Daten werden geladen...</p>;
   };
 

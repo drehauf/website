@@ -1,12 +1,22 @@
-import React, { Fragment } from 'react';
-import Dropdown from './Dropdown';
+import React, { FC as Component } from 'react';
+import InventoryItem from '../../models/inventory-item.model';
+import Dropdown from './dropdown.component';
 
-const TableRow = ({ data, onItemChange }) => {
+interface Props {
+  data: InventoryItem;
+  onItemChange: (item: InventoryItem) => void;
+}
+
+const TableRow: Component<Props> = ({ data, onItemChange }: Props) => {
   const { name, quantity } = data;
   let { isChecked } = data;
 
-  const quantityHandler = (newQuantity) => {
-    onItemChange({ name, newQuantity, isChecked });
+  const quantityHandler = (newQuantity: number) => {
+    onItemChange({
+      name,
+      quantity: newQuantity,
+      isChecked,
+    });
   };
 
   const onClickHandler = () => {
@@ -31,7 +41,7 @@ const TableRow = ({ data, onItemChange }) => {
       </td>
       <td className="table_column table_column_quantity">
         <Dropdown
-          maxQuantity={data.maxQuantity}
+          maxQuantity={data.quantity}
           quantity={quantity}
           returnFunction={quantityHandler}
           isDisabled={!isChecked}

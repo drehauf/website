@@ -1,35 +1,38 @@
 import React from 'react';
-import BackgroundImg from '../../assets/images/contact.jpg';
+import backgroundImage from '../../assets/images/contact.jpg';
 import FrameOverlay from '../carousel/frame-overlay.component';
 import MailButton from '../simple/MailButton';
+import { useShoppingCart } from '../../hooks/shoppingcart.hook';
 
-const Contact = ({ isCardSet }) => {
-  const text = {
-    card: {
+const Contact = () => {
+  const { isCartSet } = useShoppingCart();
+
+  const userSelection = {
+    cart: {
       caption: 'Alles fertig?',
       text: 'Schön, dass Sie fündig geworden sind! Sobald Sie unverbindlich eine Mietanfrage stellen, klären wir den Rest. Sie können Ihre Auswahl dann auch später noch verändern.',
       button: <MailButton text="ANFRAGE STELLEN" />,
     },
-    withoutCart: {
+    none: {
       caption: 'Noch Fragen?',
       text: 'Vielleicht können wir helfen.',
       button: <MailButton text="KONTAKT AUFNEHMEN" />, // null
     },
   };
 
-  const content = isCardSet ? text.card : text.withoutCart;
+  const { button, caption, text } = isCartSet ? userSelection.cart : userSelection.none;
 
   return (
     <section id="contact" className="contact">
       <div className="contact_image">
-        <img src={BackgroundImg} alt="contact" width="100%" height="100%" />
+        <img src={backgroundImage} alt="contact" width="100%" height="100%" />
       </div>
       <FrameOverlay
-        src={BackgroundImg}
+        src={backgroundImage}
         alt="kontakt"
-        button={content.button}
-        caption={content.caption}
-        text={content.text}
+        button={button}
+        caption={caption}
+        text={text}
       />
     </section>
   );

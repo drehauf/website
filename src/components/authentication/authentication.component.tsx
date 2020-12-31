@@ -1,6 +1,5 @@
 import React, { FC as Component, useState, ReactNode } from 'react';
 import Context from '../../hooks/authentication.hook';
-import api from '../utils/API';
 import User from '../../models/user.model';
 
 interface Props {
@@ -9,7 +8,7 @@ interface Props {
 
 const Authentication: Component<Props> = ({ children }: Props) => {
   const [isAuthenticated, setAuthenticated] = useState<boolean>(false);
-  const [_, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(null);
 
   /**
    * Login handler.
@@ -18,15 +17,9 @@ const Authentication: Component<Props> = ({ children }: Props) => {
    * @param {Function} callback Completion handler
    */
   const onLogin = (newUser: User, callback: Function) => {
-    api.post('/users/login', newUser)
-      .then(() => {
-        setAuthenticated(true);
-        setUser(newUser);
-      })
-      .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.error('fatal: Endpoint `/users/login` is not implemented', error);
-      });
+    // TODO: access api endpoint POST `/users/login`
+    // eslint-disable-next-line no-console
+    console.error('fatal: Endpoint `/users/login` is not implemented');
   };
 
   /**
