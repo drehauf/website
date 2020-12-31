@@ -1,4 +1,4 @@
-import React, { FC as Component, ReactNode } from 'react';
+import React, { FC as Component } from 'react';
 import backgroundImage from '../../assets/images/contact.jpg';
 import FrameOverlay from '../carousel/frame-overlay.component';
 import MailButton from '../simple/mailbutton.component';

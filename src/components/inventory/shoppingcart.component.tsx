@@ -10,7 +10,9 @@ type Props = PropsWithChildren<any>;
 
 const ShoppingCart: Component<Props> = ({ children }: Props) => {
   const [items, setItems] = useState<InventoryPage[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isCartSet, setIsCartSet] = useState<boolean>(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedItems, setSelectedItems] = useState<InventoryItem[]>([]);
   const emailText = useRef();
 

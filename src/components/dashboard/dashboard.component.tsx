@@ -1,15 +1,18 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import Header from '../header/header.component';
 import { LogoutItem, SidebarItem } from '../header/header-items.component';
-import Sidebar from './Sidebar';
-import Widget from './Widget';
-import items from './DashboardItems';
+import Sidebar from './sidebar.component';
+import Widget from './widget.component';
+import items from '../../data/dashboard.data';
+import Action from '../../models/action.model';
 
+// TODO(#7): `collapsed` and `isCollapsed` HTML attributes should be rebuilt in JSS
+// This component is implicitly typed as `React.FC<{}>` due to the way `PrivateRoute` is constructed
 const Dashboard = () => {
-  const [selectedAction, setSelectedAction] = useState(undefined);
-  const [hoverAction, setHoverAction] = useState(undefined);
+  const [selectedAction, setSelectedAction] = useState<Action | undefined>(undefined);
+  const [hoverAction, setHoverAction] = useState<Action | undefined>(undefined);
 
-  const onSelection = (parentIndex, childIndex) => {
+  const onSelection = (parentIndex: number, childIndex: number) => {
     if (childIndex !== undefined) {
       const action = items[parentIndex].actions[childIndex];
       setSelectedAction(action);
@@ -26,7 +29,7 @@ const Dashboard = () => {
         <Sidebar
           items={items}
           onSelection={onSelection}
-          onHover={setHoverAction}
+          onHover={setHoverAction as () => void}
         />
         <div className="dashboard_context-area">
           <div className="dashboard_context-area_wrapper">

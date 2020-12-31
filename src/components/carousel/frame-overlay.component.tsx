@@ -1,4 +1,4 @@
-import React, { FC as Component, PropsWithChildren, ReactNode } from 'react';
+import React, { FC as Component, PropsWithChildren } from 'react';
 import Subheadline from '../simple/subheadline.component';
 import TextBlock from '../simple/textblock.component';
 import Overlay from '../../models/overlay.model';

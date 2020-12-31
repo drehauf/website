@@ -1,17 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { FC as Component, useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
-import SidebarAction from './SidebarAction';
+import SidebarAction from './sidebar-action.component';
+import Action from '../../models/action.model';
 
-const SidebarItem = ({
+interface Props {
+  index: number;
+  name: string;
+  actions: Action[];
+  onItemClick: (parentIndex: number, childIndex: number) => void;
+  onActionHover: () => void;
+}
+
+const SidebarItem: Component<Props> = ({
   index, name, actions, onItemClick, onActionHover,
-}) => {
-  const [isCollapsed, setIsCollapsed] = useState(undefined);
+}: Props) => {
+  const [isCollapsed, setIsCollapsed] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
     setIsCollapsed(false);
   }, []);
 
-  const onActionClick = (actionIndex) => {
+  const onActionClick = (actionIndex: number) => {
     onItemClick(index, actionIndex);
   };
 
@@ -19,16 +28,18 @@ const SidebarItem = ({
     setIsCollapsed(!isCollapsed);
   };
 
-  const getIsCollapsed = () => ((isCollapsed ?? true).toString());
+  const getIsCollapsed = () => isCollapsed ?? true;
 
   return (
     <li>
       <div
-        collapsed={getIsCollapsed()}
+        // collapsed={getIsCollapsed()}
         className="sidebar_item"
         role="button"
-        onKeyDown={() => onClick(index)}
-        onClick={() => onClick(index)}
+        // onKeyDown={() => onClick(index)}
+        // onClick={() => onClick(index)}
+        onKeyDown={onClick}
+        onClick={onClick}
         tabIndex={0}
       >
         <p className="sidebar_item_name">{name}</p>
@@ -37,8 +48,8 @@ const SidebarItem = ({
       {
           actions.map((action) => (
             <SidebarAction
-              key={index}
-              index={nanoid()}
+              key={nanoid()}
+              index={index}
               id={action.id}
               name={action.name}
               description={action.description}

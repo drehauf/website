@@ -4,7 +4,7 @@ import ScrollToTop from './ScrollToTop';
 import Main from './components/main/main.component';
 import Legal from './components/footer/legal.component';
 import Privacy from './components/footer/privacy.component';
-import Dashboard from './components/dashboard/Dashboard';
+import Dashboard from './components/dashboard/dashboard.component';
 import Login from './components/authentication/login.component';
 import PrivateRoute from './components/authentication/private-route.component';
 import Authentication from './components/authentication/authentication.component';

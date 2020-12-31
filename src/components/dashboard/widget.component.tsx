@@ -1,10 +1,18 @@
-import React from 'react';
-// import Button from 'components/simple/Button';
+import React, { FC as Component } from 'react';
+import Action from '../../models/action.model';
 
-const Widget = ({ action, onClose }) => {
+interface Props {
+  action: Action;
+  onClose: () => void;
+}
+
+const Widget: Component<Props> = ({ action, onClose }: Props) => {
   const onDoneClick = () => {
-    document.getElementById(action.id).checked = false;
-    onClose();
+    const element = document.getElementById(action.id);
+    if (element) {
+      // element.checked = false;
+      onClose();
+    }
   };
 
   const onCancelClick = () => {

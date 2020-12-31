@@ -8,6 +8,7 @@ interface Props {
 
 const Authentication: Component<Props> = ({ children }: Props) => {
   const [isAuthenticated, setAuthenticated] = useState<boolean>(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [user, setUser] = useState<User | null>(null);
 
   /**

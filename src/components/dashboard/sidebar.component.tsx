@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { FC as Component } from 'react';
 import { nanoid } from 'nanoid';
-import SidebarItem from './SidebarItem';
+import SidebarItem from './sidebar-item.component';
+
+interface Props {
+  items: any[];
+  onSelection: (parentIndex: number, childIndex: number) => void;
+  onHover: () => void;
+}
 
 /* eslint-disable arrow-body-style */
-const Sidebar = ({ items, onSelection, onHover }) => {
+const Sidebar: Component<Props> = ({ items, onSelection, onHover }: Props) => {
 // const onClick = (parentIndex, childIndex) => {
 //   if (childIndex !== undefined) {
 //     let action = items[parentIndex].actions[childIndex].name;

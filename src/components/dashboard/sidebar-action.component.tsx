@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { FC as Component } from 'react';
 
-const SidebarAction = ({
+interface Props {
+  index: number;
+  id: string;
+  name: string;
+  description: string;
+  onActionClick: (index: number) => void;
+  onActionHover: (description: string | undefined) => void;
+  isCollapsed: boolean;
+}
+
+const SidebarAction: Component<Props> = ({
   index, id, name, description, onActionClick, onActionHover, isCollapsed,
-}) => (
+}: Props) => (
   <div
     className="sidebar_action"
-    collapsed={isCollapsed}
+    // collapsed={isCollapsed}
     role="button"
     tabIndex={0}
     onKeyDown={() => onActionClick(index)}
