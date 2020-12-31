@@ -1,7 +1,7 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-import TextBlock from '../simple/TextBlock';
-import Subheadline from '../simple/Subheadline';
+import TextBlock from '../simple/textblock.component';
+import Subheadline from '../simple/subheadline.component';
 import Customer from '../customers/customer.component';
 import customers from '../../data/customers.data';
 

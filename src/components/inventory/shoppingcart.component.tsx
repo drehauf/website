@@ -4,11 +4,12 @@ import React, {
 import ShoppingCartFacade from './ShoppingCartFacade';
 import Context from '../../hooks/shoppingcart.hook';
 import InventoryItem from '../../models/inventory-item.model';
+import InventoryPage from '../../models/inventory-page.model';
 
 type Props = PropsWithChildren<any>;
 
 const ShoppingCart: Component<Props> = ({ children }: Props) => {
-  const [items, setItems] = useState<InventoryItem[] | null>(null);
+  const [items, setItems] = useState<InventoryPage[]>([]);
   const [isCartSet, setIsCartSet] = useState<boolean>(false);
   const [selectedItems, setSelectedItems] = useState<InventoryItem[]>([]);
   const emailText = useRef();

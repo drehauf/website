@@ -1,12 +1,13 @@
 import { createContext, useContext } from 'react';
 import InventoryItem from '../models/inventory-item.model';
+import InventoryPage from '../models/inventory-page.model';
 
 interface ShoppingCartContext {
   onItemChange: (item: InventoryItem) => void,
   uncheckAll: () => void,
   onPackageChange: (packageItems: InventoryItem[]) => void,
   isCartSet: boolean,
-  items: InventoryItem[] | null,
+  items: InventoryPage[],
   selected: InventoryItem[],
   emailText: string | undefined,
 }
@@ -16,7 +17,7 @@ const Context = createContext<ShoppingCartContext>({
   uncheckAll: () => {},
   onPackageChange: () => {},
   isCartSet: false,
-  items: null,
+  items: [],
   selected: [],
   emailText: '',
 });

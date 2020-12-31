@@ -1,6 +1,6 @@
 import React, { FC as Component } from 'react';
 import { useShoppingCart } from '../../hooks/shoppingcart.hook';
-import MailButton from '../simple/MailButton';
+import MailButton from '../simple/mailbutton.component';
 
 const actions = {
   SHOW: 'ALLE ANZEIGEN',

@@ -1,39 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import Subheadline from '../simple/Subheadline';
-import TextBlock from '../simple/TextBlock';
+import React, { FC as Component, useState, useEffect } from 'react';
+import Subheadline from '../simple/subheadline.component';
+import TextBlock from '../simple/textblock.component';
 
-const SecurityDisclaimer = () => {
-  const storageItemKey = 'securityDisclaimerWasSeen';
-  const [isPresented, setPresented] = useState(null);
+const Cookies: Component = () => {
+  const storageItemKey: string = 'securityDisclaimerWasSeen';
+  const [isPresented, setPresented] = useState<boolean>(false);
 
-  /*
-  * Effect for render
-  * Check in localStorage if disclaimer was already shown
+  /**
+  * Effect for render.
+  * Check in localStorage if disclaimer was already shown.
   * Conditionally present disclaimer
   */
   useEffect(() => {
-    setPresented(window.localStorage.getItem(storageItemKey) ?? false);
+    setPresented(Boolean(window.localStorage.getItem(storageItemKey)) ?? false);
   }, []);
 
-  /*
-  * Effect for isPresented
+  /**
+  * Effect for isPresented.
   * Set presented state to localStorage
   */
   useEffect(() => {
-    window.localStorage.setItem(storageItemKey, isPresented);
+    window.localStorage.setItem(storageItemKey, String(isPresented));
   }, [isPresented]);
 
-  /*
-  * onClick for Button
+  /**
+  * onClick for Button.
   * Dismiss the disclaimer
   */
   const dismissSheet = () => {
-    window.localStorage.setItem(storageItemKey, true);
+    window.localStorage.setItem(storageItemKey, 'true');
     setPresented(true);
   };
 
   return (
-    <div className="disclaimer" hide={(isPresented ?? false).toString()}>
+    <div className="disclaimer" hidden={isPresented ?? false}>
       <div className="disclaimer_backdrop" onClick={() => dismissSheet()} />
       <div className="disclaimer_sheet">
         <Subheadline text="Wir sammeln keine Nutzerdaten" />
@@ -57,4 +57,4 @@ const SecurityDisclaimer = () => {
   );
 };
 
-export default SecurityDisclaimer;
+export default Cookies;

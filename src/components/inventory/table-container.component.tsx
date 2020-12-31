@@ -26,7 +26,7 @@ const TableContainer: Component<Props> = ({ isCartSet, items, selected }: Props)
   };
 
   useEffect(() => {
-    if (items) {
+    if (items[pageIndex]) {
       setPages({
         previous: items[getIndex(false)].title,
         current: items[pageIndex].title,
@@ -58,11 +58,10 @@ const TableContainer: Component<Props> = ({ isCartSet, items, selected }: Props)
   const table = () => {
     if (showSelected && isCartSet) { // TODO: OR nothing checked
       return <Table data={selected} />;
-    } if (items) {
+    } if (items[pageIndex]) {
       return <Table data={items[pageIndex].data} pagination={renderPagination} />;
     }
-    // TODO: this is a duplicate
-    return <p>Daten werden geladen...</p>;
+    return null;
   };
 
   return (

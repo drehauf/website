@@ -1,7 +1,7 @@
 import React, { FC as Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop';
-import Main from './components/main/Main';
+import Main from './components/main/main.component';
 import Legal from './components/footer/legal.component';
 import Privacy from './components/footer/privacy.component';
 import Dashboard from './components/dashboard/Dashboard';

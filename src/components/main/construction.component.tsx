@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC as Component } from 'react';
 // import '../Construction.scss';
 
-const Construction = () => {
+const Construction: Component = () => {
   const subscript = 'info';
   const domaine = 'drehauf.com';
 

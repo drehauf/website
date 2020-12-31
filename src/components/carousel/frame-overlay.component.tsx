@@ -1,9 +1,11 @@
-import React, { FC as Component } from 'react';
-import Subheadline from '../simple/Subheadline';
-import TextBlock from '../simple/TextBlock';
+import React, { FC as Component, PropsWithChildren, ReactNode } from 'react';
+import Subheadline from '../simple/subheadline.component';
+import TextBlock from '../simple/textblock.component';
 import Overlay from '../../models/overlay.model';
 
-const FrameOverlay: Component<Overlay> = ({ caption, text, button }: Overlay) => (
+type Props = Overlay & PropsWithChildren<any>;
+
+const FrameOverlay: Component<Props> = ({ caption, text, button }: Props) => (
   <div className="carousel_overlay">
     <Subheadline text={caption} />
     <div className="u-margin-top-bottom--medium">

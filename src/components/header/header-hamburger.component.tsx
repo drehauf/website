@@ -1,8 +1,8 @@
-import React, { FC as Component, Fragment } from 'react';
+import React, { FC as Component, ReactNode } from 'react';
 import { nanoid } from 'nanoid';
 
 interface Props {
-  items?: Element[];
+  items?: ReactNode[];
 }
 
 const HeaderHamburger: Component<Props> = ({ items }: Props) => {

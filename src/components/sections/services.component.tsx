@@ -1,6 +1,6 @@
 import React from 'react';
-import Subheadline from '../simple/Subheadline';
-import TextBlock from '../simple/TextBlock';
+import Subheadline from '../simple/subheadline.component';
+import TextBlock from '../simple/textblock.component';
 import TableContainer from '../inventory/table-container.component';
 import Packages from '../inventory/packages.component';
 import Context from '../../hooks/shoppingcart.hook';
@@ -36,11 +36,11 @@ const Services = () => (
         </div>
         <Context.Consumer>
           {
-              (value) => (
+              ({ isCartSet, items, selected }) => (
                 <TableContainer
-                  isCartSet={value.isCartSet}
-                  items={value.items}
-                  selected={value.selected}
+                  isCartSet={isCartSet}
+                  items={items}
+                  selected={selected}
                 />
               )
             }
@@ -57,11 +57,11 @@ const Services = () => (
           <div className="packages">
             <Context.Consumer>
               {
-                  (value) => (
+                  ({ selected, onPackageChange, items }) => (
                     <Packages
-                      tableHasSelectedItems={value.selected.length > 0}
-                      selectPackageItems={value.onPackageChange}
-                      items={value.items}
+                      tableHasSelectedItems={selected.length > 0}
+                      selectPackageItems={onPackageChange}
+                      items={items}
                     />
                   )
                 }

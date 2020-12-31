@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC as Component, ReactNode } from 'react';
 import backgroundImage from '../../assets/images/contact.jpg';
 import FrameOverlay from '../carousel/frame-overlay.component';
-import MailButton from '../simple/MailButton';
+import MailButton from '../simple/mailbutton.component';
 import { useShoppingCart } from '../../hooks/shoppingcart.hook';
 
-const Contact = () => {
+const Contact: Component = () => {
   const { isCartSet } = useShoppingCart();
 
   const userSelection = {

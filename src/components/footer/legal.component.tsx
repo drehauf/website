@@ -2,8 +2,8 @@ import React, { FC as Component, Fragment } from 'react';
 import SectionModel from '../../models/section.model';
 import Header from '../header/header.component';
 import Section from '../sections/section.component';
-import Subheadline from '../simple/Subheadline';
-import TextBlock from '../simple/TextBlock';
+import Subheadline from '../simple/subheadline.component';
+import TextBlock from '../simple/textblock.component';
 
 const Impressum: Component = () => {
   const content = (

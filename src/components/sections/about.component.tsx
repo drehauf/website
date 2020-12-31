@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC as Component } from 'react';
 import Button from '../simple/button.component';
-import Subheadline from '../simple/Subheadline';
-import TextBlock from '../simple/TextBlock';
+import Subheadline from '../simple/subheadline.component';
+import TextBlock from '../simple/textblock.component';
 
-const About = () => (
+const About: Component = () => (
   /* eslint-disable max-len */
   <div className="about_flex-wrapper">
     <div className="about_left-wrapper">

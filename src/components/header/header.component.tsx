@@ -1,9 +1,9 @@
-import React, { FC as Component } from 'react';
+import React, { FC as Component, ReactNode } from 'react';
 import BurgerMenu from './header-hamburger.component';
 import Button from '../simple/button.component';
 
 interface Props {
-  items?: Element[];
+  items?: ReactNode[];
 }
 
 const Header: Component<Props> = ({ items }: Props) => {

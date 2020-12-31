@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC as Component } from 'react';
 import { nanoid } from 'nanoid';
 import Section from './section.component';
-import About from './About';
-import Services from './Services';
+import About from './about.component';
+import Services from './services.component';
 import Credentials from './credentials.component';
 import SectionModel from '../../models/section.model';
 
@@ -24,15 +24,21 @@ const sections = [
   },
 ];
 
-const Sections = () => sections.map(({ id, title, content }) => (
-  <Section
-    key={nanoid()}
-    id={id}
-    section={{
-      title,
-      content,
-    } as SectionModel}
-  />
-));
+const Sections: Component = () => (
+  <>
+    {
+      sections.map(({ id, title, content }) => (
+        <Section
+          key={nanoid()}
+          id={id}
+          section={{
+            title,
+            content,
+          } as SectionModel}
+        />
+      ))
+    }
+  </>
+);
 
 export default Sections;

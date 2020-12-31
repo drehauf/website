@@ -1,19 +1,21 @@
 import React, { FC as Component, useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
-import packages from '../../data/packages.data';
 import Package from '../../models/inventory-package.model';
 import InventoryItem from '../../models/inventory-item.model';
+import InventoryPage from '../../models/inventory-page.model';
 
 interface Props {
   tableHasSelectedItems: boolean;
   selectPackageItems: (items: InventoryItem[]) => void;
-  items: InventoryItem[];
+  items: InventoryPage[];
 }
 
 const Packages: Component<Props> = ({
   tableHasSelectedItems, selectPackageItems, items,
 }: Props) => {
   const [activePackage, setActivePackage] = useState<Package | null>(null);
+  // TODO: load from api
+  const packages: Package[] = [];
 
   useEffect(() => {
     if (!tableHasSelectedItems) {

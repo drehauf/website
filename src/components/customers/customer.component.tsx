@@ -1,5 +1,5 @@
 import React, { FC as Component, PropsWithChildren } from 'react';
-import TextBlock from '../simple/TextBlock';
+import TextBlock from '../simple/textblock.component';
 import Customer from '../../models/customer.model';
 
 interface Props extends PropsWithChildren<any> {
