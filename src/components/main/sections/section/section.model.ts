@@ -6,5 +6,4 @@ interface Section {
   style: any;
 }
 
-type SectionModel = Section;
-export default SectionModel;
+export default Section;

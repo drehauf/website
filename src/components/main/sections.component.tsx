@@ -1,10 +1,9 @@
 import React, { FC as Component } from 'react';
 import { nanoid } from 'nanoid';
-import Section from './section.component';
-import About from './about/about.component';
-import Services from './services/services.component';
-import Credentials from './credentials/credentials.component';
-import SectionModel from './section.model';
+import Section from './sections/section/section.component';
+import About from './sections/about/about.component';
+import Services from './sections/services/services.component';
+import Credentials from './sections/credentials/credentials.component';
 
 const sections = [
   {
@@ -34,7 +33,8 @@ const Sections: Component = () => (
           section={{
             title,
             content,
-          } as SectionModel}
+            style: {},
+          }}
         />
       ))
     }

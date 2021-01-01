@@ -2,7 +2,7 @@ import React, { FC as Component } from 'react';
 import Header from './header/header.component';
 import Footer from './footer.component';
 import frames from './sections/about/carousel/carousel.data';
-import Sections from './sections/sections.component';
+import Sections from './sections.component';
 import Carousel from './sections/about/carousel/carousel.component';
 import Contact from './sections/contact/contact.component';
 import ShoppingCart from '../shoppingcart/shoppingcart.component';

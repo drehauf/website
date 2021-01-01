@@ -8,5 +8,4 @@ interface Frame {
   external: boolean;
 }
 
-type FrameModel = Frame;
-export default FrameModel;
+export default Frame;

@@ -2,11 +2,11 @@ import React, { FC as Component } from 'react';
 import { nanoid } from 'nanoid';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import FrameItem from '../../../frame/frame-item.component';
-import Frame from '../../../frame/frame.model';
+import Frame from '../../../frame/frame.component';
+import FrameModel from '../../../frame/frame.model';
 
 interface Props {
-  frames: Frame[];
+  frames: FrameModel[];
 }
 
 const ImageCarousel: Component<Props> = ({ frames }: Props) => (
@@ -20,7 +20,7 @@ const ImageCarousel: Component<Props> = ({ frames }: Props) => (
     >
       {
         // Create a `FrameItem` for each frame in `frames`
-        frames.map((frame) => <FrameItem key={nanoid()} {...frame} />)
+        frames.map((frame) => <Frame key={nanoid()} {...frame} />)
       }
     </Carousel>
   </div>

@@ -1,6 +1,6 @@
 import React, { FC as Component, PropsWithChildren } from 'react';
 import SectionModel from './section.model';
-import Headline from '../../simple/headline.component';
+import Headline from '../../../simple/headline.component';
 
 interface Props extends PropsWithChildren<any> {
   section: SectionModel;
