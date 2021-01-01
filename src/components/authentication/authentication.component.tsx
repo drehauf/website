@@ -1,6 +1,6 @@
 import React, { FC as Component, useState, ReactNode } from 'react';
-import Context from '../../hooks/authentication.hook';
-import User from '../../models/user.model';
+import Context from './authentication.hook';
+import User from './user.model';
 
 interface Props {
   children: ReactNode;

@@ -1,5 +1,5 @@
 import React, { FC as Component } from 'react';
-import { useShoppingCart } from '../../hooks/shoppingcart.hook';
+import { useShoppingCart } from '../shoppingcart/shoppingcart.hook';
 
 interface Props {
   text: string;
